@@ -375,6 +375,16 @@ body.reel-mode .app {
 }
 .diagram-wrap svg { width: 100%; height: auto; display: block; max-height: 190px; }
 
+.photo-wrap {
+  background: #101318;
+  border-radius: var(--radius-md);
+  padding: 8px;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: center;
+}
+.question-photo { max-width: 100%; max-height: 220px; width: auto; height: auto; display: block; border-radius: calc(var(--radius-md) - 4px); }
+
 .options { display: flex; flex-direction: column; gap: 10px; }
 
 .option {
@@ -391,7 +401,7 @@ body.reel-mode .app {
   align-items: center;
   gap: 12px;
   min-height: 52px;
-  transition: border-color 0.18s, background 0.18s, transform 0.12s var(--ease);
+  transition: border-color 0.16s, background 0.16s, opacity 0.2s, transform 0.12s var(--ease);
 }
 .option:active { transform: scale(0.985); }
 .option .letter {
@@ -401,12 +411,40 @@ body.reel-mode .app {
   border: 1.5px solid var(--line);
   display: flex; align-items: center; justify-content: center;
   font-size: 12px; font-weight: 700; color: var(--ink-muted);
+  transition: border-color 0.16s, background 0.16s, color 0.16s;
 }
-.option.correct { border-color: var(--green); background: color-mix(in srgb, var(--green) 12%, var(--bg-elevated)); }
+.option-text { flex: 1; }
+.option-mark {
+  flex: none;
+  width: 22px; height: 22px;
+  display: flex; align-items: center; justify-content: center;
+}
+.option-mark svg { width: 20px; height: 20px; }
+
+.option.correct {
+  border-color: var(--green);
+  background: color-mix(in srgb, var(--green) 16%, var(--bg-elevated));
+  animation: option-pop 0.22s var(--ease);
+}
 .option.correct .letter { border-color: var(--green); background: var(--green); color: white; }
-.option.wrong { border-color: var(--red); background: color-mix(in srgb, var(--red) 10%, var(--bg-elevated)); }
+.option.correct .option-mark { color: var(--green); }
+
+.option.wrong {
+  border-color: var(--red);
+  background: color-mix(in srgb, var(--red) 14%, var(--bg-elevated));
+  animation: option-pop 0.22s var(--ease);
+}
 .option.wrong .letter { border-color: var(--red); background: var(--red); color: white; }
+.option.wrong .option-mark { color: var(--red); }
+
+.options.answered .option.muted { opacity: 0.45; }
 .option[disabled] { pointer-events: none; }
+
+@keyframes option-pop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
 
 .source-note {
   margin-top: 18px;

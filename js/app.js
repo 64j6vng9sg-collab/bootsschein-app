@@ -276,8 +276,9 @@
 
   function slideInnerHtml(slide) {
     const q = qById[slide.qId];
-    const diagramHtml = q.diagram && DIAGRAMS[q.diagram] ? `<div class="diagram-wrap">${DIAGRAMS[q.diagram]}</div>` : "";
-    const imageNoteHtml = q.note ? `
+    const photoHtml = q.image ? `<div class="photo-wrap"><img class="question-photo" src="${q.image}" alt="Original-Abbildung zur Frage" loading="lazy"></div>` : "";
+    const diagramHtml = !q.image && q.diagram && DIAGRAMS[q.diagram] ? `<div class="diagram-wrap">${DIAGRAMS[q.diagram]}</div>` : "";
+    const imageNoteHtml = !q.image && !q.diagram && q.note ? `
       <div class="image-frame">
         <svg class="image-frame-icon" viewBox="0 0 24 24" aria-hidden="true">
           <rect x="2" y="4" width="20" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/>
@@ -291,15 +292,17 @@
     const optionsHtml = q.options.map((opt, i) => `
       <button class="option" data-i="${i}">
         <span class="letter">${letterFor(i)}</span>
-        <span>${opt}</span>
+        <span class="option-text">${opt}</span>
+        <span class="option-mark" aria-hidden="true"></span>
       </button>
     `).join("");
     return `
       <div class="question-card">
         <span class="category-pill">${CATEGORIES[q.category] || q.category}</span>
-        <p class="question-text">${q.q}</p>
         ${imageNoteHtml}
+        ${photoHtml}
         ${diagramHtml}
+        <p class="question-text">${q.q}</p>
         <div class="options">${optionsHtml}</div>
         <div class="answer-extra"></div>
       </div>
@@ -310,12 +313,25 @@
     return `<section class="reel-slide" data-slide-id="${slide.slideId}">${slideInnerHtml(slide)}</section>`;
   }
 
+  const CHECK_ICON = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4.5 4.5L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+  const CROSS_ICON = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>`;
+
   function fillAnsweredSlideDom(slideEl, slide) {
     const q = qById[slide.qId];
+    const optionsEl = slideEl.querySelector(".options");
+    if (optionsEl) optionsEl.classList.add("answered");
     slideEl.querySelectorAll(".option").forEach((btn, i) => {
       btn.disabled = true;
-      if (i === q.correct) btn.classList.add("correct");
-      else if (i === slide.answered) btn.classList.add("wrong");
+      const mark = btn.querySelector(".option-mark");
+      if (i === q.correct) {
+        btn.classList.add("correct");
+        if (mark) mark.innerHTML = CHECK_ICON;
+      } else if (i === slide.answered) {
+        btn.classList.add("wrong");
+        if (mark) mark.innerHTML = CROSS_ICON;
+      } else {
+        btn.classList.add("muted");
+      }
     });
     const extra = slideEl.querySelector(".answer-extra");
     if (extra) {

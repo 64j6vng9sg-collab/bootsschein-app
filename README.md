@@ -22,6 +22,7 @@ für die App-artige Vollbild-Nutzung ohne Browser-Chrome.
 - `css/styles.css` – Design (hell/dunkel automatisch nach Systemeinstellung)
 - `js/data.js` – Fragenpakete, Kategorien, Fragen inkl. Quellenangabe
 - `js/diagrams.js` – selbst erstellte SVG-Schaubilder (Lichter, Tonnen, Knoten, Wind, Beaufort)
+- `images/see/`, `images/binnen/` – echte Original-Abbildungen aus dem amtlichen Fragenkatalog (vom Nutzer bereitgestellt), je Frage-Nummer benannt
 - `js/storage.js` – Fortschritts-/Wiederholungslogik (localStorage)
 - `js/app.js` – Rendering, Navigation, Fragentrainer
 - `manifest.webmanifest`, `service-worker.js`, `icons/` – PWA/App-Icon (eigenes, selbst gezeichnetes Motiv)
@@ -69,40 +70,29 @@ Schifffahrtsverwaltung des Bundes (ELWIS, Stand 01.08.2023):
 
 Bei 142 der 513 Fragen bezieht sich das Original zusätzlich auf eine
 Abbildung (Lichterbild, Tafelzeichen, Flaggensignal, Skizze mit mehreren
-Booten o. Ä.), die im Katalog nur als Grafik existiert. Ein direktes
-Übernehmen dieser amtlichen Originalgrafiken ist in dieser Umgebung
-technisch nicht möglich (kein Bild- oder Seitenabruf aus dem Internet,
-ausschließlich textbasierte Recherche). Für **51 dieser Fragen** wurde
-stattdessen, nach gezielter Recherche zur jeweiligen Frage, ein **eigenes
-Referenzdiagramm** ergänzt – kein Nachbau der amtlichen Abbildung, sondern
-eine selbst erstellte, nach den einschlägigen Vorschriften korrekte
-Darstellung:
+Booten o. Ä.), die im Katalog nur als Grafik existiert.
 
-- 28 Diagramme zur Lichter- und Signalkörperführung nach KVR/BinSchStrO
-  (manövrierunfähig, manövrierbehindert, Grundsitzer, fischend, Anker,
-  Gefahrgut-Blaulichter u. Ä.).
-- 23 weitere Diagramme aus einer zweiten Recherche-Runde: IALA-Betonnung
-  und Kardinalzeichen (Tag- und Kennungs-/Blitzfolgenbild für Nord/Ost/
-  Süd/West, Vorzugsfahrwasser-, Mittelfahrwasser- und Einzelgefahren-
-  Tonnen), Notsignale nach Internationalem Signalbuch/KVR Anlage IV
-  (Flagge „Lima", Flaggen „November-Charlie", Flagge mit Ball), Schall-
-  signale, die sich aus dem eigenen, bereits wortlautgetreuen Katalogtext
-  desselben Fragenpakets ableiten lassen (z. B. Frage 162 anhand der
-  Definition in Frage 163), sowie zwei CEVNI/BinSchStrO-Verkehrszeichen
-  (Durchfahrtsverbot, vorgeschriebene Fahrtrichtung), deren Form/Farbe
-  über mehrere unabhängige Quellen übereinstimmend bestätigt werden
-  konnte.
+- **84 Fragen** zeigen die **echte amtliche Original-Abbildung**. Der
+  Nutzer hat dafür die Original-PDFs mit den Abbildungsseiten des
+  Fragenkatalogs (SBF See und SBF Binnen, Stand 01.08.2023) bereitgestellt;
+  die Bilder wurden daraus extrahiert, der jeweiligen Frage zugeordnet und
+  liegen unter `images/see/` bzw. `images/binnen/`.
+- **51 Fragen** haben ein **eigenes Referenzdiagramm** (kein Nachbau der
+  amtlichen Abbildung, sondern eine selbst erstellte, nach den
+  einschlägigen Vorschriften korrekte Darstellung) – u. a. Lichter- und
+  Signalkörperführung nach KVR/BinSchStrO, IALA-Betonnung und
+  Kardinalzeichen, Notsignale nach Internationalem Signalbuch.
+- Die verbleibenden **7 Fragen** (See 141; Binnen 162–167, Schallsignal-
+  Tafeln) sind weiterhin mit einem ⚠️-Warnhinweis gekennzeichnet: Für sie
+  fehlte die Abbildung auch in den vom Nutzer bereitgestellten PDF-Auszügen
+  (die betreffende Original-Seite enthielt kein extrahierbares Bild,
+  vermutlich weil sie eine Vektorgrafik statt eines Rasterbilds ist).
 
-Die verbleibenden **91 Fragen** (v. a. Tafelzeichen-Grafiken an Brücken/
-Wehren, konkrete Lichterkombinationen von Schub-/Schlepp-/Fährverbänden
-und mehrdeutige Mehrboot-Skizzen, bei denen die Recherche keine
-hinreichend präzise, quellenfeste Bestätigung des genauen Aussehens
-ergab) sind weiterhin mit einem ⚠️-Warnhinweis gekennzeichnet. Die
-Erkennung erfolgt heuristisch (Textmuster wie „folgende/diese/
-nachstehende Lichter/Tafelzeichen/…“), ist also nicht zu 100 % präzise —
-vereinzelt kann eine eigentlich selbsterklärende Frage unnötig markiert
-sein (in dieser Runde bei 4 Fragen korrigiert, siehe
-`scripts/attach-diagrams.js`-Kommentar).
+Die Erkennung bild-abhängiger Fragen erfolgt heuristisch (Textmuster wie
+„folgende/diese/nachstehende Lichter/Tafelzeichen/…“), ist also nicht zu
+100 % präzise — vereinzelt kann eine eigentlich selbsterklärende Frage
+unnötig markiert sein (in einer früheren Runde bei 4 Fragen korrigiert,
+siehe `scripts/attach-diagrams.js`-Kommentar).
 
 Nicht enthalten sind die praktischen Navigationsaufgaben des
 SBF-See-Katalogs (Frage 286–300): Das ist Kartenarbeit auf einer
@@ -110,20 +100,23 @@ amtlichen Übungskarte (D49) und lässt sich nicht sinnvoll als
 Multiple-Choice abbilden.
 
 **Vor der echten Prüfung ersetzt diese App nicht das Durcharbeiten der
-verbleibenden 91 bild-basierten Fragen (Original-Abbildung ansehen) und
-der Navigationsaufgaben mit der amtlichen Übungskarte.**
+verbleibenden 7 bild-losen Fragen (Original-Abbildung ansehen) und der
+Navigationsaufgaben mit der amtlichen Übungskarte.**
 
 ### Fragenbank erweitern
 
 Neue Fragen werden in `js/data.js` über den Helfer `Q(pkg, category, frage,
-optionen[4], korrekterIndex, quelle, { diagram, note })` ergänzt. `pkg` ist
-eine der IDs aus `PACKAGES` (`basis`, `see`, `binnen`, `segeln`), `category`
-einer der Schlüssel aus `CATEGORIES`. Rohtexte und die Parser/Generator-
-Skripte, mit denen `js/data.js` aus dem amtlichen Katalogtext erzeugt
-wurde, liegen unter `sources/fragenkatalog-see/` und
-`sources/fragenkatalog-binnen/` sowie `scripts/parse-katalog*.js` und
-`scripts/generate-data-js*.js` – nützlich, falls z. B. die verbleibenden
-91 bild-basierten Fragen später mit den amtlichen Abbildungen ergänzt
-werden sollen. `scripts/attach-diagrams.js` dokumentiert, wie die 51
-Referenzdiagramme mit den jeweiligen Fragen verknüpft wurden, und lässt
-sich um weitere Zuordnungen erweitern.
+optionen[4], korrekterIndex, quelle, { image, diagram, note })` ergänzt.
+`pkg` ist eine der IDs aus `PACKAGES` (`basis`, `see`, `binnen`, `segeln`),
+`category` einer der Schlüssel aus `CATEGORIES`. `image` verweist auf eine
+echte Original-Abbildung unter `images/see/` bzw. `images/binnen/` und hat
+Vorrang vor `diagram` (eigenes SVG-Referenzbild aus `js/diagrams.js`); ist
+weder `image` noch `diagram` gesetzt, zeigt die App bei vorhandenem `note`
+einen Bildrahmen-Platzhalter. Rohtexte und die Parser/Generator-Skripte,
+mit denen `js/data.js` aus dem amtlichen Katalogtext erzeugt wurde, liegen
+unter `sources/fragenkatalog-see/` und `sources/fragenkatalog-binnen/`
+sowie `scripts/parse-katalog*.js` und `scripts/generate-data-js*.js`.
+`scripts/attach-diagrams.js` dokumentiert die Zuordnung der 51
+Referenzdiagramme, `scripts/attach-images.js` die Zuordnung der 84 echten
+Original-Abbildungen zu den jeweiligen Fragen – beide lassen sich um
+weitere Einträge erweitern, sobald mehr amtliches Bildmaterial vorliegt.
