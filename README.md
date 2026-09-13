@@ -39,32 +39,37 @@ für die App-artige Vollbild-Nutzung ohne Browser-Chrome.
 - Auf dem Dashboard gibt es zusätzlich eine paketübergreifende
   Schnellaktion „Nur falsch beantwortete Fragen üben“.
 
-## Wichtiger Hinweis zur Fragenquelle
+## Stand der Fragenquelle
 
-Der Zugriff auf elwis.de (amtlicher Fragenkatalog der Prüfungsausschüsse
-DSV/DMYV) sowie auf alle recherchierten Spiegelseiten war in der
-Entwicklungsumgebung netzwerkseitig blockiert. Eine wortlaut- und
-nummerngetreue 1:1-Übernahme des amtlichen Katalogs war daher nicht
-verifizierbar möglich (siehe Kopfkommentar in `js/data.js`).
+| Paket | Fragen | Quelle |
+|---|---|---|
+| Basisfragen | 72 | **Amtlich, wortlaut- & nummerngetreu** – Fragenkatalog SBF See, ELWIS, Stand 01.08.2023, Frage 1–72 (laut Katalog identisch für See & Binnen) |
+| Seespezifische Fragen | 213 | **Amtlich, wortlaut- & nummerngetreu** – dieselbe Quelle, Frage 73–285 |
+| Binnenspezifische Fragen | 20 | **Nicht amtlich** – eigenständig formuliert (Originaltext für Frage 73–253 des Fragenkatalogs Binnen lag nicht vor), inhaltlich an BinSchStrO orientiert und mit Vorschrift belegt |
 
-Die enthaltenen Fragen sind stattdessen **eigenständig formulierte**
-Prüfungsfragen, die sich strikt an den offiziellen Themenkomplexen
-orientieren (Basisfragen, Seespezifische Fragen, Binnenspezifische
-Fragen, Navigation, Wetterkunde, Schifffahrtsrecht, Verhalten auf dem
-Wasser) und mit der jeweils einschlägigen Rechtsquelle belegt sind
-(KVR/COLREG-Regelnummern, BinSchStrO, SeeSchStrO, Sportbootführerschein-
-Verordnung). Wo eine exakte Paragraphen-Nummer nicht mit Sicherheit zu
-verifizieren war, wird nur der Name der Vorschrift/das Kapitel genannt,
-nie eine geratene Nummer.
+Bei 78 der 285 amtlichen Fragen bezieht sich das Original zusätzlich auf
+eine Abbildung (Lichterbild, Tafelzeichen, Flaggensignal o. Ä.), die im
+Katalog nur als Grafik existiert und hier nicht reproduziert werden
+kann; diese Fragen sind in der App mit einem Warnhinweis gekennzeichnet
+und ohne die Abbildung nicht zuverlässig lösbar.
+
+Nicht enthalten sind die praktischen Navigationsaufgaben des amtlichen
+Katalogs (Frage 286–300): Das ist Kartenarbeit auf einer amtlichen
+Übungskarte (D49) und lässt sich nicht sinnvoll als Multiple-Choice
+abbilden.
 
 **Vor der echten Prüfung ersetzt diese App nicht das Durcharbeiten des
-amtlichen Fragenkatalogs.**
+amtlichen Fragenkatalogs**, insbesondere nicht für die 78 bild-basierten
+Fragen und die Binnen-spezifischen Themen.
 
-### Fragenbank erweitern
+### Fragenbank erweitern / vervollständigen
 
 Neue Fragen werden in `js/data.js` über den Helfer `Q(pkg, category, frage,
-optionen[4], korrekterIndex, quelle, { diagram })` ergänzt. `pkg` ist eine
-der IDs aus `PACKAGES` (`basis`, `see`, `binnen`, `navigation`),
-`category` einer der Schlüssel aus `CATEGORIES`. Damit lässt sich die
-Fragenbank bei Verfügbarkeit des amtlichen Originaltexts 1:1 auf den
-vollständigen Katalog erweitern, ohne App-Logik oder Design anzufassen.
+optionen[4], korrekterIndex, quelle, { diagram, note })` ergänzt. `pkg` ist
+eine der IDs aus `PACKAGES` (`basis`, `see`, `binnen`), `category` einer
+der Schlüssel aus `CATEGORIES`. Am dringendsten fehlt der amtliche
+Originaltext des Fragenkatalogs Binnen (Spezifische Fragen Binnen, Frage
+73–253) sowie die 78 Abbildungen zu den bild-basierten Fragen – sobald
+diese vorliegen, lassen sich beide nach demselben Muster einpflegen wie
+die bereits verbatim übernommenen Pakete (siehe `scripts/parse-katalog.js`
+und `scripts/generate-data-js.js` für das verwendete Vorgehen).

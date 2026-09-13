@@ -123,10 +123,10 @@
 
     html += `
       <div class="disclaimer">
-        Hinweis zur Fragenquelle: Diese Fragen orientieren sich inhaltlich an den amtlichen Themenkomplexen der
-        Sportbootführerschein-Prüfungen (See &amp; Binnen), sind jedoch eigenständig formuliert und mit der jeweils
-        einschlägigen Vorschrift belegt – keine wortlautgetreue Kopie des amtlichen Fragenkatalogs. Ersetzt nicht das
-        Selbststudium des amtlichen Katalogs.
+        Hinweis zur Fragenquelle: "Basisfragen" und "Seespezifische Fragen" sind wortlaut- und nummerngetreu aus dem
+        amtlichen Fragenkatalog SBF See (ELWIS, Stand 01.08.2023) übernommen. "Binnenspezifische Fragen" sind
+        mangels vorliegendem amtlichem Originaltext eigenständig formuliert, orientieren sich aber an den offiziellen
+        Themenkomplexen und sind mit der einschlägigen Vorschrift belegt. Details siehe README.
       </div>
     `;
 
@@ -249,6 +249,11 @@
       diagramHtml = `<div class="diagram-wrap">${DIAGRAMS[q.diagram]}</div>`;
     }
 
+    let imageNoteHtml = "";
+    if (q.note) {
+      imageNoteHtml = `<div class="image-note">⚠️ ${q.note}</div>`;
+    }
+
     let optionsHtml = "";
     q.options.forEach((opt, i) => {
       let cls = "option";
@@ -280,6 +285,7 @@
       <div class="question-card">
         <span class="category-pill">${CATEGORIES[q.category] || q.category}</span>
         <p class="question-text">${q.q}</p>
+        ${imageNoteHtml}
         ${diagramHtml}
         <div class="options">${optionsHtml}</div>
         ${sourceHtml}

@@ -1,0 +1,390 @@
+73. Wo gelten die Kollisionsverhütungsregeln (KVR)?
+a. Auf der Hohen See und auf den mit dieser zusammenhängenden, von Seeschiffen befahrbaren Gewässern.
+b. Auf der Hohen See und den deutschen Seeschifffahrtsstraßen, die von Seeschiffen befahren werden.
+c. Auf den Seeschifffahrtsstraßen und den küstennahen deutschen Seegewässern, die von Seeschiffen befahren werden.
+d. Auf der Hohen See und den von Seeschiffen befahrbaren Randmeeren, mit Ausnahme der Verkehrstrennungsgebiete.
+74. Was gilt, wenn eine Bestimmung der Seeschifffahrtsstraßen-Ordnung (SeeSchStrO) mit den Kollisionsverhütungsregeln (KVR) im Widerspruch steht?
+a. Die Vorschrift der Seeschifffahrtsstraßen-Ordnung.
+b. Die Vorschrift der Kollisionsverhütungsregeln (KVR).
+c. Die Grundregeln für das Verhalten im Verkehr.
+d. Die Vorschrift der Schifffahrtsordnung Emsmündung.
+75. Welche Sportboote sind von der Fahrerlaubnispflicht auf den Seeschifffahrtsstraßen ausgenommen?
+a. Sportboote ohne Antriebsmaschine oder solche mit einer größten, nicht überschreitbaren Nutzleistung von 11,03 Kilowatt (15 PS) bei Verwendung eines Verbrennungsmotors bzw. 7,5 Kilowatt bei Verwendung eines Elektromotors Betriebsart S1 (Dauerbetrieb) oder weniger.
+b. Sportboote unter Segel mit einer Rumpflänge unter 20 m und solche deren Antriebsmaschine nicht benutzt wird.
+c. Sportboote mit Antriebsmaschine mit einer größeren Nutzleistung als 11,03 Kilowatt (15 PS) bei Verwendung eines Verbrennungsmotors bzw. 7,5 Kilowatt bei Verwendung eines Elektromotors Betriebsart S1 (Dauerbetrieb).
+d. Sportboote, die entweder vor Anker liegen oder an Land festgemacht sind oder auf Grund sitzen.
+76. Wer ist für die Befolgung der Verkehrsvorschriften verantwortlich?
+a. Der Fahrzeugführer oder sein Stellvertreter.
+b. Der Fahrzeugführer und sein Stellvertreter.
+c. Der Fahrzeugführer und jeder sonst Verantwortliche.
+d. Der Fahrzeugführer oder jeder sonst Verantwortliche.
+77. Was bedeutet "seemännische Sorgfaltspflicht"?
+a. Die Verpflichtung zur Beachtung von Vorsichtsmaßregeln über die Verkehrsvorschriften hinaus, die Seemannsbrauch oder besondere Umstände des Falles erfordern.
+b. Die Verpflichtung zur Beachtung der Seeschifffahrtsstraßen-Ordnung (SeeSchStrO), der Kollisionsverhütungsregeln (KVR), der Grundregeln für das Verhalten im Verkehr und der Ausweichregeln mit dem Manöver des letzten Augenblicks.
+c. Die Verpflichtung zur Beachtung der Vorsichtsmaßregeln und Sicherheitsregeln der Verkehrsvorschriften und der Grundregeln für das Verhalten im Verkehr.
+d. Die Verpflichtung zur Beachtung von Vorsichtsmaßregeln der Kollisionsverhütungsregeln (KVR), der Grundregeln für das Verhalten im Verkehr und der Ausweichregeln mit dem Manöver des letzten Augenblicks.
+78. Welche Sicherheitsmaßnahmen hat der Fahrzeugführer im Rahmen seiner seemännischen Sorgfaltspflicht vor Fahrtantritt zum Schutze und für die Sicherheit der Personen an Bord zu treffen?
+a. Der Fahrzeugführer hat die Besatzungsmitglieder und Gäste über die Sicherheitsvorkehrungen an Bord zu unterrichten, in die Handhabung der Rettungs- und Feuerlöschmittel einzuweisen und auf geeignete Maßnahmen gegen das Überbordfallen hinzuweisen, zudem darauf, dass ständig angelegte Rettungswesten die Überlebenschancen im Wasser erhöhen.
+b. Der Fahrzeugführer muss die Besatzungsmitglieder und Gäste anweisen, dass sie sich über die Sicherheitsvorkehrungen an Bord informieren, sich die Gebrauchsanweisungen der Rettungs- und Feuerlöschmittel ansehen und auf geeignete Maßnahmen gegen das Überbordfallen achten, zudem darauf, dass ständig angelegte Rettungswesten die Überlebenschancen im Wasser erhöhen.
+c. Der Fahrzeugführer hat die verantwortlichen Besatzungsmitglieder über die Sicherheitsvorkehrungen an Bord zu unterrichten, in die Handhabung der Rettungs- und Feuerlöschmittel einzuweisen und auf geeignete Maßnahmen gegen das Überbordfallen hinzuweisen, zudem darauf, dass ständig angelegte Rettungswesten die Überlebenschancen im Wasser erhöhen.
+d. Der Fahrzeugführer hat die Gäste an Bord über die Sicherheitsvorkehrungen an Bord zu unterrichten, in die Handhabung der Rettungs- und Feuerlöschmittel einzuweisen und auf geeignete Maßnahmen gegen das Überbordfallen hinzuweisen, zudem darauf, dass ständig angelegte Rettungswesten die Überlebenschancen im Wasser erhöhen.
+79. Was bedeutet das "Manöver des letzten Augenblicks"?
+a. Ausweichmanöver des Kurshalters.
+b. Ausweichmanöver des Ausweichpflichtigen.
+c. Ausweichmanöver des Kurshalters und des Ausweichpflichtigen.
+d. Ausweichmanöver des Kurshalters oder des Ausweichpflichtigen.
+80. Wann ist das "Manöver des letzten Augenblicks" durchzuführen?
+a. Es muss durchgeführt werden, wenn ein Zusammenstoß durch Manöver des Ausweichpflichtigen allein nicht mehr vermieden werden kann.
+b. Es muss durchgeführt werden, wenn ein Zusammenstoß durch Manöver des Kurshalters allein nicht mehr vermieden werden kann.
+c. Es muss im letzten Augenblick von jedem durchgeführt werden, wenn ein Zusammenstoß sonst nicht mehr vermieden werden kann.
+d. Es muss kurz vor der Kollision durchgeführt werden, wenn sonst ein Zusammenstoß durch Manöver des Kurshalters allein nicht mehr vermieden werden kann.
+81. Wann gilt ein Fahrzeug als überholendes Fahrzeug?
+a. Wenn es sich einem anderen Fahrzeug aus einer Richtung von mehr als 22,5° achterlicher als querab (Bereich des Hecklichtes) nähert.
+b. Wenn es sich einem anderen Fahrzeug aus einer Richtung von mehr als 112,5° achterlicher als querab (Bereich der Seitenlichter) nähert.
+c. Wenn es sich einem anderen Fahrzeug gegenüber in einer Richtung von mehr als 22,5° achterlicher als querab (Bereich des Hecklichtes) befindet.
+d. Wenn es an einem anderen Fahrzeug aus einer achterlichen Richtung von mehr als 22,5° querab kommend (Bereich des Topplichtes) vorbeifährt.
+82. Wann ist ein Fahrzeug manövrierunfähig?
+a. Wenn es wegen außergewöhnlicher Umstände, z. B. Ausfall der Ruder- oder Maschinenanlage, nicht so wie vorgeschrieben manövrieren und daher einem anderen Fahrzeug nicht ausweichen kann.
+b. Wenn es wegen der Art seines Einsatzes behindert ist und deshalb nicht so wie vorgeschrieben manövrieren und daher einem anderen Fahrzeug nicht ausweichen kann.
+c. Wenn es wegen seines Tiefgangs im Verhältnis zu der vorhandenen Tiefe und Breite des befahrbaren Gewässers erheblich behindert ist, von seinem zu verfolgenden Kurs abzuweichen.
+d. Wenn es mit Netzen, Leinen, Schleppnetzen oder anderen Fanggeräten fischt, welche die Manövrierfähigkeit einschränken.
+83. Wann ist ein Fahrzeug manövrierbehindert?
+a. Wenn es wegen der Art seines Einsatzes behindert ist und deshalb nicht so wie vorgeschrieben manövrieren und daher einem anderen Fahrzeug nicht ausweichen kann.
+b. Wenn es wegen außergewöhnlicher Umstände, z. B. Ausfall der Ruder- oder Maschinenanlage, nicht so wie vorgeschrieben manövrieren und daher einem anderen Fahrzeug nicht ausweichen kann.
+c. Wenn es wegen seines Tiefgangs im Verhältnis zu der vorhandenen Tiefe und Breite des befahrbaren Gewässers erheblich behindert ist, von seinem zu verfolgenden Kurs abzuweichen.
+d. Wenn es mit Netzen, Leinen, Schleppnetzen oder anderen Fanggeräten fischt, welche die Manövrierfähigkeit einschränken.
+84. Welche besonderen Maßnahmen sind bei verminderter Sicht zu treffen?
+a. Es muss mit sicherer, den verminderten Sichtverhältnissen angepasster Geschwindigkeit gefahren werden, es müssen Schallsignale gegeben werden, es müssen Positionslichter eingeschaltet werden und es muss gehörig Ausguck gegangen werden.
+b. Es muss mit sicherer, den verminderten Sichtverhältnissen angepasster Geschwindigkeit gefahren werden, es müssen Schallsignale gegeben werden, das Radargerät muss eingeschaltet werden und es muss Ausguck gegangen werden.
+c. Es muss mit sicherer, den verminderten Sichtverhältnissen angepasster Geschwindigkeit gefahren werden, es müssen Schallsinale gegeben werden, es müssen Positionslichter eingeschaltet werden und es muss der Radarreflektor eingesetzt werden.
+d. Es muss mit verminderter Geschwindigkeit gefahren werden, es müssen Schallsignale gegeben werden, es müssen Positionslichter eingeschaltet werden und es muss das AIS (Automatic Identifikation System) eingeschaltet werden.
+85. Welche Vorschriften regeln die Ausrüstung, Anordnung und Anbringung der Positionslaternen, Sichtzeichen und Schallsignalanlagen auf Fahrzeugen?
+a. Die Kollisionsverhütungsregeln (KVR), die Seeschifffahrtsstraßen-Ordnung (SeeSchStrO) und die Schifffahrtsordnung Emsmündung (EmsSchO).
+b. Die Kollisionsverhütungsregeln (KVR), die Seeschifffahrtsstraßen-Ordnung (SeeSchStrO) und die Sportbootführerscheinverordnung.
+c. Die Kollisionsverhütungsregeln (KVR), die Seeschifffahrtsstraßen-Ordnung (SeeSchStrO) und die Schiffssicherheitsverordnung.
+d. Die Kollisionsverhütungsregeln (KVR), die Seeschifffahrtsstraßen-Ordnung (SeeSchStrO) und die Verordnung zur Sicherung der Seefahrt.
+86. Welche Positionslaternen und Schallsignalanlagen dürfen auf Sportbooten unter deutscher Flagge verwendet werden?
+a. Solche, deren Baumuster vom Bundesamt für Seeschifffahrt und Hydrographie (BSH) zur Verwendung zugelassen sind oder eine als gleichwertig anerkannte Zulassung eines EU-Staates besitzen.
+b. Solche, die die vorgeschriebene Mindesttragweite von drei Seemeilen, die Größe und Farbgebung bzw. Lautstärke erreichen und mit einer Bescheinigung einer Klassifikationsgesellschaft versehen sind.
+c. Solche, die gemäß der Kollisionsverhütungsregeln (KVR), der Seeschifffahrtsstraßen-Ordnung (SeeSchStrO) und der Schifffahrtsordnung Emsmündung (EmsSchO) vorgeschrieben sind und ein CE-Zeichen haben.
+d. Solche, die vom Technischen Überwachungsverein (TÜV) geprüft und mit dem Zeichen für geprüfte Sicherheit (GS) versehen sind.
+87. Was sind "Verkehrstrennungsgebiete"?
+a. Es sind bekannt gemachte Schifffahrtswege, die durch Trennlinien oder Trennzonen in Einbahnwege geteilt sind.
+b. Es sind bekannt gemachte Fahrwasser, die durch Trennlinien oder Trennzonen in Einbahnwege geteilt sind.
+c. Es sind bekannt gemachte Seeschifffahrtsstraßen, die durch Trennlinien oder Trennzonen in Einbahnwege geteilt sind.
+d. Es sind bekannt gemachte Bundeswasserstraßen, die durch Trennlinien oder Trennzonen in Einbahnwege geteilt sind.
+88. Wie sind Verkehrstrennungsgebiete zu befahren?
+a. Sie dürfen jeweils nur in der allgemeinen Verkehrsrichtung rechts der Trennlinie oder Trennzone befahren werden.
+b. Sie dürfen jeweils nur in Fahrtrichtung links der Trennlinie oder Trennzone befahren werden.
+c. Sie dürfen innerhalb der äußeren Trennlinien nur in einer Fahrtrichtung befahren werden.
+d. Sie dürfen nur vom Anfang bis zum Ende und jeweils nur in Fahrtrichtung rechts der Trennzone befahren werden.
+89. Was bedeutet "in Sicht befindlich"?
+a. Wenn jedes Fahrzeug vom anderen optisch wahrgenommen werden kann.
+b. Wenn jeder Fahrzeugführer vom anderen optisch wahrgenommen werden kann.
+c. Wenn beide Fahrzeuge optisch wahrgenommen werden können.
+d. Wenn jedes Fahrzeug auch bei unsichtigem Wetter optisch wahrgenommen werden kann.
+90. Was bedeutet sichere Geschwindigkeit?
+a. Die Geschwindigkeit muss der Verkehrslage, den Sicht- und Witterungsverhältnissen angepasst sein und es muss jederzeit aufgestoppt werden können.
+b. Die Geschwindigkeit muss der Verkehrslage, den Sicht- und Witterungsverhältnissen angepasst sein und der Verkehr darf nicht behindert werden.
+c. Die Geschwindigkeit muss der Verkehrslage, den Sicht- und Witterungsverhältnissen und dem Treibstoffverbrauch angepasst sein.
+d. Die Geschwindigkeit muss der Verkehrslage, dem Verkehrsaufkommen, den Seegangs- und Windverhältnissen angepasst sein, so dass kein Sog und Wellenschlag entsteht.
+91. Welches Fahrzeug führt diese Lichter? (Abbildung)
+a. Maschinenfahrzeug in Fahrt von weniger als 50 m Länge.
+b. Maschinenfahrzeug in Fahrt von 50 und mehr Meter Länge.
+c. Ein manövrierunfähiges Fahrzeug in Fahrt.
+d. Ein manövrierbehindertes Fahrzeug mit Fahrt durchs Wasser von 50 und mehr Meter Länge.
+92. Welches Fahrzeug muss diese Lichter führen? (Abbildung)
+a. Maschinenfahrzeug in Fahrt von 50 und mehr Meter Länge.
+b. Maschinenfahrzeug in Fahrt von weniger als 50 m Länge.
+c. Ein manövrierunfähiges Fahrzeug in Fahrt.
+d. Ein manövrierbehindertes Fahrzeug mit Fahrt durchs Wasser von 50 und mehr Meter Länge.
+93. Welches Fahrzeug führt diese Lichter? (Abbildung)
+a. Manövrierbehinderter Schleppverband in Fahrt von 200 m Länge oder weniger.
+b. Manövrierbehinderter Schleppverband in Fahrt von mehr als 200 m Länge.
+c. Manövrierbehinderter Schleppverband in Fahrt von 200 m Länge oder weniger, ohne Fahrt durchs Wasser.
+d. Ein manövrierbehindertes Fahrzeug mit Fahrt durchs Wasser von 50 und mehr Meter Länge.
+94. Welches Fahrzeug führt diese Lichter? (Abbildung)
+a. Manövrierbehinderter Schleppverband in Fahrt von mehr als 200 m Länge.
+b. Manövrierbehinderter Schleppverband in Fahrt von 200 m Länge oder weniger.
+c. Manövrierbehinderter Schleppverband in Fahrt von mehr als 200 m Länge, ohne Fahrt durch das Wasser.
+d. Ein manövrierbehindertes Fahrzeug, das baggert oder Unterwasserarbeiten ausführt und dabei die Schifffahrt behindert.
+95. Welche Lichter führen geschleppte Fahrzeuge?
+a. Seitenlichter rot und grün und ein weißes Hecklicht.
+b. Seitenlichter rot und grün und ein weißes Rundumlicht.
+c. Seitenlichter rot und grün und zwei rote Rundumlichter senkrecht übereinander.
+d. Seitenlichter rot und grün und ein rotes Rundumlicht senkrecht über einem weißen Rundumlicht.
+96. Was bedeutet es, wenn jedes Fahrzeug eines Schleppverbandes einen schwarzen Rhombus führt?
+a. Schleppverband von mehr als 200 m Länge.
+b. Schleppverband von mehr als 100 m Länge.
+c. Schleppverband von mehr als 50 m Länge.
+d. Schleppverband von weniger als 50 m Länge.
+97. Welches Fahrzeug führt diese Lichter? (Abbildung)
+a. Ein manövrierunfähiges Fahrzeug in Fahrt.
+b. Ein manövrierbehindertes Fahrzeug in Fahrt.
+c. Ein tiefgangbehindertes Fahrzeug in Fahrt.
+d. Ein Grundsitzer von 50 und mehr Meter Länge.
+98. Welches Fahrzeug führt diese Lichter? (Abbildung)
+a. Ein manövrierunfähiges Fahrzeug mit Fahrt durch das Wasser.
+b. Ein manövrierbehindertes Fahrzeug mit Fahrt durch das Wasser von 50 und mehr Meter Länge.
+c. Ein manövrierbehindertes Fahrzeug mit Fahrt durch das Wasser.
+d. Ein fischender Trawler (Fischereifahrzeug) mit Fahrt durch das Wasser von 50 und mehr Meter Länge.
+99. Welches Fahrzeug führt diese Signalkörper? (Abbildung)
+a. Ein manövrierunfähiges Fahrzeug.
+b. Ein manövrierbehindertes Fahrzeug in Fahrt.
+c. Ein fischendes Fahrzeug in Fahrt.
+d. Ein Grundsitzer von 50 und mehr Meter Länge.
+100. Welche Lichter führen manövrierunfähige Fahrzeuge von 12 und mehr Meter Länge in Fahrt, ohne Fahrt durch das Wasser?
+a. Zwei rote Rundumlichter senkrecht übereinander.
+b. Zwei rote Rundumlichter senkrecht übereinander und zusätzlich die Seitenlichter und das Hecklicht.
+c. Drei rote Rundumlichter senkrecht übereinander.
+d. Drei rote Rundumlichter senkrecht übereinander und zusätzlich die Seitenlichter und das Hecklicht.
+101. Welche Lichter führen manövrierunfähige Fahrzeuge von 12 und mehr Meter Länge in Fahrt mit Fahrt durch das Wasser?
+a. Zwei rote Rundumlichter senkrecht übereinander und zusätzlich die Seitenlichter und das Hecklicht.
+b. Zwei rote Rundumlichter senkrecht übereinander.
+c. Drei rote Rundumlichter senkrecht übereinander.
+d. Drei rote Rundumlichter senkrecht übereinander und zusätzlich die Seitenlichter und das Hecklicht.
+102. Welches Fahrzeug führt diese Lichter? (Abbildung)
+a. Ein manövrierbehindertes Fahrzeug in Fahrt.
+b. Ein manövrierunfähiges Fahrzeug in Fahrt.
+c. Ein fischendes Fahrzeug in Fahrt.
+d. Ein Grundsitzer von weniger als 50 m Länge.
+103. Welches Fahrzeug muss diese Lichter führen? (Abbildung)
+a. Ein manövrierbehindertes Fahrzeug mit Fahrt durch das Wasser von 50 und mehr Meter Länge.
+b. Ein manövrierunfähiges Fahrzeug mit Fahrt durch das Wasser von 50 und mehr Meter Länge.
+c. Ein manövrierbehindertes Fahrzeug ohne Fahrt durch das Wasser von 50 und mehr Meter Länge.
+d. Ein fischender Trawler (Fischereifahrzeug) mit Fahrt durch das Wasser von 50 und mehr Meter Länge.
+104. Welches Fahrzeug führt diese Signalkörper? (Abbildung)
+a. Ein manövrierbehindertes Fahrzeug.
+b. Ein manövrierunfähiges Fahrzeug in Fahrt.
+c. Ein fischendes Fahrzeug in Fahrt.
+d. Ein Grundsitzer von weniger als 50 m Länge.
+105. Welches Fahrzeug führt diese Lichter? (Abbildung)
+a. Ein Grundsitzer von weniger als 50 m Länge.
+b. Ein manövrierbehindertes Fahrzeug.
+c. Ein manövrierunfähiges Fahrzeug in Fahrt.
+d. Ein Grundsitzer von 50 m und mehr Meter Länge.
+106. Welches Fahrzeug führt diese Signalkörper? (Abbildung)
+a. Ein Grundsitzer.
+b. Ein manövrierunfähiges Fahrzeug.
+c. Ein manövrierbehindertes Fahrzeug.
+d. Ein fischendes Fahrzeug.
+107. Welches Fahrzeug führt diese Lichter? (Abbildung)
+a. Ein Grundsitzer von 50 und mehr Meter Länge.
+b. Ein manövrierbehindertes Fahrzeug.
+c. Ein manövrierunfähiges Fahrzeug in Fahrt.
+d. Ein Grundsitzer von weniger als 50 m Länge.
+108. Welches Fahrzeug muss diese Lichter führen? (Abbildung)
+a. Ein tiefgangbehindertes Fahrzeug von 50 und mehr Meter Länge in Fahrt.
+b. Ein manövrierbehindertes Fahrzeug.
+c. Ein manövrierunfähiges Fahrzeug.
+d. Ein Grundsitzer von weniger als 50 m Länge.
+109. Welches Fahrzeug führt diese Signalkörper? (Abbildung)
+a. Ein tiefgangbehindertes Fahrzeug in Fahrt.
+b. Ein manövrierbehindertes Fahrzeug in Fahrt.
+c. Ein manövrierunfähiges Fahrzeug in Fahrt.
+d. Ein Grundsitzer von weniger als 50 Meter Länge.
+110. Welches Fahrzeug muss diese Lichter führen? (Abbildung)
+a. Ein fischender Trawler (Fischereifahrzeug) mit Fahrt durch das Wasser von 50 und mehr Meter Länge.
+b. Ein fischendes Fahrzeug in Fahrt, das nicht trawlt, z. B. Treibnetzfischer.
+c. Ein Behördenfahrzeug im Einsatz.
+d. Ein manövrierbehindertes Fahrzeug in Fahrt.
+111. Welches Fahrzeug führt diese Lichter? (Abbildung)
+a. Ein fischendes Fahrzeug in Fahrt oder vor Anker, das nicht trawlt, z. B. Treibnetzfischer.
+b. Ein Lotsenfahrzeug im Einsatz.
+c. Ein manövrierbehindertes Fahrzeug in Fahrt.
+d. Ein fischender Trawler (Fischereifahrzeug) mit Fahrt durchs Wasser von 50 und mehr Meter Länge.
+112. Welches Fahrzeug führt diese Signalkörper? (Abbildung)
+a. Ein fischendes Fahrzeug in Fahrt oder vor Anker.
+b. Ein manövrierbehindertes Fahrzeug.
+c. Ein manövrierunfähiges Fahrzeug in Fahrt.
+d. Ein Grundsitzer von weniger als 50 m Länge.
+113. Welche Fahrzeuge führen nur Seitenlichter rot und grün und ein weißes Hecklicht?
+a. Segelfahrzeuge, Ruderboote und geschleppte Fahrzeuge.
+b. Segelfahrzeuge, Ruderboote und Maschinenfahrzeuge in Fahrt von weniger als 50 m Länge.
+c. Segelfahrzeuge, fischende Fahrzeuge und geschleppte Fahrzeuge.
+d. Segelfahrzeuge, Grundsitzer und geschleppte Fahrzeuge.
+114. Was für ein Licht muss ein Ankerlieger von weniger als 50 m Länge führen?
+a. Ein weißes Rundumlicht an gut sichtbarer Stelle.
+b. Ein rotes Rundumlicht an gut sichtbarer Stelle.
+c. Zwei weiße Rundumlichter an gut sichtbarer Stelle.
+d. Zwei rote Rundumlichter an gut sichtbarer Stelle.
+115. Welches Fahrzeug muss diese Lichter führen? (Abbildung)
+a. Ein vor Anker liegendes Fahrzeug von 100 und mehr Meter Länge.
+b. Ein fischender Trawler (Fischereifahrzeug) mit Fahrt durchs Wasser von 50 und mehr Meter Länge.
+c. Ein manövrierbehindertes Fahrzeug, das baggert oder Unterwasserarbeiten ausführt und dabei die Schifffahrt behindert.
+d. Ein Grundsitzer von 200 und mehr Meter Länge.
+116. Sie hören bei verminderter Sicht mindestens alle zwei Minuten einen langen Ton mit der Pfeife. Welches Fahrzeug gibt dieses Signal?
+a. Ein Maschinenfahrzeug, das Fahrt durchs Wasser macht.
+b. Ein geschlepptes Fahrzeug oder das letzte bemannte Fahrzeug eines Schleppverbandes in Fahrt.
+c. Ein Fahrzeug mit gefährlicher Ladung vor Anker von weniger als 100 m Länge.
+d. Ein vor Anker liegendes Fahrzeug von 100 und mehr Meter Länge.
+117. Sie hören bei verminderter Sicht mindestens alle zwei Minuten zwei aufeinander folgende lange Töne mit der Pfeife. Welches Fahrzeug gibt dieses Signal?
+a. Ein Maschinenfahrzeug in Fahrt, das seine Maschine gestoppt hat und keine Fahrt durchs Wasser macht.
+b. Ein geschlepptes Fahrzeug oder das letzte bemannte Fahrzeug eines Schleppverbandes in Fahrt.
+c. Ein Fahrzeug mit gefährlicher Ladung vor Anker von weniger als 100 m Länge.
+d. Ein vor Anker liegendes Fahrzeug von 100 und mehr Meter Länge.
+118. Welche Fahrzeuge geben bei verminderter Sicht mindestens alle zwei Minuten drei aufeinander folgende Töne mit der Pfeife, und zwar lang, kurz, kurz?
+a. Ein manövrierunfähiges Fahrzeug in Fahrt, ein manövrierbehindertes Fahrzeug in Fahrt oder vor Anker, ein tiefgangbehindertes Fahrzeug in Fahrt, ein Segelfahrzeug in Fahrt, ein schleppendes oder schiebendes Fahrzeug in Fahrt, ein fischendes Fahrzeug in Fahrt oder vor Anker.
+b. Ein manövrierunfähiges Fahrzeug in Fahrt, ein manövrierbehindertes Fahrzeug in Fahrt oder vor Anker, ein tiefgangbehindertes Fahrzeug in Fahrt, ein Maschinenfahrzeug in Fahrt, das Fahrt durchs Wasser macht, ein schleppendes oder schiebendes Fahrzeug in Fahrt, ein fischendes Fahrzeug in Fahrt oder vor Anker.
+c. Ein manövrierunfähiges Fahrzeug in Fahrt, ein manövrierbehindertes Fahrzeug in Fahrt oder vor Anker, ein tiefgangbehindertes Fahrzeug in Fahrt, ein Segelfahrzeug in Fahrt, ein schleppendes oder schiebendes Fahrzeug in Fahrt, ein fischendes Fahrzeug in Fahrt oder vor Anker, ein Maschinenfahrzeug in Fahrt, das seine Maschine gestoppt hat und keine Fahrt durchs Wasser macht.
+d. Ein manövrierunfähiges Fahrzeug in Fahrt, ein manövrierbehindertes Fahrzeug in Fahrt oder vor Anker, ein tiefgangbehindertes Fahrzeug in Fahrt, ein Segelfahrzeug in Fahrt, ein schleppendes oder schiebendes Fahrzeug in Fahrt, ein geschlepptes Fahrzeug oder das letzte bemannte Fahrzeug eines Schleppverbandes in Fahrt, ein fischendes Fahrzeug in Fahrt oder vor Anker.
+119. Welches Fahrzeug gibt bei verminderter Sicht - im Anschluss an das Signal lang, kurz, kurz - vier aufeinander folgende Töne mit der Pfeife, und zwar lang, kurz, kurz, kurz?
+a. Ein geschlepptes Fahrzeug oder das letzte bemannte Fahrzeug eines Schleppverbandes in Fahrt.
+b. Ein Maschinenfahrzeug in Fahrt, das seine Maschine gestoppt hat und keine Fahrt durchs Wasser macht.
+c. Ein Fahrzeug mit gefährlicher Ladung vor Anker von weniger als 100 m Länge.
+d. Ein manövrierunfähiges Fahrzeug von weniger als 100 m Länge.
+120. Was für ein Schallsignal muss ein Segelfahrzeug in Fahrt von 12 und mehr Meter Länge bei verminderter Sicht geben?
+a. Mindestens alle zwei Minuten drei aufeinander folgende Töne mit der Pfeife, und zwar lang, kurz, kurz.
+b. Mindestens alle zwei Minuten drei aufeinander folgende Töne mit der Pfeife, und zwar lang, lang, kurz.
+c. Mindestens alle zwei Minuten ein kräftiges Schallsignal, das mit den vorgeschriebenen nicht verwechselt werden kann.
+d. Mit der Pfeife kurz, lang, kurz.
+121. Welches Schallsignal muss ein Fahrzeug in Fahrt von weniger als 12 m Länge bei verminderter Sicht geben, wenn es die sonst vorgeschriebenen Schallsignale nicht geben kann?
+a. Mindestens alle zwei Minuten ein kräftiges Schallsignal, das mit den vorgeschriebenen nicht verwechselt werden kann.
+b. Mindestens alle zwei Minuten drei aufeinander folgende Töne mit der Pfeife, und zwar lang, kurz, kurz.
+c. Mindestens alle zwei Minuten drei aufeinander folgende Töne mit der Pfeife, und zwar lang, lang, kurz.
+d. Mit der Pfeife kurz, lang, kurz.
+122. Welches Fahrzeug gibt bei verminderter Sicht mindestens jede Minute etwa 5 Sekunden lang rasches Läuten der Glocke?
+a. Ein Fahrzeug vor Anker von weniger als 100 m Länge.
+b. Ein Fahrzeug vor Anker von 100 und mehr Meter Länge.
+c. Ein geschlepptes Fahrzeug oder das letzte bemannte Fahrzeug eines Schleppverbandes in Fahrt.
+d. Ein Maschinenfahrzeug in Fahrt, das seine Maschine gestoppt hat und keine Fahrt durchs Wasser macht.
+123. Welches Fahrzeug gibt bei verminderter Sicht mindestens jede Minute etwa 5 Sekunden lang rasches Läuten der Glocke und unmittelbar danach ungefähr 5 Sekunden lang rasch den Gong schlagen?
+a. Ein Fahrzeug vor Anker von 100 und mehr Meter Länge.
+b. Ein Fahrzeug vor Anker von weniger als 100 m Länge.
+c. Ein geschlepptes Fahrzeug oder das letzte bemannte Fahrzeug eines Schleppverbandes in Fahrt.
+d. Ein Maschinenfahrzeug in Fahrt, das seine Maschine gestoppt hat und keine Fahrt durchs Wasser macht.
+124. Welches zusätzliche Schallsignal darf jeder Ankerlieger bei verminderter Sicht geben, um einem sich nähernden Fahrzeug seinen Standort anzuzeigen?
+a. Mit der Pfeife kurz, lang, kurz.
+b. Mindestens alle zwei Minuten ein kräftiges Schallsignal, das mit den vorgeschriebenen nicht verwechselt werden kann.
+c. Mindestens alle zwei Minuten drei aufeinander folgende Töne mit der Pfeife, und zwar lang, kurz, kurz.
+d. Mindestens alle zwei Minuten drei aufeinander folgende Töne mit der Pfeife, und zwar lang, lang, kurz.
+125. Woran kann man feststellen, ob die Möglichkeit der Gefahr eines Zusammenstoßes besteht?
+a. Wenn sich der Abstand zum anderen Fahrzeug verringert und sich die Peilung nicht oder nicht merklich ändert.
+b. Wenn sich der Abstand zum anderen Fahrzeug verringert und sich der Kurs nicht oder nicht merklich ändert.
+c. Wenn sich der Abstand zum anderen Fahrzeug verringert und sich die Kompasspeilung ändert.
+d. Wenn sich der Abstand zum anderen Fahrzeug verringert und sich der Kurs ändert.
+126. Zwei in Sicht befindliche Segelfahrzeuge nähern sich im freien Seeraum oder außerhalb des Fahrwassers so, dass die Möglichkeit der Gefahr eines Zusammenstoßes besteht. Welches Fahrzeug muss dem anderen ausweichen, wenn sie den Wind von derselben Seite haben?
+a. Das luvwärtige Fahrzeug dem leewärtigen Fahrzeug.
+b. Das leewärtige Fahrzeug dem luvwärtigen Fahrzeug.
+c. Dasjenige Fahrzeug, das den Wind von Backbord hat.
+d. Dasjenige Fahrzeug, das den Wind von Steuerbord hat.
+127. Wie müssen sich zwei in Sicht befindliche Maschinenfahrzeuge verhalten, die sich einander auf entgegengesetzten oder fast entgegengesetzten Kursen nähern, um die Möglichkeit der Gefahr eines Zusammenstoßes zu vermeiden?
+a. Jedes Fahrzeug muss seinen Kurs nach Steuerbord ändern.
+b. Jedes Fahrzeug muss seinen Kurs nach Backbord ändern.
+c. Es muss das luvwärtige Fahrzeug dem leewärtigen Fahrzeug ausweichen.
+d. Es muss das leewärtige Fahrzeug dem luvwärtigen Fahrzeug ausweichen.
+128. Wie hat sich ein Maschinenfahrzeug im freien Seeraum oder außerhalb des Fahrwassers gegenüber einem in Sicht befindlichen Segelfahrzeug zu verhalten, wenn die Möglichkeit der Gefahr eines Zusammenstoßes besteht?
+a. Das Maschinenfahrzeug muss ausweichen.
+b. Das Maschinenfahrzeug muss Kurs und Geschwindigkeit beibehalten.
+c. Das Maschinenfahrzeug muss seine Fahrt verringern.
+d. Das Maschinenfahrzeug muss vorsichtig manövrieren bis die Gefahr vorüber ist.
+129. Wie hat sich ein Maschinenfahrzeug im freien Seeraum oder außerhalb des Fahrwassers gegenüber einem in Sicht befindlichen manövrierunfähigen Fahrzeug zu verhalten, wenn die Möglichkeit der Gefahr eines Zusammenstoßes besteht?
+a. Das Maschinenfahrzeug muss ausweichen.
+b. Das Maschinenfahrzeug muss Kurs und Geschwindigkeit beibehalten.
+c. Das Maschinenfahrzeug muss seinen Kurs nach Steuerbord ändern.
+d. Das Maschinenfahrzeug muss seine Fahrt verringern.
+130. Wie hat sich ein Maschinenfahrzeug im freien Seeraum oder außerhalb des Fahrwassers gegenüber einem in Sicht befindlichen manövrierbehinderten Fahrzeug zu verhalten, wenn die Möglichkeit der Gefahr eines Zusammenstoßes besteht?
+a. Das Maschinenfahrzeug muss ausweichen.
+b. Das Maschinenfahrzeug muss Kurs und Geschwindigkeit beibehalten.
+c. Das Maschinenfahrzeug muss seinen Kurs nach Steuerbord ändern.
+d. Das Maschinenfahrzeug muss seine Fahrt verringern.
+131. Wie hat sich ein Maschinenfahrzeug im freien Seeraum oder außerhalb des Fahrwassers gegenüber einem in Sicht befindlichen fischenden Fahrzeug zu verhalten, wenn die Möglichkeit der Gefahr eines Zusammenstoßes besteht?
+a. Das Maschinenfahrzeug muss ausweichen.
+b. Das Maschinenfahrzeug muss Kurs und Geschwindigkeit beibehalten.
+c. Das Maschinenfahrzeug muss seinen Kurs nach Steuerbord ändern.
+d. Das Maschinenfahrzeug muss vorsichtig manövrieren, bis die Gefahr vorüber ist.
+132. Wie hat sich ein Segelfahrzeug im freien Seeraum oder außerhalb des Fahrwassers gegenüber einem in Sicht befindlichen fischenden Fahrzeug zu verhalten, wenn die Möglichkeit der Gefahr eines Zusammenstoßes besteht?
+a. Das Segelfahrzeug muss ausweichen.
+b. Das Segelfahrzeug muss seinen Kurs nach Steuerbord ändern.
+c. Das Segelfahrzeug darf die sichere Durchfahrt nicht behindern.
+d. Das Segelfahrzeug muss Kurs und Geschwindigkeit zunächst beibehalten.
+133. Wie muss man sich gegenüber diesem Fahrzeug verhalten? (Abbildung)
+a. Die sichere Durchfahrt des Fahrzeugs darf nicht behindert werden.
+b. Das Fahrzeug muss an Steuerbord passiert werden.
+c. Sog und Wellenschlag vermeiden.
+d. Kurs und Geschwindigkeit beibehalten.
+134. Wie muss man sich gegenüber diesem Fahrzeug verhalten? (Abbildung)
+a. Die sichere Durchfahrt des Fahrzeugs darf nicht behindert werden.
+b. Das Fahrzeug muss an Steuerbord passiert werden.
+c. Sog und Wellenschlag vermeiden.
+d. Kurs und Geschwindigkeit beibehalten.
+135. Wie verhält sich der Kurshaltepflichtige vor Einleitung des Manövers des letzten Augenblicks gegenüber einem ausweichpflichtigen Fahrzeug?
+a. Kurs und Geschwindigkeit zunächst beibehalten und dem Ausweichpflichtigen besondere Aufmerksamkeit widmen.
+b. Kurs oder Geschwindigkeit anpassen und dem Ausweichpflichtigen besondere Aufmerksamkeit widmen.
+c. Kurs nach Steuerbord ändern. Geschwindigkeit verringern und dem Ausweichpflichtigen besondere Aufmerksamkeit widmen.
+d. Kurs nach Steuerbord ändern, Geschwindigkeit zunächst beibehalten und dem Ausweichpflichtigen besondere Aufmerksamkeit widmen.
+136. Wie muss sich ein Ausweichpflichtiger gegenüber einem Kurshalter verhalten?
+a. Das Ausweichmanöver muss frühzeitig, durchgreifend und klar erkennbar durchgeführt werden.
+b. Der Kurs muss bei Annäherung an den Kurshalter Schritt für Schritt so angepasst werden, dass das Heck des Anderen sicher umfahren wird.
+c. Das Manöver des letzten Augenblicks ist durchzuführen. Es muss so ausgewichen werden, wie es zur Vermeidung eines Zusammenstoßes am dienlichsten ist.
+d. Die Fahrt ist auf das für die Steuerfähigkeit erforderliche Mindestmaß zu reduzieren; im Zweifelsfall muss ganz aufgestoppt werden.
+137. Wie hat sich ein überholendes Fahrzeug zu verhalten?
+a. Es hat dem zu überholenden Fahrzeug auszuweichen.
+b. Es muss den größtmöglichen Abstand zum überholten Fahrzeug einhalten und Sog und Wellenschlag vermeiden.
+c. Es darf die sichere Durchfahrt des zu überholenden Fahrzeugs nicht behindern.
+d. Es muss vor dem Überholen ein Schallsignal abgeben, um die Zustimmung des zu überholenden Fahrzeugs einzuholen.
+138. Wie hat man sich zu verhalten, wenn man bei verminderter Sicht anscheinend vorlicher als querab das Schallsignal eines anderen Fahrzeugs hört?
+a. Es ist ebenfalls ein Schallsignal abzugeben und die Fahrt soweit zu verlangsamen, dass die Steuerfähigkeit noch erhalten bleibt. Erforderlichenfalls ist ganz aufzustoppen. In jedem Fall ist vorsichtig zu manövrieren, bis die Gefahr eines Zusammenstoßes vorüber ist.
+b. Es ist ebenfalls ein Schallsignal abzugeben und frühzeitig, durchgreifend und klar erkennbar auszuweichen.
+c. Es sind mindestens fünf kurze Töne mit der Pfeife abzugeben und das Manöver des letzten Augenblicks durchzuführen. Dabei ist so zu manövrieren, wie es zur Vermeidung eines Zusammenstoßes am dienlichsten ist.
+d. Es ist ebenfalls ein Schallsignal abzugeben. Kurs und Geschwindigkeit sind so lange beizubehalten, bis das andere Fahrzeug in Sicht kommt. Dann ist die Ausweichsituation nach KVR zu prüfen und man muss sich entsprechend verhalten.
+139. Wie verhält man sich als Kurshalter, wenn man feststellt, dass ein anderes Fahrzeug seiner Ausweichpflicht nicht nachkommt und die Gefahr einer unmittelbaren Kollision bevorsteht?
+a. Man gibt mindestens fünf kurze Töne mit der Pfeife ab und führt das "Manöver des letzten Augenblicks" durch. Dabei ist so zu manövrieren, wie es zur Vermeidung eines Zusammenstoßes am dienlichsten ist.
+b. Man gibt ein Schallsignal (vier kurze Töne) ab und verlangsamt die Fahrt soweit, dass die Steuerfähigkeit noch erhalten bleibt. Erforderlichenfalls ist ganz aufzustoppen. In jedem Fall ist vorsichtig zu manövrieren, bis die Gefahr eines Zusammenstoßes vorüber ist.
+c. Man gibt mindestens fünf kurze Töne mit der Pfeife ab und reduziert die Geschwindigkeit, um Sog und Wellenschlag zu vermeiden.
+d. Man behält Kurs und Geschwindigkeit zunächst bei und widmet dem Ausweichpflichtigen besondere Aufmerksamkeit.
+140. Welche Bedeutung hat folgendes Schallsignal (mindestens fünf kurze Töne)?
+a. Ein ausweichpflichtiges Fahrzeug wird auf seine Ausweichpflicht aufmerksam gemacht.
+b. Allgemeines Gefahren- und Warnsignal.
+c. Bleib-Weg-Signal, Explosionsgefahr durch gefährliche Güter. Sofort den Gefahrenbereich verlassen. Feuer und Zündfunken vermeiden.
+d. Seeschifffahrtsstraße gesperrt. Weiterfahrt verboten, sofort aufstoppen.
+141. Welche Bedeutung hat folgendes Schallsignal? (Abbildung)
+a. Ein Ankerlieger macht ein sich näherndes Fahrzeug auf eine gefährliche Annäherung aufmerksam.
+b. Die Maschine des Fahrzeugs läuft rückwärts.
+c. Schutzbedürftige Anlage; Geschwindigkeit reduzieren, Sog und Wellenschlag vermeiden.
+d. Maschinenfahrzeug, das seine Maschinen gestoppt hat und keine Fahrt durchs Wasser macht.
+142. Was ist bei der Benutzung eines Verkehrstrennungsgebietes zu beachten?
+a. Auf dem entsprechenden Einbahnweg in der allgemeinen Verkehrsrichtung fahren, soweit wie möglich von der Trennzone/Trennlinie klar halten, in der Regel an den Enden des Einbahnweges ein- oder auslaufen, seitliches Ein- oder Auslaufen in möglichst kleinem Winkel zur allgemeinen Verkehrsrichtung.
+b. Auf dem entsprechenden Einbahnweg in Verkehrsrichtung links von der Trennzone fahren, so nah wie möglich an der Trennzone/Trennlinie fahren, in der Regel an den Enden des Einbahnweges ein- oder auslaufen, seitliches Ein- oder Auslaufen in möglichst rechtem Winkel zur allgemeinen Verkehrsrichtung.
+c. Die Benutzung von Verkehrstrennungsgebieten ist für Segelfahrzeuge sowie für Maschinenfahrzeuge unter 20 m Länge nicht gestattet. Diese Fahrzeuge haben sich soweit wie möglich von Verkehrstrennungsgebieten klar zu halten und müssen durch ihren Kurs klar zu erkennen geben, dass sie ein Verkehrstrennungsgebiet nicht benutzen.
+d. Auf den entsprechenden Einbahnwegen in der allgemeinen Verkehrsrichtung fahrende Fahrzeuge müssen sich soweit wie möglich von der Trennzone/Trennlinie klar halten und haben Vorfahrt gegenüber allen Fahrzeugen, die in ein Verkehrstrennungsgebiet einlaufen oder ein solches queren.
+143. Was ist hinsichtlich des Querens eines Verkehrstrennungsgebietes zu beachten?
+a. Das Queren ist möglichst zu vermeiden. Falls gequert werden muss, hat dies möglichst mit der Kielrichtung im rechten Winkel zur allgemeinen Verkehrsrichtung zu erfolgen. Die Kielrichtung des querenden Fahrzeugs muss auch dann einen rechten Winkel zur allgemeinen Verkehrsrichtung bilden, wenn das Fahrzeug durch Wind oder Strom versetzt wird.
+b. Das Queren ist möglichst zu vermeiden. Falls gequert werden muss, hat dies möglichst mit einem rechtweisenden Kurs zur allgemeinen Verkehrsrichtung zu erfolgen. Der rechtweisende Kurs des querenden Fahrzeugs muss auch dann einen rechten Winkel zur allgemeinen Verkehrsrichtung bilden, wenn das Fahrzeug durch Wind oder Strom versetzt wird.
+c. Das Queren von Verkehrstrennungsgebieten ist für Segelfahrzeuge sowie für Maschinenfahrzeuge unter 20 m Länge verboten. Diese Fahrzeuge haben sich soweit wie möglich von den Enden der Verkehrstrennungsgebiete klar zu halten und müssen durch ihren Kurs zu erkennen geben, dass sie ein Verkehrstrennungsgebiet nicht queren.
+d. Das Queren ist möglichst zu vermeiden. Falls gequert werden muss, hat dies mit der Kielrichtung in einem möglichst spitzen Winkel zur allgemeinen Verkehrsrichtung zu erfolgen. Die Kielrichtung des querenden Fahrzeugs muss auch dann einen möglichst spitzen Winkel zur allgemeinen Verkehrsrichtung bilden, wenn das Fahrzeug durch Wind oder Strom versetzt wird.
+144. In welcher Vorschrift findet man die Regeln zum Befahren von Verkehrstrennungsgebieten?
+a. In den Kollisionsverhütungsregeln.
+b. In der Seeschifffahrtsstraßen-Ordnung.
+c. In den Kollisionsverhütungsregeln und der Seeschifffahrtsstraßen-Ordnung.
+d. In den "Bekanntmachungen der Generaldirektion Wasserstraßen und Schifffahrt (GDWS)".
+145. Wie hat sich ein Maschinenfahrzeug bei Kollisionsgefahr in einem Einbahnweg eines Verkehrstrennungsgebietes gegenüber einem Maschinenfahrzeug zu verhalten, das den Einbahnweg von Steuerbord kommend quert?
+a. Es muss dem anderen Fahrzeug ausweichen.
+b. Es darf die sichere Durchfahrt des Maschinenfahrzeugs nicht behindern.
+c. Dem querenden Fahrzeug hat es besondere Aufmerksamkeit zu widmen.
+d. Es muss das Manöver des letzten Augenblicks durchführen.
+146. Wie hat sich ein Segelfahrzeug beim Queren eines Verkehrstrennungsgebietes gegenüber einem Maschinenfahrzeug zu verhalten, das auf einem Einbahnweg in der allgemeinen Verkehrsrichtung fährt?
+a. Es darf die sichere Durchfahrt des Maschinenfahrzeugs nicht behindern.
+b. Es unterliegt der Kurshaltepflicht. Kurs und Geschwindigkeit sind beizubehalten.
+c. Es muss warten. Alle dem Einbahnweg folgenden Fahrzeuge haben Vorfahrt.
+d. Es hat Vorfahrt. Alle dem Einbahnweg folgenden Fahrzeuge müssen warten.
+147. Wie haben sich Fahrzeuge von weniger als 20 m Länge oder Segelfahrzeuge in Verkehrstrennungsgebieten zu verhalten?
+a. Sie dürfen die sichere Durchfahrt eines dem Einbahnweg folgenden Maschinenfahrzeugs nicht behindern.
+b. Sie gelten als Kleinfahrzeuge und dürfen Verkehrstrennungsgebiete nicht befahren.
+c. Sie gelten als Kleinfahrzeuge und dürfen Verkehrstrennungsgebiete nur am Tage und bei guter Sicht befahren.
+d. Sie dürfen die Trennzone befahren, damit der durchgehende Verkehr nicht behindert wird.
+148. Was ist das für ein Fahrzeug und was ist zu beachten? (Abbildung)
+a. Ein manövrierbehindertes Fahrzeug, das baggert oder Unterwasserarbeiten ausführt und dabei die Schifffahrt behindert. Es ist an der Seite zu passieren, an der zwei schwarze Rhomben senkrecht übereinander angeordnet sind.
+b. Ein manövrierbehindertes Fahrzeug, das die Schifffahrt behindert. Es ist an der Seite zu passieren, an der zwei schwarze Bälle senkrecht übereinander angeordnet sind.
+c. Ein manövrierbehindertes Fahrzeug, das baggert oder Unterwasserarbeiten ausführt und dabei die Schifffahrt behindert. Es ist an der Seite zu passieren, die in meiner Fahrtrichtung rechts liegt.
+d. Ein manövrierbehindertes Fahrzeug, das baggert oder Unterwasserarbeiten ausführt und dabei die Schifffahrt behindert. Es darf an keiner Seite passiert werden.
+149. Was ist das für ein Fahrzeug und was ist zu beachten? (Abbildung)
+a. Ein manövrierbehindertes Fahrzeug mit Fahrt durchs Wasser, das baggert oder Unterwasserarbeiten ausführt und dabei die Schifffahrt nicht behindert. Es ist an der Seite zu passieren, die in Fahrtrichtung rechts liegt.
+b. Ein manövrierbehindertes Fahrzeug mit Fahrt durchs Wasser, das baggert oder Unterwasserarbeiten ausführt und dabei die Schifffahrt behindert. Es ist an der Seite zu passieren, die in Fahrtrichtung links liegt.
+c. Ein manövrierunfähiges Fahrzeug mit Fahrt durchs Wasser, das baggert oder Unterwasserarbeiten ausführt und dabei die Schifffahrt behindert. Es ist an der Seite zu passieren, die in Fahrtrichtung rechts liegt.
+d. Ein manövrierbehindertes Fahrzeug mit Fahrt durchs Wasser, das baggert oder Unterwasserarbeiten ausführt und dabei die Schifffahrt behindert. Es darf an beiden Seiten passiert werden.
+150. Was ist das für ein Fahrzeug und was ist zu beachten? (Abbildung)
+a. Ein manövrierbehindertes Fahrzeug ohne Fahrt durchs Wasser, das baggert oder Unterwasserarbeiten ausführt und dabei die Schifffahrt behindert. Es ist an der Seite zu passieren, an der zwei grüne Rundumlichter senkrecht übereinander angeordnet sind.
+b. Ein manövrierbehindertes Fahrzeug ohne Fahrt durchs Wasser, das die Schifffahrt behindert. Es ist an der Seite zu passieren, an der zwei rote Rundumlichter senkrecht übereinander angeordnet sind.
+c. Ein manövrierbehindertes Fahrzeug ohne Fahrt durchs Wasser, das baggert oder Unterwasserarbeiten ausführt und dabei die Schifffahrt behindert. Es ist an der Seite zu passieren, die in Fahrtrichtung links liegt.
+d. Ein manövrierbehindertes Fahrzeug ohne Fahrt durchs Wasser, das baggert oder Unterwasserarbeiten ausführt und dabei die Schifffahrt behindert. Es ist an der Steuerbordseite des Fahrwassers (Rechtsfahrgebot) zu passieren.

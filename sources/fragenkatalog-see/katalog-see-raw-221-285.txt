@@ -1,0 +1,325 @@
+221. Was versteht man unter einem Blitzfeuer?
+a. Lichterscheinung kürzer als Verdunkelung, Blitz weniger als 2 s lang.
+b. Lichterscheinung kürzer als Verdunkelung, Blitz länger als 2 s lang.
+c. Lichterscheinung länger als Verdunkelung, Blitz mindestens 2 s lang.
+d. Lichterscheinung länger als Verdunkelung, Blitz weniger als 2 s lang.
+222. Was versteht man unter einem Funkelfeuer?
+a. 50 bis 60 aufeinanderfolgende Lichterscheinungen pro Minute.
+b. 100 bis 120 aufeinanderfolgende Lichterscheinungen pro Minute.
+c. 130 bis 150 aufeinanderfolgende Lichterscheinungen pro Minute.
+d. 30 bis 40 aufeinanderfolgende Lichterscheinungen pro Minute.
+223. Was versteht man unter einem Gleichtaktfeuer?
+a. Lichterscheinung und Verdunkelung von gleicher Länge.
+b. Lichterscheinung kürzer als Verdunkelung.
+c. Lichterscheinung länger als Verdunkelung.
+d. Lichterscheinung zweifach länger als Verdunkelung.
+224. Was versteht man unter der Wiederkehr eines Leuchtfeuers?
+a. Zeitraum vom Einsetzen der Taktkennung bis zum Einsetzen der nächsten gleichen Taktkennung.
+b. Zeitraum vom Ende der Taktkennung bis zum Einsetzen der nächsten gleichen Taktkennung.
+c. Zeitraum vom Einsetzen der Taktkennung bis zum Ende der nächsten gleichen Taktkennung.
+d. Zeitraum vom Einsetzen der Taktkennung bis zum Ende der Taktkennung.
+225. Wie hat man sich beim Befahren von Naturschutzgebieten und Nationalparken zu verhalten?
+a. Befahrensregelungen beachten.
+b. Befahrensregelungen beachten und sich bei der Nationalparkverwaltung anmelden.
+c. Befahrensregelungen beachten sowie Wasserschutzpolizei und Wasserstraßen- und Schifffahrtsamt informieren.
+d. Befahrensregelungen sowie Festlegungen der Ordnungsämter beachten.
+226. Welche Sondervorschriften enthalten die örtlichen Befahrensregelungen in den Naturschutzgebieten und Nationalparks?
+a. Befahrensverbote, Befahrensbeschränkungen, Geschwindigkeitsbeschränkungen, besondere Regelungen für das Wasserskilaufen, das Fahren mit Wassermotorrädern und das Segelsurfen.
+b. Befahrensverbote, Schifffahrtssperrungen, Geschwindigkeitsbeschränkungen, besondere Regelungen für das Befahren von Windparks.
+c. Befahrensverbote, Befahrensbeschränkungen, Mindestgeschwindigkeiten, besondere Regelungen für das Befahren von Verkehrstrennungsgebieten.
+d. Befahrensverbote, meteorologische Beschränkungen, besondere Regelungen für das Befahren der Tiefwasserzonen.
+227. Welche Verkehre können in einer ausgewiesenen Erlaubniszone zugelassen werden?
+a. Bestimmte Wassersportgeräte.
+b. Bestimmte Fischereifahrzeuge.
+c. Bestimmte Bodeneffekt- und Luftkissenfahrzeuge.
+d. Bestimmte Arbeitsgeräte für die Erkundung fossiler Brennstoffe.
+228. Was verstehen Sie gemäß Nordsee-Befahrens-Verordnung (NordSBefV) unter Schnellfahrkorridore?
+a. Ausgewiesene Wasserflächen für den gewerblichen Verkehr.
+b. Ausgewiesene Wasserflächen für bestimmte Sportbootverkehre.
+c. Wasserflächen zum Starten und Landen von Wasserflugzeugen.
+d. Wasserflächen, von denen Taucher 500 m Abstand halten müssen.
+229. Wie hoch, soweit die Nordsee-Befahrens-Verordnung (NordSBefV) nicht ausdrücklich etwas anderes bestimmt, ist die maximale Geschwindigkeit, die ein Maschinenfahrzeug in Nationalparken im Bereich der Nordsee fahren darf?
+a. 12 Knoten über Grund.
+b. 12 Knoten Fahrt durchs Wasser.
+c. 10 Knoten Fahrt über Grund.
+d. 10 Knoten Fahrt durchs Wasser.
+230. Welche Verpflichtung hat man als Bootsführer, um einen Beitrag zur Reinhaltung der Gewässer zu leisten?
+a. Sämtliche Abfälle einschließlich Öle und Betriebsstoffe an Bord in geeigneten Behältern sammeln und an Land vorschriftsmäßig entsorgen.
+b. Abfälle und Öle nur auf offener See entsorgen.
+c. Nur Bioabfälle und restentleerte Behälter auf See entsorgen.
+d. Abwässer in Ufer- und Strandnähe sowie in Häfen einleiten.
+231. Welche amtlichen nautischen Veröffentlichungen geben Aufschluss über das Fahrtgebiet?
+a. Seekarten, Leuchtfeuerverzeichnis, Seehandbücher, Gezeitentafeln oder -kalender, Funkdienst für die Klein- und Sportschifffahrt, Nachrichten für Seefahrer (NfS), Bekanntmachungen für Seefahrer (BfS).
+b. Seekarten, Verordnung über die Sicherung der Seefahrt, Seehandbücher, Gezeitentafeln oder -kalender, Funkdienst für die Klein- und Sportschifffahrt, Nachrichten für Seefahrer (NfS).
+c. Seeschifffahrtsstraßen-Ordnung, Leuchtfeuerverzeichnis, Seehandbücher, Verordnung über die Sicherung der Seefahrt, Gezeitentafeln oder -kalender, Bekanntmachungen der Generaldirektion Wasserstraßen und Schifffahrt (GDWS).
+d. Schifffahrtspolizeiliche Anordnungen, Gezeitentafeln oder Funkdienst für die Klein- und Sportschifffahrt, Nachrichten für Seefahrer (NfS), Bekanntmachungen für Seefahrer (BfS).
+232. Welche Angaben enthalten die Nachrichten für Seefahrer (NfS) und die Bekanntmachungen für Seefahrer (BfS)?
+a. Sie enthalten alle Veränderungen hinsichtlich Betonnung, Befeuerung, Wracks, Untiefen sowie andere die Schifffahrt betreffende Maßnahmen und Ereignisse.
+b. Sie enthalten alle Veränderungen hinsichtlich Betonnung, Befeuerung, Wracks, Untiefen sowie andere Änderungen der Seeschifffahrtsstraßen-Ordnung.
+c. Sie enthalten alle Veränderungen hinsichtlich Betonnung, Befeuerung, Wracks sowie die aktuellen Wasserstände.
+d. Sie enthalten alle Veränderungen hinsichtlich Betonnung, Befeuerung, Wracks, Untiefen sowie andere die Schifffahrt betreffende meteorologische Hinweise.
+233. Welchen Effekt können Wind und gegenläufiger Tidenstrom im Bereich von Seegaten haben?
+a. Steile und aufbäumende Seen (Brecher).
+b. Der Tidenstrom wird durch den Wind verstärkt.
+c. Keinen.
+d. Der Tidenstrom glättet die Windsee.
+234. Wo findet man Angaben über Küsten-, Häfen- und Naturverhältnisse?
+a. In den See- und Hafenhandbüchern.
+b. In den Bekanntmachungen und Nachrichten für Seefahrer.
+c. Im Nautischen Revierfunkdienst.
+d. In der Seekarte INT1.
+235. Wovon sollte man sich vor Gebrauch einer Seekarte überzeugen?
+a. Dass die Karte auf den neuesten Stand berichtigt ist.
+b. Dass die Nummerierung mit dem Katalog übereinstimmt.
+c. Dass die Seekarte auf mittleres Tidehochwasser bezogen ist.
+d. Dass die obere Kante in Nordrichtung weist.
+236. In welchen Maßeinheiten werden in deutschen Seekarten die Tiefen angegeben?
+a. In Meter und Dezimeter.
+b. In Meter und Zentimeter.
+c. In Fuß und Inch.
+d. In Dezimeter und Zentimeter.
+237. Wo findet man Bedeutungen und Erläuterungen zu Zeichen, Abkürzungen und Begriffen in deutschen Seekarten?
+a. In der INT1/Karte 1.
+b. In den Seehandbüchern.
+c. In den Leuchtfeuerverzeichnissen.
+d. In allen Seekarten unten links.
+238. Wo findet man die für die Navigation wichtigen Beschreibungen der Schifffahrtszeichen, Angaben über deren Befeuerung und Angaben über Signalstellen?
+a. Leuchtfeuerverzeichnis, Seehandbuch, Seekarten.
+b. Leuchtfeuerverzeichnis, Seehandbuch, Handbuch für Brücke und Kartenhaus.
+c. Leuchtfeuerverzeichnis, Seehandbuch, Kollisionsverhütungsregeln.
+d. Leuchtfeuerverzeichnis, Seehandbuch, Gezeitenatlas.
+239. Wo entnimmt man in der Seekarte die Seemeilen?
+a. Am rechten oder linken Kartenrand in Höhe des Standortes.
+b. Am oberen oder unteren Kartenrand in Höhe des Standortes.
+c. An der in der Seekarte abgebildeten Kompassrose.
+d. Aus der in der Seekarte abgebildeten Entfernungstabelle.
+240. Was versteht man unter einer Seemeile und wie lang ist eine Seemeile (in Metern)?
+a. Die Länge einer Bogenminute auf einem größten Kreis der Erdkugel, 1.852 m.
+b. Die Länge einer Bogenminute auf einem Breitenparallel, 1.652 m.
+c. Die Länge einer Bogenminute auf dem Nullmeridian, 18,52 km.
+d. Sie entspricht der in einer Stunde zurückgelegten Distanz in Meter, 16,52 km.
+241. Was versteht man unter dem Geschwindigkeitsbegriff "Knoten"?
+a. Das sind die in einer Stunde zurückgelegten Seemeilen.
+b. Das sind die in einer Stunde zurückgelegten Kilometer.
+c. Das sind die an einem Tag zurückgelegten Seemeilen.
+d. Das sind die von Mittag bis Mittag zurückgelegten Seemeilen.
+242. Woraus entnimmt man die Magnetkompassablenkung?
+a. Aus der für das betreffende Schiff aufgestellten Deviationstabelle.
+b. Aus dem Nautischen Handbuch für Kompassfehlweisung.
+c. Aus dem Betriebshandbuch des Kompassherstellers.
+d. Aus der Kompassrose der aktuellen Seekarte.
+243. Was versteht man in der terrestrischen Navigation unter einer Peilung?
+a. Das Feststellen der Richtung eines bekannten feststehenden Objektes durch Winkelmessung.
+b. Das Feststellen der Abweichung des Steuerkompasses vom Peilkompass.
+c. Das Feststellen des Koppelortes durch Winkelmessung.
+d. Das Feststellen der Entfernung zu einem bekannten feststehenden Objekt.
+244. Wie erhält man eine Standlinie?
+a. Durch die Peilung eines bekannten feststehenden Objektes und Eintragung der rechtweisenden Peilung in die Seekarte.
+b. Durch Eintragen des rechtweisenden Kurses in die Seekarte.
+c. Durch mehrmaliges Peilen eines anderen Fahrzeugs.
+d. Durch Eintragung der Peilung in die Seekarte ohne Berücksichtigung der Fehlweisung.
+245. Was versteht man unter Stromversetzung?
+a. Die Versetzung des Schiffes über Grund in Richtung und Distanz.
+b. Die Versetzung des Schiffes vom Magnetkompasskurs.
+c. Die Versetzung des Schiffes durch das Wasser in Richtung und Distanz.
+d. Die Richtung und Stärke der Meeresströmung.
+246. Was versteht man unter Windversetzung?
+a. Die Versetzung des Schiffes über Grund in Richtung und Distanz.
+b. Die Versetzung des Schiffes vom Magnetkompasskurs.
+c. Die Versetzung des Schiffes durch das Wasser in Richtung und Distanz.
+d. Die Richtung und Stärke des Windes und der Windsee.
+247. Was versteht man unter einem Koppelort?
+a. Schiffsort, der unter Berücksichtigung der gesteuerten Kurse und zurückgelegten Distanzen und aller vorhersehbaren Einflüsse rechnerisch und zeichnerisch ermittelt wird.
+b. Schiffsort, der ermittelt wird durch Peilung zweier feststehender und bekannter Objekte, die in einem möglichst rechten Winkel (90 Grad) zueinander stehen.
+c. Schiffsort, der durch Eintragung der rechtweisenden Peilungen zweier feststehender und bekannter Objekte als Standlinien in die Seekarte ermittelt wird; ihr Schnittpunkt ist der Standort.
+d. Schiffsort, der unter Berücksichtigung der gesteuerten Kurse und zurückgelegten Distanzen infolge mehrerer Peilungen ermittelt wird.
+248. Was ist bei der Aufstellung eines Magnetkompasses an Bord zu beachten?
+a. Der Steuerstrich muss parallel zur Kiellinie verlaufen. Der Kompass muss gut ablesbar sein und darf nicht in der Nähe von Eisenteilen aufgestellt werden.
+b. Der Kompass muss parallel zur Kiellinie verlaufen. Der Kompass muss gut ablesbar sein und darf nicht in der Nähe von Eisenteilen aufgestellt werden.
+c. Der Steuerstrich muss parallel zur Kiellinie verlaufen. Der Kompass muss gut ablesbare Zahlen aufweisen und darf nicht in der Nähe von Eisenteilen aufgestellt werden.
+d. Der Kompass muss parallel zur Kiellinie verlaufen. Der Kompass muss gut ablesbare Zahlen aufweisen und darf nicht in der Nähe von Eisenteilen aufgestellt werden.
+249. Was versteht man unter Ebbe?
+a. Das Fallen des Wassers vom Hochwasser zum folgenden Niedrigwasser.
+b. Den Zeitraum vom Hochwasser zum folgenden Niedrigwasser.
+c. Der niedrigste Wasserstand einer Tide.
+d. Die Differenz zwischen Hoch- und Niedrigwasser.
+250. Was versteht man unter Flut?
+a. Das Steigen des Wassers vom Niedrigwasser zum folgenden Hochwasser.
+b. Den Zeitraum vom Niedrigwasser zum folgenden Hochwasser.
+c. Der höchste Wasserstand einer Tide.
+d. Die Differenz zwischen Hoch- und Niedrigwasser.
+251. Was versteht man unter einer Tide?
+a. Der Zeitraum zwischen einem Niedrigwasser und dem nächstfolgenden Niedrigwasser.
+b. Der Zeitraum zwischen einem Hochwasser und dem nächstfolgenden Niedrigwasser.
+c. Der Zeitraum zwischen einem Hochwasser und dem nächstfolgenden Hochwasser.
+d. Der Zeitraum zwischen einem Niedrigwasser und dem nächstfolgenden Hochwasser.
+252. Was versteht man unter einem Niedrigwasser?
+a. Eintritt des niedrigsten Wasserstands beim Übergang vom Fallen zum Steigen.
+b. Fallen des Wassers nach Eintritt des höchsten Wasserstands.
+c. Eintritt des höchsten Wasserstands beim Übergang vom Steigen zum Fallen.
+d. Steigen des Wassers nach Eintritt des niedrigsten Wasserstands.
+253. Was versteht man unter einem Hochwasser?
+a. Eintritt des höchsten Wasserstands beim Übergang vom Steigen zum Fallen.
+b. Steigen des Wassers nach Eintritt des niedrigsten Wasserstands.
+c. Eintritt des niedrigsten Wasserstands beim Übergang vom Fallen zum Steigen.
+d. Fallen des Wassers nach Eintritt des höchsten Wasserstands.
+254. Was versteht man unter "Tidenhub"?
+a. Unterschied zwischen den Höhen des Hoch- und des Niedrigwassers.
+b. Unterschied zwischen den Höhen zweier aufeinanderfolgender Hochwasser.
+c. Der Zeitraum zwischen einem Niedrigwasser und dem nächstfolgenden Hochwasser.
+d. Der Zeitraum zwischen einem Niedrigwasser und dem nächstfolgenden Niedrigwasser.
+255. Wo sind für einen bestimmten Ort die Angaben über Hoch- und Niedrigwasserzeiten und den Tidenhub zu finden?
+a. In den Gezeitentafeln oder dem Gezeitenkalender des Bundesamtes für Seeschifffahrt und Hydrographie.
+b. In der Flutvorhersage des Bundesamtes für Seeschifffahrt und Hydrographie.
+c. Im Gezeitenatlas des Bundesamtes für Seeschifffahrt und Hydrographie.
+d. Im Mondphasenkalender der Bundesanstalt für Gewässerkunde.
+256. Wie lang sollte eine Schleppleine bei starkem Seegang sein?
+a. Mindestens zwei- oder dreifache Wellenlänge.
+b. Mindestens zwei- oder dreifache Wellenhöhe.
+c. Mindestens zwei- oder dreifache Schiffslänge.
+d. Mindestens zwei- oder dreifache Wassertiefe.
+257. Was ist zu beachten, wenn ein Sportboot geschleppt werden soll?
+a. Die Schleppleine ist den Seegangsverhältnissen anzupassen. Die Schleppgeschwindigkeit darf nicht größer sein als die Geschwindigkeit, die der Anhang frei fahrend bei Verdrängerfahrt erreichen kann. Ein ruckartiges Steifkommen der Schleppleine ist zu vermeiden.
+b. Die Schleppleine ist den Seegangsverhältnissen anzupassen. Die Schleppgeschwindigkeit darf nicht größer sein als die Geschwindigkeit, die das schleppende Fahrzeug frei fahrend bei Verdrängerfahrt erreichen kann. Ein ruckartiges Steifkommen der Schleppleine ist zu vermeiden.
+c. Die Schleppleine ist den Wetterverhältnissen anzupassen. Die Schleppgeschwindigkeit darf nicht größer sein als die Geschwindigkeit, die der Anhang frei fahrend bei Gleitfahrt erreichen kann. Ein ruckartiges Steifkommen der Schleppleine ist zu vermeiden.
+d. Die Schleppleine ist den Wetterverhältnissen anzupassen. Die Schleppgeschwindigkeit darf nicht größer sein als die Geschwindigkeit, die das schleppende Fahrzeug frei fahrend bei Gleitfahrt erreichen kann. Ein ruckartiges Steifkommen der Schleppleine ist zu vermeiden.
+258. Womit kann ein steuerunfähiges Sportboot mit dem Bug in den Wind gehalten werden?
+a. Mit dem Treibanker oder anderen geeigneten schwimmfähigen Gegenständen.
+b. Durch wiederholtes kurzes Ein- und Auskuppeln der Antriebsmaschine.
+c. Mit achteraus ausgebrachtem Treibanker oder ähnlichen schwimmfähigen Gegenständen.
+d. Mit vorn und achtern ausgebrachten Treibankern oder anderen geeigneten schwimmfähigen Gegenständen.
+259. Warum sollte bei starkem Seegang die Fahrt vermindert werden?
+a. Um Schäden durch Seeschlag zu vermeiden.
+b. Um das Austauchen der Schraube zu vermeiden und Kraftstoff zu sparen.
+c. Um die Schlinger- und Rollbewegungen zu minimieren.
+d. Um Schiffs- und Wellenlänge nicht in Resonanz zu bringen.
+260. Was bedeutet folgendes Zeichen? (Wettersymbol)
+a. Wind aus Richtung Nordwest; Stärke: Bft. 3; wolkenlos.
+b. Wind in Richtung Nordwest; Stärke: Bft. 3; wolkenlos.
+c. Strom aus Richtung Nordwest; Stärke: 3 Knoten; Tidegebiet.
+d. Strom in Richtung Nordwest; Stärke: 3 Knoten; Tidegebiet.
+261. Welche Angaben liefert die Beaufort-Skala?
+a. Windstärken von 0 bis 12 und die Auswirkungen auf die See.
+b. Windstärken von 0 bis 12 und die Auswirkungen auf die Küste.
+c. Den Tidenhub an der Küste bei Vollmond und bei Neumond.
+d. Die Wellenhöhe und die Windgeschwindigkeit bei Sturmstärke.
+262. Wie werden Orte gleichen Luftdrucks in der Wetterkarte dargestellt und in welcher Maßeinheit wird der Luftdruck angegeben?
+a. Durch Isobaren und in Hektopascal.
+b. Durch Isobaren und in Millipascal.
+c. Durch Isoklinen und in Hektopascal.
+d. Durch Isoklinen und in Dezipascal.
+263. Womit muss bei rasch fallendem Luftdruck gerechnet werden?
+a. Mit Starkwind oder Sturm.
+b. Mit Schwachwind oder Windstille.
+c. Mit einer Wetterbesserung.
+d. Mit einer Wetterverschlechterung.
+264. Was bedeuten die in der Wetterkarte abgebildeten Isobaren?
+a. Orte gleichen Luftdrucks.
+b. Orte gleicher Windstärke.
+c. Orte gleicher Wolkenbildung.
+d. Orte gleicher Luftfeuchtigkeit.
+265. Was zeigt die folgende Abbildung? (Hochdruckgebiet)
+a. Abbildung eines Hochdruckgebietes auf der Nordhalbkugel, Isobaren mit Angabe des Luftdrucks in hPa.
+b. Abbildung eines Hochdruckgebietes auf der Südhalbkugel, Isobaren mit Angabe des Luftdrucks in hPa.
+c. Abbildung eines Hochdruckgebietes auf der Nordhalbkugel, Isobaren mit Angabe des Luftdrucks in hPa, Zugrichtung Nordwest.
+d. Abbildung eines Hochdruckgebietes auf der Südhalbkugel, Isobaren mit Angabe des Luftdrucks in hPa, Zugrichtung Südwest.
+266. Was zeigt die folgende Abbildung? (Tiefdruckgebiet)
+a. Abbildung eines Tiefdruckgebietes auf der Nordhalbkugel mit Warm- und Kaltfront, Isobaren mit Angabe des Luftdrucks in hPa, warme und kalte Luftströmung.
+b. Abbildung eines Tiefdruckgebietes auf der Südhalbkugel mit Kalt- und Warmfront, Isobaren mit Angabe des Luftdrucks in hPa, kalte und warme Luftströmung.
+c. Abbildung eines Tiefdruckgebietes auf der Nordhalbkugel mit Kaltfront vor der Warmfront, Angabe des Luftdrucks in hPa, Warmfront südlich, Kaltfront nördlich des Zentrums.
+d. Abbildung eines Tiefdruckgebietes auf der Südhalbkugel mit Warmfront vor der Kaltfront, Angabe des Luftdrucks in hPa, Darstellung des Kalt- und Warmluftstroms.
+267. Für welche Windstärken wird eine Starkwindwarnung herausgegeben?
+a. Windstärke 6 und 7 der Beaufortskala.
+b. Windstärke 5 und 6 der Beaufortskala.
+c. Windstärke 4 bis 5 der Beaufortskala.
+d. Windstärke 7 bis 8 der Beaufortskala.
+268. Für welche Windstärken wird eine Sturmwarnung herausgegeben?
+a. Windstärke 8 und mehr der Beaufortskala.
+b. Windstärke 6 und mehr der Beaufortskala.
+c. Windstärke 9 und mehr der Beaufortskala.
+d. Windstärke 7 und mehr der Beaufortskala.
+269. Was ist in amtlichen Wetterberichten unter "frischem Wind" zu verstehen?
+a. Windstärke 5 der Beaufortskala.
+b. Windstärke 4 der Beaufortskala.
+c. Windstärke 6 der Beaufortskala.
+d. Windstärke 7 der Beaufortskala.
+270. Was ist in amtlichen Wetterberichten unter "schwerem Sturm", "orkanartigem Sturm" und "Orkan" zu verstehen?
+a. Windstärken 10, 11 und 12 der Beaufortskala.
+b. Windstärken 9, 10 und 11 der Beaufortskala.
+c. Windstärken 11, 12 und 13 der Beaufortskala.
+d. Windstärken 8, 9 und 10 der Beaufortskala.
+271. Wie hat man seine Fahrweise im Fahrwasser bei verminderter Sicht aufgrund seemännischer Sorgfaltspflicht einzurichten, wenn das Fahrzeug nicht über die technische Ausrüstung, insbesondere zur Ortung anderer Fahrzeuge, verfügt?
+a. Das Fahrwasser verlassen und wenn möglich, Flachwassergebiet aufsuchen und ankern. Wenn dies nicht möglich ist, im Fahrwasser äußerst rechts halten.
+b. Unverzüglich die Fahrt einstellen und ankern, wenn dies nicht möglich ist, vorsichtig weiterfahren und möglichst im Kielwasser eines vorausfahrenden Fahrzeugs halten.
+c. Umsichtig, aber zügig weiterfahren, um den übrigen Verkehr nicht zu behindern. Beim Hören fremder Nebelsignale aufstoppen und abwarten, dabei fortlaufend die Wassertiefe loten.
+d. Im Fahrwasser äußerst rechts halten und den nächstgelegenen Hafen oder Liegeplatz anlaufen. Im Zweifel andere Fahrzeuge nach Position und richtigem Kurs fragen.
+272. Wozu dient primär das Automatische Identifikationssystem (AIS)?
+a. Der Kollisionsverhütung.
+b. Dem Empfang von Wetterdaten.
+c. Der Positionsbestimmung.
+d. Dem Senden nautischer Warnnachrichten.
+273. Welche Informationen können über das Automatische Identifikationssystem (AIS) ausgetauscht werden?
+a. Schiffsdaten (statisch und dynamisch), reisebezogene Daten.
+b. Schiffsdaten (statisch und dynamisch), Wetterdaten.
+c. Schiffsdaten (statisch), reisebezogene Daten.
+d. Schiffsdaten (dynamisch), Wetterdaten.
+274. Welche Sicherheitsmaßnahmen sind an Bord aufgrund der seemännischen Sorgfaltspflicht neben den in den Kollisionsverhütungsregeln vorgeschriebenen Verhaltensmaßregeln bei verminderter Sicht zu treffen?
+a. Insbesondere alle Navigationsanlagen sorgfältig gebrauchen, die Sichtbarkeit des eigenen Fahrzeugs erhöhen (z. B. Radarreflektor, AIS) und in einem Revier mit Landradarberatung die Radarberatung über UKW-Sprechfunk mithören.
+b. Insbesondere alle technischen Anlagen, z. B. Radar, AIS, Echolot, Selbststeueranlage einschalten und in einem Revier mit Landradarberatung die Radarberatung über UKW-Sprechfunk anfordern.
+c. Insbesondere alle Navigationsanlagen sorgfältig gebrauchen, die Sichtbarkeit des eigenen Fahrzeugs erhöhen (z. B. Radarreflektor, AIS) und die Verkehrszentrale ständig über Kurs und Geschwindigkeit informieren.
+d. Insbesondere alle technischen Anlagen, z. B. Radar, Echolot, AIS, Selbststeueranlage, einschalten und die Verkehrszentrale ständig über Kurs und Geschwindigkeit informieren.
+275. Welche Sicherheitsmaßnahmen sind auf See vor Eintritt von schwerem Wetter (Starkwind, Sturm) zu treffen?
+a. Verschlusszustand herbeiführen, lose Gegenstände festzurren, Rettungsweste anlegen und andere Rettungsmittel bereithalten; wenn erforderlich und möglich Schutzhafen anlaufen.
+b. Verschlusszustand herbeiführen, lose Gegenstände festzurren, Rettungsweste und andere Rettungsmittel bereithalten, Seenotsignalmittel zum Einsatz vorbereiten.
+c. Türen schließen, lose Gegenstände festzurren, Rettungsweste und andere Rettungsmittel bereithalten, Radar, Ruder und UKW besetzen.
+d. Türen schließen, lose Gegenstände festzurren, Rettungsweste und andere Rettungsmittel bereithalten, Seenotsignalmittel zum Einsatz vorbereiten.
+276. Mit welchen Hilfsmitteln kann eine im Wasser treibende Person schnell und sicher an Bord genommen werden?
+a. Leinenverbindung, Rettungsschlaufe, Bergenetz, Talje, Badeleiter, Großbaum.
+b. Leinenverbindung, Badeleiter, Treibanker, Rettungsschlaufe, Bergenetz, Talje.
+c. Leinenverbindung, Großbaum, Ankerkette, Talje, Badeleiter, Rettungsschlaufe.
+d. Leinenverbindung, Badeleiter, Rettungsboje, Bergenetz, Großbaum, Talje.
+277. Was ist zu tun, wenn das Fahrzeug gekentert ist?
+a. Möglichst am Fahrzeug bleiben und die Besatzung zusammenhalten; unnötigen Kräfteverschleiß vermeiden und Aufmerksamkeit zur Hilfeleistung erregen.
+b. Möglichst am Fahrzeug bleiben und Seenotsignale geben. Die Besatzung zusammenhalten und unnötigen Kräfteverschleiß vermeiden.
+c. Möglichst am Fahrzeug bleiben und Unfallstelle kennzeichnen; unnötigen Kräfteverschleiß vermeiden und Aufmerksamkeit zur Hilfeleistung erregen.
+d. Möglichst am Fahrzeug bleiben und die Besatzung zusammenhalten; Wertgegenstände und Seetagebuch bergen.
+278. Wie verhindert man das Überbordfallen von Personen bei starkem Seegang?
+a. Sicherheitsleinen bzw. -gurte spannen, Sicherheitsgurt anlegen und an den dafür vorgesehenen Stellen einpicken.
+b. Sicherheitsleinen bzw. -gurte spannen, Besatzung an Deck sammeln. Rettungswesten anlegen.
+c. Sicherheitsleinen bzw. -gurte aufschießen, Sicherheitsgurt anlegen und in die Reling einpicken.
+d. Besatzung in der Plicht versammeln, Rettungswesten anlegen, Sicherheitsleinen bzw. -gurte spannen.
+279. Welche Notsignale können gegeben werden?
+a. Leuchtrakete mit rotem Leuchtstern oder rot brennende Handfackel, anhaltendes Ertönen eines Nebelsignalgerätes, dreimaliges Geben eines Signals per Licht oder Ton, dreimal das Wort MAYDAY über Sprechfunk, seitliches Heben und Senken der Arme, Flaggensignal NC, EPIRB, DSC, Radartransponder.
+b. Leuchtrakete mit rotem Leuchtstern oder rot brennende Handfackel, anhaltendes Ertönen eines Nebelsignalgerätes, dreimaliges Geben eines Signals per Licht oder Ton, Seewasserfärber, seitliches Heben und Senken der Arme, Ball über oder unter Flaggensignal NC, EPIRB, DSC, Radartransponder.
+c. Leuchtrakete mit orangem Leuchtstern oder orange brennende Handfackel, rotes Rauchsignal, anhaltendes Ertönen eines Nebelsignalgerätes, dreimaliges Geben eines Signals per Licht oder Ton, dreimal das Wort MAYDAY über Sprechfunk, seitliches Heben und Senken der Arme, Flaggensignal NC, EPIRB, DSC, Radartransponder.
+d. Leuchtrakete mit rotem Leuchtstern oder rot brennende Handfackel, anhaltendes Ertönen eines Nebelsignalgerätes, dreimaliges Geben eines Signals per Licht oder Ton, dreimal das Wort MAYDAY über Sprechfunk, seitliches Heben und Senken der Arme, Flaggensignal NC, EPIRB, DSC, Radartransponder.
+280. Was bedeutet das Flaggensignal "NC" auf einem Fahrzeug?
+a. Fahrzeug in Seenot.
+b. Fahrzeug des öffentlichen Dienstes.
+c. Fahrzeug mit gefährlichen Gütern.
+d. Fahrzeug verlässt Liegeplatz.
+281. Was bedeutet anhaltendes Ertönen eines Nebelsignalgerätes von einem Fahrzeug?
+a. Fahrzeug in Seenot.
+b. Fahrzeug mit gefährlichen Gütern.
+c. Bleib-weg-Signal.
+d. Achtungssignal.
+282. Was bedeutet das folgende durch Licht oder Schallsignal gegebene Morsesignal? (SOS)
+a. Seenotsignal.
+b. Nebelsignal.
+c. Bleib-weg-Signal.
+d. Überholsignal.
+283. Was bedeutet eine Leuchtrakete mit einem roten Stern?
+a. Seenotfall.
+b. Aufforderung zum Aufstoppen.
+c. Schießübung.
+d. Aufforderung zur Kursänderung.
+284. Was bedeutet folgendes Flaggensignal? (Abbildung)
+a. Fahrzeug in Seenot.
+b. Fahrzeug des öffentlichen Dienstes.
+c. Fahrzeug mit gefährlichen Gütern.
+d. Fahrzeug verlässt Liegeplatz.
+285. Was bedeutet auf einem Schiff eines der folgenden Signale? (Abbildung)
+a. Fahrzeug in Seenot.
+b. Fahrzeug ist manövrierbehindert.
+c. Fahrzeug mit gefährlichen Gütern.
+d. Fahrzeug vor Anker mit mehr als 100 m Länge.

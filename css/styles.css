@@ -262,6 +262,16 @@ button {
   margin-bottom: 14px;
 }
 
+.image-note {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--amber);
+  background: color-mix(in srgb, var(--amber) 14%, transparent);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  margin: 0 0 16px;
+}
+
 .question-text {
   font-size: 19px;
   font-weight: 600;
