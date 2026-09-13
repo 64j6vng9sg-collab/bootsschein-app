@@ -17,7 +17,7 @@ const BASE_URL = process.env.SMOKE_BASE_URL || "http://127.0.0.1:8766/index.html
   await page.waitForSelector(".pkg-card");
   await page.screenshot({ path: "/tmp/shot-dashboard.png" });
 
-  const pkgCount = await page.locator(".pkg-card").count();
+  const pkgCount = await page.locator(".pkg-card[data-pkg]").count();
   console.log("Pakete auf Dashboard:", pkgCount);
 
   await page.locator(".pkg-card").first().click();

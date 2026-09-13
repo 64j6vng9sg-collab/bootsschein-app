@@ -195,6 +195,35 @@
     return store.wiederholungIds(allIds).length;
   }
 
+  const PKG_ICON = { basis: "⚓", see: "🌊", binnen: "🚢", segeln: "⛵" };
+
+  // ---------------------------------------------------------------
+  // Tages-Streak (Duolingo-Prinzip: tägliche Praxis, verlustaversiv
+  // sichtbar gemacht). Zählt hoch, sobald an einem neuen Kalendertag
+  // mindestens eine Frage beantwortet wird; bricht bei einer Lücke ab.
+  // ---------------------------------------------------------------
+  const STREAK_KEY = "sbf-trainer-streak-v1";
+  function todayStr(d = new Date()) {
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+  }
+  function loadStreak() {
+    try { return JSON.parse(localStorage.getItem(STREAK_KEY) || "null") || { count: 0, lastDate: null }; }
+    catch (e) { return { count: 0, lastDate: null }; }
+  }
+  function saveStreak(s) {
+    try { localStorage.setItem(STREAK_KEY, JSON.stringify(s)); } catch (e) { /* ignore */ }
+  }
+  function bumpStreak() {
+    const s = loadStreak();
+    const today = todayStr();
+    if (s.lastDate === today) return;
+    const yStr = todayStr(new Date(Date.now() - 86400000));
+    saveStreak({ count: s.lastDate === yStr ? s.count + 1 : 1, lastDate: today });
+  }
+  function currentStreak() {
+    return loadStreak().count;
+  }
+
   // ---------------------------------------------------------------
   // Views
   // ---------------------------------------------------------------
@@ -207,11 +236,17 @@
     const wrongGlobal = globalWrongCount();
     const wdhGlobal = globalWiederholungCount();
     const bookmarkGlobal = store.bookmarkedIds(allIds).length;
+    const streak = currentStreak();
 
     let html = `
       <div class="hero">
-        <h1>Theorie-Trainer</h1>
-        <p>SBF See &amp; SBF Binnen – kombinierte Prüfungsvorbereitung</p>
+        <div class="hero-top-row">
+          <div>
+            <h1>Theorie-Trainer</h1>
+            <p>SBF See &amp; SBF Binnen – kombinierte Prüfungsvorbereitung</p>
+          </div>
+          ${streak > 0 ? `<div class="streak-badge">🔥<span>${streak}</span></div>` : ""}
+        </div>
       </div>
 
       <div class="card overview-card">
@@ -242,9 +277,6 @@
         <button class="btn btn-secondary" id="qa-wdh" ${wdhGlobal === 0 ? "disabled" : ""}>
           Wiederholungsstapel üben – alle Pakete (${wdhGlobal})
         </button>
-        <button class="btn btn-ghost" id="qa-bookmarks" ${bookmarkGlobal === 0 ? "disabled" : ""}>
-          🔖 Lesezeichen üben (${bookmarkGlobal})
-        </button>
       </div>
 
       <div class="section-label">Deine Fragenpakete</div>
@@ -257,7 +289,7 @@
         <button class="card pkg-card card-tap" data-pkg="${p.id}">
           <div class="pkg-head">
             <div>
-              <div class="pkg-title">${p.title}</div>
+              <div class="pkg-title"><span class="pkg-icon">${PKG_ICON[p.id] || "📘"}</span>${p.title}</div>
               <div class="pkg-subtitle">${p.subtitle}</div>
             </div>
             <div class="pkg-count">${s.processed}/${s.total}</div>
@@ -274,6 +306,18 @@
     });
 
     html += `
+      <button class="card pkg-card pkg-card-bookmarks card-tap" id="pkg-bookmarks" ${bookmarkGlobal === 0 ? "disabled" : ""}>
+        <div class="pkg-head">
+          <div>
+            <div class="pkg-title"><span class="pkg-icon">🔖</span>Markierte Fragen</div>
+            <div class="pkg-subtitle">Deine Lesezeichen aus allen Paketen</div>
+          </div>
+          <div class="pkg-count">${bookmarkGlobal}</div>
+        </div>
+      </button>
+    `;
+
+    html += `
       <div class="disclaimer">
         Hinweis zur Fragenquelle: Alle Fragen sind wortlaut- und nummerngetreu aus den amtlichen Fragenkatalogen
         SBF See und SBF Binnen (ELWIS, Stand 01.08.2023) übernommen. Fragen mit ⚠️-Hinweis beziehen sich im
@@ -284,7 +328,7 @@
 
     root.innerHTML = html;
 
-    root.querySelectorAll(".pkg-card").forEach((el) => {
+    root.querySelectorAll(".pkg-card[data-pkg]").forEach((el) => {
       el.addEventListener("click", () => push({ screen: "package", pkgId: el.dataset.pkg }));
     });
     const qaWrong = document.getElementById("qa-wrong");
@@ -295,10 +339,76 @@
     if (qaWdh) {
       qaWdh.addEventListener("click", () => startSession(store.wiederholungIds(allIds), "wiederholung", null));
     }
-    const qaBookmarks = document.getElementById("qa-bookmarks");
-    if (qaBookmarks) {
-      qaBookmarks.addEventListener("click", () => startSession(store.bookmarkedIds(allIds), "bookmarks", null));
+    const pkgBookmarks = document.getElementById("pkg-bookmarks");
+    if (pkgBookmarks) {
+      pkgBookmarks.addEventListener("click", () => push({ screen: "bookmarks" }));
     }
+  }
+
+  // ---------------------------------------------------------------
+  // Übersicht der markierten Fragen, aufgeschlüsselt nach Herkunfts-
+  // paket – die "Hauptstapel"-Ansicht für Lesezeichen.
+  // ---------------------------------------------------------------
+  function renderBookmarksOverview() {
+    topbarTitle.textContent = "Markierte Fragen";
+    backBtn.style.visibility = "visible";
+    homeBtn.style.visibility = "visible";
+
+    const allBookmarks = store.bookmarkedIds(allIds);
+    const perPkg = PACKAGES.map((p) => ({
+      p,
+      ids: store.bookmarkedIds(byPkg[p.id]),
+    }));
+
+    let html = `
+      <div class="hero" style="padding-top:10px;">
+        <h1 style="font-size:24px;">🔖 Markierte Fragen</h1>
+        <p>Alle Fragen, die du mit einem Lesezeichen versehen hast</p>
+      </div>
+
+      <div class="quick-actions">
+        <button class="btn btn-primary" id="btn-bookmarks-all" ${allBookmarks.length === 0 ? "disabled" : ""}>
+          Alle markierten Fragen üben (${allBookmarks.length})
+        </button>
+      </div>
+
+      <div class="section-label">Nach Fragenpaket</div>
+    `;
+
+    if (allBookmarks.length === 0) {
+      html += `
+        <div class="empty-state">
+          <span class="big-emoji">🔖</span>
+          <h2>Noch keine Lesezeichen</h2>
+          <p>Tippe beim Üben auf das Lesezeichen-Symbol einer Frage, um sie hier wiederzufinden.</p>
+        </div>
+      `;
+    } else {
+      perPkg.forEach(({ p, ids }) => {
+        html += `
+          <button class="card pkg-card card-tap" data-bookmark-pkg="${p.id}" ${ids.length === 0 ? "disabled" : ""}>
+            <div class="pkg-head">
+              <div>
+                <div class="pkg-title"><span class="pkg-icon">${PKG_ICON[p.id] || "📘"}</span>Markierte Fragen – ${p.title}</div>
+                <div class="pkg-subtitle">${p.subtitle}</div>
+              </div>
+              <div class="pkg-count">${ids.length}</div>
+            </div>
+          </button>
+        `;
+      });
+    }
+
+    root.innerHTML = html;
+
+    const allBtn = document.getElementById("btn-bookmarks-all");
+    if (allBtn) allBtn.addEventListener("click", () => startSession(allBookmarks, "bookmarks", null));
+    root.querySelectorAll(".pkg-card[data-bookmark-pkg]").forEach((el) => {
+      el.addEventListener("click", () => {
+        const pkgId = el.dataset.bookmarkPkg;
+        startSession(store.bookmarkedIds(byPkg[pkgId]), "bookmarks", pkgId);
+      });
+    });
   }
 
   function renderPackage(pkgId) {
@@ -308,6 +418,7 @@
     const neuIds = store.neuIds(ids);
     const wrongIds = store.wrongIds(ids);
     const wdhIds = store.wiederholungIds(ids);
+    const bookmarkIds = store.bookmarkedIds(ids);
 
     topbarTitle.textContent = p.title;
     backBtn.style.visibility = "visible";
@@ -364,6 +475,9 @@
         <div class="stat-row" style="justify-content:space-between; margin:8px 0;">
           <span><span class="dot" style="background:var(--green)"></span>Wiederholungsstapel</span><span><strong>${wdhIds.length}</strong></span>
         </div>
+        <div class="stat-row" style="justify-content:space-between; margin:8px 0;">
+          <span>🔖 Markierte Fragen</span><span><strong>${bookmarkIds.length}</strong></span>
+        </div>
       </div>
 
       <div class="quick-actions" style="margin-top:20px;">
@@ -379,6 +493,9 @@
         <button class="review-link" id="btn-wdh-review" ${wdhIds.length === 0 ? "disabled" : ""}>
           👁 Nur ansehen – ohne erneute Wertung
         </button>
+        <button class="btn btn-secondary" id="btn-bookmarks" ${bookmarkIds.length === 0 ? "disabled" : ""}>
+          🔖 Markierte Fragen üben (${bookmarkIds.length})
+        </button>
       </div>
     `;
 
@@ -387,10 +504,12 @@
     const wrongBtn = document.getElementById("btn-wrong");
     const wdhBtn = document.getElementById("btn-wdh");
     const wdhReviewBtn = document.getElementById("btn-wdh-review");
+    const bookmarksBtn = document.getElementById("btn-bookmarks");
     if (neuBtn) neuBtn.addEventListener("click", () => startSession(neuIds, "neu", pkgId));
     if (wrongBtn) wrongBtn.addEventListener("click", () => startSession(wrongIds, "wrong", pkgId));
     if (wdhBtn) wdhBtn.addEventListener("click", () => startSession(wdhIds, "wiederholung", pkgId));
     if (wdhReviewBtn) wdhReviewBtn.addEventListener("click", () => startReview(wdhIds, pkgId));
+    if (bookmarksBtn) bookmarksBtn.addEventListener("click", () => startSession(bookmarkIds, "bookmarks", pkgId));
   }
 
   function shuffle(arr) {
@@ -576,6 +695,7 @@
     slide.answered = choiceIndex;
     if (correct) session.correctCount += 1;
     store.recordAnswer(q.id, correct, choiceIndex);
+    bumpStreak();
 
     const slideEl = root.querySelector(`.reel-slide[data-slide-id="${slideId}"]`);
     if (slideEl) fillAnsweredSlideDom(slideEl, slide);
@@ -744,6 +864,7 @@
     if (view.screen === "splash") renderSplash();
     else if (view.screen === "dashboard") renderDashboard();
     else if (view.screen === "package") renderPackage(view.pkgId);
+    else if (view.screen === "bookmarks") renderBookmarksOverview();
     else if (view.screen === "trainer") renderTrainer();
     if (view.screen !== "splash") renderTopProgress();
     if (view.screen !== "trainer") window.scrollTo(0, 0);
