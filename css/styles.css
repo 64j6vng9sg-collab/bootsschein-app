@@ -343,6 +343,22 @@ body.reel-mode .app {
   margin: 0 0 16px;
 }
 
+.image-frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+  border: 1.5px dashed color-mix(in srgb, var(--amber) 55%, var(--line));
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--amber) 8%, transparent);
+  padding: 22px 14px;
+  margin: 0 0 16px;
+}
+.image-frame-icon { width: 30px; height: 30px; color: var(--amber); }
+.image-frame-label { font-size: 13px; font-weight: 600; color: var(--amber); }
+.image-frame-note { font-size: 12px; line-height: 1.4; color: var(--ink-muted); }
+
 .question-text {
   font-size: 19px;
   font-weight: 600;

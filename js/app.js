@@ -277,7 +277,17 @@
   function slideInnerHtml(slide) {
     const q = qById[slide.qId];
     const diagramHtml = q.diagram && DIAGRAMS[q.diagram] ? `<div class="diagram-wrap">${DIAGRAMS[q.diagram]}</div>` : "";
-    const imageNoteHtml = q.note ? `<div class="image-note">⚠️ ${q.note}</div>` : "";
+    const imageNoteHtml = q.note ? `
+      <div class="image-frame">
+        <svg class="image-frame-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="2" y="4" width="20" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/>
+          <circle cx="8" cy="10" r="1.6" fill="currentColor"/>
+          <path d="M4 17 L9 12 L13 16 L16 13 L20 17" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="image-frame-label">Originalabbildung erforderlich</span>
+        <span class="image-frame-note">${q.note}</span>
+      </div>
+    ` : "";
     const optionsHtml = q.options.map((opt, i) => `
       <button class="option" data-i="${i}">
         <span class="letter">${letterFor(i)}</span>
