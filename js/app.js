@@ -57,8 +57,12 @@
     return store.packageStats(all);
   }
 
+  const allIds = QUESTIONS.map((q) => q.id);
   function globalWrongCount() {
-    return store.wrongIds(QUESTIONS.map((q) => q.id)).length;
+    return store.wrongIds(allIds).length;
+  }
+  function globalWiederholungCount() {
+    return store.wiederholungIds(allIds).length;
   }
 
   // ---------------------------------------------------------------
@@ -71,6 +75,7 @@
 
     const overall = overallStats();
     const wrongGlobal = globalWrongCount();
+    const wdhGlobal = globalWiederholungCount();
 
     let html = `
       <div class="hero">
@@ -91,7 +96,10 @@
 
       <div class="quick-actions">
         <button class="btn btn-primary" id="qa-wrong" ${wrongGlobal === 0 ? "disabled" : ""}>
-          Nur falsch beantwortete üben (${wrongGlobal})
+          Falsch beantwortete üben – alle Pakete (${wrongGlobal})
+        </button>
+        <button class="btn btn-secondary" id="qa-wdh" ${wdhGlobal === 0 ? "disabled" : ""}>
+          Wiederholungsstapel üben – alle Pakete (${wdhGlobal})
         </button>
       </div>
 
@@ -137,7 +145,11 @@
     });
     const qaWrong = document.getElementById("qa-wrong");
     if (qaWrong) {
-      qaWrong.addEventListener("click", () => startSession(QUESTIONS.map((q) => q.id).filter((id) => store.wrongIds([id]).length), "wrong-global", null));
+      qaWrong.addEventListener("click", () => startSession(store.wrongIds(allIds), "wrong", null));
+    }
+    const qaWdh = document.getElementById("qa-wdh");
+    if (qaWdh) {
+      qaWdh.addEventListener("click", () => startSession(store.wiederholungIds(allIds), "wiederholung", null));
     }
   }
 
@@ -145,8 +157,9 @@
     const p = PACKAGES.find((x) => x.id === pkgId);
     const ids = byPkg[pkgId];
     const s = store.packageStats(ids);
+    const neuIds = store.neuIds(ids);
     const wrongIds = store.wrongIds(ids);
-    const unlearnedIds = store.unlearnedIds(ids);
+    const wdhIds = store.wiederholungIds(ids);
 
     topbarTitle.textContent = p.title;
     backBtn.style.visibility = "visible";
@@ -192,21 +205,39 @@
         `).join("")}
       </div>
 
+      <div class="section-label">Fragenstapel</div>
+      <div class="card">
+        <div class="stat-row" style="justify-content:space-between; margin:8px 0;">
+          <span>🆕 Neu (unbeantwortet)</span><span><strong>${neuIds.length}</strong></span>
+        </div>
+        <div class="stat-row" style="justify-content:space-between; margin:8px 0;">
+          <span><span class="dot" style="background:var(--red)"></span>Falsch beantwortet</span><span><strong>${wrongIds.length}</strong></span>
+        </div>
+        <div class="stat-row" style="justify-content:space-between; margin:8px 0;">
+          <span><span class="dot" style="background:var(--green)"></span>Wiederholungsstapel</span><span><strong>${wdhIds.length}</strong></span>
+        </div>
+      </div>
+
       <div class="quick-actions" style="margin-top:20px;">
-        <button class="btn btn-primary" id="btn-learn" ${unlearnedIds.length === 0 ? "disabled" : ""}>
-          ${s.processed === 0 ? "Training starten" : "Weiterlernen"} (${unlearnedIds.length} offen)
+        <button class="btn btn-primary" id="btn-neu" ${neuIds.length === 0 ? "disabled" : ""}>
+          Neue Fragen lernen (${neuIds.length})
         </button>
         <button class="btn btn-secondary" id="btn-wrong" ${wrongIds.length === 0 ? "disabled" : ""}>
-          Nur falsche wiederholen (${wrongIds.length})
+          Falsch beantwortete üben (${wrongIds.length})
+        </button>
+        <button class="btn btn-secondary" id="btn-wdh" ${wdhIds.length === 0 ? "disabled" : ""}>
+          Wiederholungsstapel üben (${wdhIds.length})
         </button>
       </div>
     `;
 
     root.innerHTML = html;
-    const learnBtn = document.getElementById("btn-learn");
+    const neuBtn = document.getElementById("btn-neu");
     const wrongBtn = document.getElementById("btn-wrong");
-    if (learnBtn) learnBtn.addEventListener("click", () => startSession(unlearnedIds, "learn", pkgId));
+    const wdhBtn = document.getElementById("btn-wdh");
+    if (neuBtn) neuBtn.addEventListener("click", () => startSession(neuIds, "neu", pkgId));
     if (wrongBtn) wrongBtn.addEventListener("click", () => startSession(wrongIds, "wrong", pkgId));
+    if (wdhBtn) wdhBtn.addEventListener("click", () => startSession(wdhIds, "wiederholung", pkgId));
   }
 
   function shuffle(arr) {
@@ -227,7 +258,8 @@
   function letterFor(i) { return ["A", "B", "C", "D"][i]; }
 
   function renderTrainer() {
-    const pkgTitle = session.pkgId ? PACKAGES.find((p) => p.id === session.pkgId).title : "Wiederholung – alle Pakete";
+    const modeLabel = session.mode === "wrong" ? "Falsch beantwortete" : session.mode === "wiederholung" ? "Wiederholungsstapel" : "Neue Fragen";
+    const pkgTitle = session.pkgId ? PACKAGES.find((p) => p.id === session.pkgId).title : `${modeLabel} – alle Pakete`;
     topbarTitle.textContent = pkgTitle;
     backBtn.style.visibility = "visible";
     homeBtn.style.visibility = "visible";
@@ -307,7 +339,14 @@
     if (session.answered !== null) return;
     const correct = choiceIndex === q.correct;
     session.answered = choiceIndex;
-    if (correct) session.correctCount += 1;
+    if (correct) {
+      session.correctCount += 1;
+    } else {
+      // Falsch beantwortete Fragen werden ans Ende der aktuellen Übungsrunde
+      // zurückgestellt, statt zu verschwinden – sie bleiben so lange im
+      // Falsch-Stapel, bis sie zweimal in Folge richtig beantwortet wurden.
+      session.ids.push(q.id);
+    }
     store.recordAnswer(q.id, correct);
     render();
   }
@@ -323,13 +362,13 @@
     const total = session.ids.length;
     const correct = session.correctCount;
     const pct = total ? Math.round((correct / total) * 100) : 0;
-    const stillWrong = session.ids.filter((id) => store.stateFor(id).lastResult === "wrong").length;
+    const stillWrong = [...new Set(session.ids)].filter((id) => store.stateFor(id).lastResult === "wrong").length;
 
     root.innerHTML = `
       <div class="empty-state">
         <span class="big-emoji">${pct >= 90 ? "⚓️" : pct >= 60 ? "🧭" : "🌊"}</span>
         <h2>${correct} von ${total} richtig</h2>
-        <p>${pct}% dieser Runde korrekt beantwortet.${stillWrong ? ` ${stillWrong} Frage(n) bleiben im Wiederholungspaket.` : " Alle offenen Fragen dieser Runde richtig!"}</p>
+        <p>${pct}% dieser Runde korrekt beantwortet.${stillWrong ? ` ${stillWrong} Frage(n) bleiben im Falsch-Stapel.` : " Alle Fragen dieser Runde liegen jetzt im Wiederholungsstapel!"}</p>
       </div>
       <div class="quick-actions">
         <button class="btn btn-primary" id="btn-again">Nochmal üben</button>
@@ -338,7 +377,9 @@
     `;
 
     document.getElementById("btn-again").addEventListener("click", () => {
-      const ids = session.pkgId ? (session.mode === "wrong" ? store.wrongIds(byPkg[session.pkgId]) : store.unlearnedIds(byPkg[session.pkgId])) : store.wrongIds(QUESTIONS.map((q) => q.id));
+      const pool = session.pkgId ? byPkg[session.pkgId] : allIds;
+      const bucketFn = session.mode === "wrong" ? store.wrongIds : session.mode === "wiederholung" ? store.wiederholungIds : store.neuIds;
+      const ids = bucketFn.call(store, pool);
       if (ids.length === 0) { back(); return; }
       startSession(ids, session.mode, session.pkgId);
     });

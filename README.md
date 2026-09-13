@@ -30,14 +30,29 @@ für die App-artige Vollbild-Nutzung ohne Browser-Chrome.
 
 ## Lernlogik
 
-- Fortschritt wird pro Frage lokal auf dem Gerät gespeichert (`localStorage`).
-- Eine Frage gilt als **sicher gelernt**, sobald sie **zweimal in Folge**
-  richtig beantwortet wurde.
-- Wird eine Frage falsch beantwortet, landet sie automatisch im
-  **Wiederholungspaket** des jeweiligen Fragenpakets, bis sie wieder
-  zweimal in Folge richtig beantwortet wird.
-- Auf dem Dashboard gibt es zusätzlich eine paketübergreifende
-  Schnellaktion „Nur falsch beantwortete Fragen üben“.
+Fortschritt wird pro Frage lokal auf dem Gerät gespeichert (`localStorage`).
+Jede Frage befindet sich pro Fragenpaket jederzeit in genau einem von drei
+nachverfolgbaren Stapeln:
+
+- **Neu** – noch nie beantwortet.
+- **Falsch beantwortet** – die letzte Antwort war falsch. Beim Üben wird
+  eine erneut falsch beantwortete Frage ans Ende der laufenden Übungsrunde
+  zurückgestellt statt zu verschwinden, sodass man sie in derselben Runde
+  wieder vorgelegt bekommt.
+- **Wiederholungsstapel** – die letzte Antwort war richtig. Fragen bleiben
+  hier auch nach dem Verlassen des Falsch-Stapels sichtbar und stehen für
+  gelegentliche Wiederholung bereit, statt einfach zu verschwinden.
+
+Zusätzlich gilt eine Frage als **sicher gelernt** (Badge/Prozentanzeige),
+sobald sie **zweimal in Folge** richtig beantwortet wurde. Eine falsch
+beantwortete Frage aus dem Wiederholungsstapel fällt sofort in den
+Falsch-Stapel zurück und muss dort erneut zweimal hintereinander richtig
+beantwortet werden, bevor sie wieder in den Wiederholungsstapel wechselt.
+
+Jedes Fragenpaket zeigt alle drei Stapel mit Anzahl und eigenem
+Üben-Button. Auf dem Dashboard gibt es zusätzlich paketübergreifende
+Schnellaktionen für „Falsch beantwortete üben“ und „Wiederholungsstapel
+üben“.
 
 ## Stand der Fragenquelle
 

@@ -1,15 +1,27 @@
 /*
  * Fortschritts- und Wiederholungslogik.
  *
- * Regeln:
- * - Eine Frage gilt als "gelernt", sobald sie zweimal in Folge richtig
- *   beantwortet wurde (consecutiveCorrect >= 2).
- * - Wird eine Frage falsch beantwortet, wird consecutiveCorrect auf 0
- *   zurückgesetzt und die Frage landet (erneut) im Wiederholungspaket
- *   des jeweiligen Fragenpakets (lastResult === "wrong").
- * - Sobald die Frage danach wieder richtig beantwortet wird, verlässt sie
- *   das Wiederholungspaket, gilt aber erst nach der zweiten
- *   Folge-richtig-Antwort als sicher gelernt.
+ * Jede Frage befindet sich pro Fragenpaket jederzeit in genau einem von
+ * drei nachverfolgbaren Stapeln:
+ *
+ * - "Neu"               – noch nie beantwortet (timesSeen === 0).
+ * - "Falsch beantwortet" – die letzte Antwort war falsch. Diese Fragen
+ *                          bilden eine Warteschlange: Beim Üben wird eine
+ *                          erneut falsch beantwortete Frage ans Ende der
+ *                          aktuellen Übungsrunde zurückgestellt statt zu
+ *                          verschwinden.
+ * - "Wiederholungsstapel" – die letzte Antwort war richtig. Fragen
+ *                          bleiben hier auch nach dem Verlassen des
+ *                          Falsch-Stapels sichtbar und werden nicht
+ *                          automatisch entfernt, sondern stehen für
+ *                          gelegentliche Wiederholung bereit.
+ *
+ * Eine Frage gilt zusätzlich als "sicher gelernt" (Badge innerhalb des
+ * Wiederholungsstapels), sobald sie zweimal in Folge richtig beantwortet
+ * wurde (consecutiveCorrect >= 2). Eine falsch beantwortete Frage aus dem
+ * Wiederholungsstapel fällt sofort zurück in den Falsch-Stapel und muss
+ * dort erneut zweimal hintereinander richtig beantwortet werden, bevor sie
+ * wieder in den Wiederholungsstapel wechselt.
  */
 
 const STORAGE_KEY = "sbf-trainer-progress-v1";
@@ -75,26 +87,44 @@ class ProgressStore {
   packageStats(questionIds) {
     const total = questionIds.length;
     let processed = 0;
-    let wrong = 0;
+    let neu = 0;
+    let falsch = 0;
+    let wiederholung = 0;
     let learned = 0;
     questionIds.forEach((id) => {
       const s = this.progress[id];
-      if (!s || s.timesSeen === 0) return;
+      if (!s || s.timesSeen === 0) {
+        neu += 1;
+        return;
+      }
       processed += 1;
-      if (s.lastResult === "wrong") wrong += 1;
+      if (s.lastResult === "wrong") falsch += 1;
+      else wiederholung += 1;
       if (s.learned) learned += 1;
     });
     return {
       total,
       processed,
-      wrong,
+      neu,
+      wrong: falsch,
+      falsch,
+      wiederholung,
       learned,
       percentProcessed: total ? Math.round((processed / total) * 100) : 0,
-      percentWrongOfProcessed: processed ? Math.round((wrong / processed) * 100) : 0,
+      percentWrongOfProcessed: processed ? Math.round((falsch / processed) * 100) : 0,
       percentLearned: total ? Math.round((learned / total) * 100) : 0,
     };
   }
 
+  /** Fragen, die noch nie beantwortet wurden. */
+  neuIds(questionIds) {
+    return questionIds.filter((id) => {
+      const s = this.progress[id];
+      return !s || s.timesSeen === 0;
+    });
+  }
+
+  /** Fragen, deren letzte Antwort falsch war (Falsch-Stapel). */
   wrongIds(questionIds) {
     return questionIds.filter((id) => {
       const s = this.progress[id];
@@ -102,6 +132,15 @@ class ProgressStore {
     });
   }
 
+  /** Fragen, deren letzte Antwort richtig war (Wiederholungsstapel). */
+  wiederholungIds(questionIds) {
+    return questionIds.filter((id) => {
+      const s = this.progress[id];
+      return s && s.timesSeen > 0 && s.lastResult === "correct";
+    });
+  }
+
+  /** Noch nicht "sicher gelernt" (für den klassischen Weiterlernen-Modus: Neu + Falsch + einmal-richtig-aber-nicht-gefestigt). */
   unlearnedIds(questionIds) {
     return questionIds.filter((id) => {
       const s = this.progress[id];
