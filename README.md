@@ -67,10 +67,19 @@ Schifffahrtsverwaltung des Bundes (ELWIS, Stand 01.08.2023):
 | Binnenspezifische Fragen | 181 | Fragenkatalog SBF Binnen, Frage 73–253 |
 | Spezifische Fragen Segeln | 47 | Fragenkatalog SBF Binnen, Frage 254–300 |
 
-Bei 141 der 513 Fragen bezieht sich das Original zusätzlich auf eine
-Abbildung (Lichterbild, Tafelzeichen, Flaggensignal, Skizze mit mehreren
-Booten o. Ä.), die im Katalog nur als Grafik existiert und hier nicht
-reproduziert werden kann; diese Fragen sind in der App mit einem
+Bei ursprünglich 141 der 513 Fragen bezieht sich das Original zusätzlich
+auf eine Abbildung (Lichterbild, Tafelzeichen, Flaggensignal, Skizze mit
+mehreren Booten o. Ä.), die im Katalog nur als Grafik existiert und hier
+nicht reproduziert werden kann. Für 28 davon – vor allem Fragen zur
+Lichter- und Signalkörperführung nach KVR/BinSchStrO (manövrierunfähig,
+manövrierbehindert, Grundsitzer, fischend, Anker, Gefahrgut-Blaulichter
+u. Ä.) – wurde inzwischen ein **eigenes Referenzdiagramm** ergänzt: kein
+Nachbau der amtlichen Abbildung, sondern eine selbst erstellte, nach den
+einschlägigen Vorschriften korrekte Darstellung der jeweils genannten
+Signalführung, mit der sich die Antwort auch ohne das Original prüfen
+lässt. Die verbleibenden 113 Fragen (v. a. beliebige Tafelzeichen-Grafiken,
+Flaggensignale und mehrdeutige Mehrboot-Skizzen, deren exaktes Aussehen
+sich nicht aus dem Antworttext ableiten lässt) sind weiterhin mit einem
 ⚠️-Warnhinweis gekennzeichnet. Die Erkennung erfolgt heuristisch
 (Textmuster wie „folgende/diese/nachstehende Lichter/Tafelzeichen/…“),
 ist also nicht zu 100 % präzise — vereinzelt kann eine eigentlich
@@ -82,8 +91,8 @@ amtlichen Übungskarte (D49) und lässt sich nicht sinnvoll als
 Multiple-Choice abbilden.
 
 **Vor der echten Prüfung ersetzt diese App nicht das Durcharbeiten der
-141 bild-basierten Fragen (Original-Abbildung ansehen) und der
-Navigationsaufgaben mit der amtlichen Übungskarte.**
+verbleibenden 113 bild-basierten Fragen (Original-Abbildung ansehen) und
+der Navigationsaufgaben mit der amtlichen Übungskarte.**
 
 ### Fragenbank erweitern
 
@@ -94,6 +103,8 @@ einer der Schlüssel aus `CATEGORIES`. Rohtexte und die Parser/Generator-
 Skripte, mit denen `js/data.js` aus dem amtlichen Katalogtext erzeugt
 wurde, liegen unter `sources/fragenkatalog-see/` und
 `sources/fragenkatalog-binnen/` sowie `scripts/parse-katalog*.js` und
-`scripts/generate-data-js*.js` – nützlich, falls z. B. die 141
-bild-basierten Fragen später mit den amtlichen Abbildungen ergänzt
-werden sollen.
+`scripts/generate-data-js*.js` – nützlich, falls z. B. die verbleibenden
+113 bild-basierten Fragen später mit den amtlichen Abbildungen ergänzt
+werden sollen. `scripts/attach-diagrams.js` dokumentiert, wie die 28
+Referenzdiagramme mit den jeweiligen Fragen verknüpft wurden, und lässt
+sich um weitere Zuordnungen erweitern.

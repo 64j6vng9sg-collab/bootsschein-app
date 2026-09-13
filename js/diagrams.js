@@ -7,6 +7,8 @@
 
 const INK = "#152238";
 const PAPER = "#F4EFE6";
+const WHITE = "#FFFFFF";
+const BLUE = "#2A5CC9";
 const RED = "#C63A2E";
 const GREEN = "#1E8F5F";
 const AMBER = "#E0A527";
@@ -14,6 +16,59 @@ const MUTE = "#8A95A6";
 
 function svgWrap(inner, viewBox = "0 0 240 240") {
   return `<svg viewBox="${viewBox}" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">${inner}</svg>`;
+}
+
+/*
+ * Generischer Baustein für Lichter- und Signalkörper-Schaubilder:
+ * eine senkrechte Stange mit gestapelten Formen (Lichtern oder
+ * Tagsignalkörpern), optional ergänzt um Seitenlichter (rot/grün)
+ * und/oder ein Hecklicht am Fuß der Stange. Die Formen und deren
+ * Bedeutung (Farbe, Anzahl, Anordnung) stammen aus den einschlägigen
+ * KVR-/BinSchStrO-Regeln zur Signalführung des jeweils genannten
+ * Fahrzeugtyps – nicht aus der (hier nicht vorliegenden) amtlichen
+ * Abbildung selbst.
+ */
+function shapeMark(shape, cx, cy, color) {
+  const r = 14;
+  const stroke = color === WHITE ? INK : "none";
+  switch (shape) {
+    case "light":
+      return `<circle cx="${cx}" cy="${cy}" r="${r - 4}" fill="${color}" stroke="${stroke}" stroke-width="2"/>
+              <circle cx="${cx}" cy="${cy}" r="${r + 3}" fill="none" stroke="${color}" stroke-width="2" stroke-dasharray="3 4" opacity="0.55"/>`;
+    case "ball":
+      return `<circle cx="${cx}" cy="${cy}" r="${r}" fill="${color}" stroke="${INK}" stroke-width="2"/>`;
+    case "cone-up":
+      return `<path d="M${cx - r} ${cy + r} L${cx + r} ${cy + r} L${cx} ${cy - r} Z" fill="${color}" stroke="${INK}" stroke-width="2"/>`;
+    case "cone-down":
+      return `<path d="M${cx - r} ${cy - r} L${cx + r} ${cy - r} L${cx} ${cy + r} Z" fill="${color}" stroke="${INK}" stroke-width="2"/>`;
+    case "cylinder":
+      return `<rect x="${cx - r}" y="${cy - r * 0.7}" width="${r * 2}" height="${r * 1.4}" fill="${color}" stroke="${INK}" stroke-width="2"/>`;
+    case "diamond":
+      return `<path d="M${cx} ${cy - r} L${cx + r} ${cy} L${cx} ${cy + r} L${cx - r} ${cy} Z" fill="${color}" stroke="${INK}" stroke-width="2"/>`;
+    default:
+      return "";
+  }
+}
+
+function signalStack(items, caption, opts = {}) {
+  const spacing = items.length > 2 ? 34 : 40;
+  const topY = 54;
+  const lastY = topY + (items.length - 1) * spacing;
+  const sideY = lastY + 26;
+  const sternY = opts.sideLights ? sideY + 26 : lastY + 26;
+  const poleBottom = opts.sternLight ? sternY : opts.sideLights ? sideY : lastY + 18;
+  let inner = `<line x1="120" y1="${topY - 16}" x2="120" y2="${poleBottom}" stroke="${INK}" stroke-width="4"/>`;
+  items.forEach((it, i) => {
+    inner += shapeMark(it.shape, 120, topY + i * spacing, it.color);
+  });
+  if (opts.sideLights) {
+    inner += `${shapeMark("light", 92, sideY, RED)}${shapeMark("light", 148, sideY, GREEN)}`;
+  }
+  if (opts.sternLight) {
+    inner += shapeMark("light", 120, sternY, WHITE);
+  }
+  inner += `<text x="120" y="228" text-anchor="middle" font-size="12" fill="${MUTE}" font-family="inherit">${caption}</text>`;
+  return svgWrap(inner);
 }
 
 const DIAGRAMS = {
@@ -115,6 +170,105 @@ const DIAGRAMS = {
     <line x1="20" y1="190" x2="220" y2="190" stroke="${INK}" stroke-width="2"/>
     <text x="120" y="215" text-anchor="middle" font-size="13" fill="${MUTE}" font-family="inherit">Beaufort-Skala – Windstärke 1 bis 9+</text>
   `, "0 0 240 230"),
+
+  // --- Eigene Referenzdiagramme zu benannten Lichter-/Signalkörper-
+  // Vorschriften (KVR bzw. BinSchStrO), für Fragen, deren amtliche
+  // Abbildung hier nicht vorliegt. Zeigt die regelkonforme Signalführung
+  // des in der Antwort genannten Fahrzeugtyps – keine Nachbildung der
+  // Original-Abbildung, sondern ein eigenständig erstelltes Lehrbild.
+  navLightsMotorLarge: signalStack(
+    [{ shape: "light", color: WHITE }, { shape: "light", color: WHITE }],
+    "2 Topplichter (vorn niedriger, achtern höher) + Seiten- u. Hecklicht (≥ 50 m)",
+    { sideLights: true, sternLight: true }
+  ),
+  lightsNUC: signalStack(
+    [{ shape: "light", color: RED }, { shape: "light", color: RED }],
+    "Manövrierunfähig: mind. 2 rote Rundumlichter (bei Fahrt durchs Wasser zusätzlich Seiten-/Hecklicht)"
+  ),
+  lightsRAM: signalStack(
+    [{ shape: "light", color: RED }, { shape: "light", color: WHITE }, { shape: "light", color: RED }],
+    "Manövrierbehindert, mit Fahrt durchs Wasser: rot-weiß-rot + Seiten-/Hecklicht",
+    { sideLights: true, sternLight: true }
+  ),
+  lightsRAMBasic: signalStack(
+    [{ shape: "light", color: RED }, { shape: "light", color: WHITE }, { shape: "light", color: RED }],
+    "Manövrierbehindert: rot-weiß-rot senkrecht übereinander"
+  ),
+  dayBallsTwo: signalStack(
+    [{ shape: "ball", color: INK }, { shape: "ball", color: INK }],
+    "Tagsignal manövrierunfähig: 2 schwarze Bälle übereinander"
+  ),
+  dayBallDiamondBall: signalStack(
+    [{ shape: "ball", color: INK }, { shape: "diamond", color: INK }, { shape: "ball", color: INK }],
+    "Tagsignal manövrierbehindert: Ball-Rhombus-Ball"
+  ),
+  dayDiamond: signalStack(
+    [{ shape: "diamond", color: INK }],
+    "Schwarzer Rhombus – Schleppverband mit mehr als 200 m Länge"
+  ),
+  lightsAgroundSmall: signalStack(
+    [{ shape: "light", color: RED }, { shape: "light", color: RED }],
+    "Grundsitzer < 50 m: 2 rote Rundumlichter (zusätzlich Ankerlicht(er))"
+  ),
+  dayBallsThree: signalStack(
+    [{ shape: "ball", color: INK }, { shape: "ball", color: INK }, { shape: "ball", color: INK }],
+    "Tagsignal Grundsitzer: 3 schwarze Bälle senkrecht übereinander"
+  ),
+  dayCylinder: signalStack(
+    [{ shape: "cylinder", color: INK }],
+    "Tagsignal tiefgangbehindertes Fahrzeug: schwarzer Zylinder"
+  ),
+  lightsTrawling: signalStack(
+    [{ shape: "light", color: GREEN }, { shape: "light", color: WHITE }],
+    "Fischen mit Schleppnetz (Trawler): grün über weiß"
+  ),
+  lightsFishingNonTrawl: signalStack(
+    [{ shape: "light", color: RED }, { shape: "light", color: WHITE }],
+    "Fischen ohne Schleppnetz: rot über weiß"
+  ),
+  dayConesTouching: signalStack(
+    [{ shape: "cone-down", color: INK }, { shape: "cone-up", color: INK }],
+    "Tagsignal fischendes Fahrzeug: zwei Kegel, Spitze gegen Spitze"
+  ),
+  lightsAnchorSingle: signalStack(
+    [{ shape: "light", color: WHITE }],
+    "Ankerlieger < 50 m: ein weißes Rundumlicht"
+  ),
+  lightsAnchorDouble: signalStack(
+    [{ shape: "light", color: WHITE }, { shape: "light", color: WHITE }],
+    "Ankerlieger ≥ 100 m: je ein weißes Rundumlicht vorn und achtern"
+  ),
+  dayDiamondsObstructed: signalStack(
+    [{ shape: "diamond", color: INK }, { shape: "diamond", color: INK }],
+    "Tagsignal an der gesperrten Seite von Bagger-/Arbeitsfahrzeugen: 2 schwarze Rhomben übereinander"
+  ),
+  lightsGreenPairClear: signalStack(
+    [{ shape: "light", color: GREEN }, { shape: "light", color: GREEN }],
+    "Nachtsignal an der freien, sicheren Vorbeifahrtseite: 2 grüne Rundumlichter übereinander"
+  ),
+  lightsBlueOne: signalStack(
+    [{ shape: "light", color: BLUE }],
+    "Ein blaues Licht – brennbare Stoffe geladen (Mindestabstand 10 m)"
+  ),
+  lightsBlueTwo: signalStack(
+    [{ shape: "light", color: BLUE }, { shape: "light", color: BLUE }],
+    "Zwei blaue Lichter – gesundheitsschädliche Stoffe geladen (Mindestabstand 50 m)"
+  ),
+  lightsBlueThree: signalStack(
+    [{ shape: "light", color: BLUE }, { shape: "light", color: BLUE }, { shape: "light", color: BLUE }],
+    "Drei blaue Lichter – explosive Stoffe geladen (Mindestabstand 100 m)"
+  ),
+  lightsSingleWhiteBinnen: signalStack(
+    [{ shape: "light", color: WHITE }],
+    "Nur ein weißes Rundumlicht: Kleinfahrzeug ohne Maschinenantrieb"
+  ),
+  lightsBicolorTopp: svgWrap(`
+    <line x1="120" y1="200" x2="120" y2="60" stroke="${INK}" stroke-width="4"/>
+    <circle cx="120" cy="60" r="10" fill="${WHITE}" stroke="${INK}" stroke-width="2"/>
+    <path d="M92 150 A28 28 0 0 1 120 122 L120 150 Z" fill="${RED}" stroke="${INK}" stroke-width="2"/>
+    <path d="M148 150 A28 28 0 0 0 120 122 L120 150 Z" fill="${GREEN}" stroke="${INK}" stroke-width="2"/>
+    <text x="120" y="228" text-anchor="middle" font-size="12" fill="${MUTE}" font-family="inherit">Topplicht + zweifarbige Seitenlaterne: Kleinfahrzeug mit Maschinenantrieb</text>
+  `),
 };
 
 if (typeof module !== "undefined") module.exports = { DIAGRAMS };
