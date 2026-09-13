@@ -123,10 +123,10 @@
 
     html += `
       <div class="disclaimer">
-        Hinweis zur Fragenquelle: "Basisfragen" und "Seespezifische Fragen" sind wortlaut- und nummerngetreu aus dem
-        amtlichen Fragenkatalog SBF See (ELWIS, Stand 01.08.2023) übernommen. "Binnenspezifische Fragen" sind
-        mangels vorliegendem amtlichem Originaltext eigenständig formuliert, orientieren sich aber an den offiziellen
-        Themenkomplexen und sind mit der einschlägigen Vorschrift belegt. Details siehe README.
+        Hinweis zur Fragenquelle: Alle Fragen sind wortlaut- und nummerngetreu aus den amtlichen Fragenkatalogen
+        SBF See und SBF Binnen (ELWIS, Stand 01.08.2023) übernommen. Fragen mit ⚠️-Hinweis beziehen sich im
+        Original zusätzlich auf eine Abbildung (Licht, Tafelzeichen, Skizze o. Ä.), die hier nicht dargestellt
+        werden kann. Details siehe README.
       </div>
     `;
 

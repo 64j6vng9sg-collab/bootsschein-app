@@ -7,7 +7,7 @@ const { chromium } = require("playwright");
   page.on("console", (msg) => { if (msg.type() === "error") errors.push(msg.text()); });
   page.on("pageerror", (err) => errors.push(String(err)));
 
-  await page.goto("http://127.0.0.1:8765/index.html");
+  await page.goto("http://127.0.0.1:8766/index.html");
   await page.waitForSelector(".pkg-card");
   await page.screenshot({ path: "/tmp/shot-dashboard.png" });
 

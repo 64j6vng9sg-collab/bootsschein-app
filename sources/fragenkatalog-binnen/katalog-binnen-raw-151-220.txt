@@ -1,0 +1,350 @@
+151. Was bedeuten im Fahrwasser nachstehende Zeichen?
+a. Schwimmendes Gerät bei der Arbeit. Vorbeifahrt an der Seite mit dem grün-weiß-grünen Tafelzeichen gestattet; rot-weiß-rote Seite gesperrt.
+b. Festgefahrenes oder gesunkenes Fahrzeug. Vorbeifahrt an der Seite mit dem grün-weiß-grünen Tafelzeichen gestattet; rot-weiß-rote Seite gesperrt. Sog und Wellenschlag vermeiden.
+c. Schwimmendes Gerät bei der Arbeit. Vorbeifahrt an der Seite mit dem grün-weiß-grünen Tafelzeichen gestattet; rot-weiß-rote Seite gesperrt. Sog und Wellenschlag vermeiden.
+d. Festgefahrenes oder gesunkenes Fahrzeug. Vorbeifahrt an der Seite mit dem rot-weiß-roten Tafelzeichen gestattet; grün-weiß-grüne Seite gesperrt.
+152. Was bedeuten diese Lichter?
+a. Schwimmendes Gerät bei der Arbeit. Vorbeifahrt an jeder Seite gestattet.
+b. Schwimmendes Gerät bei der Arbeit. Vorbeifahrt nicht gestattet.
+c. Festgefahrenes oder gesunkenes Fahrzeug. Vorbeifahrt an der Steuerbordseite gestattet.
+d. Festgefahrenes oder gesunkenes Fahrzeug. Vorbeifahrt nicht gestattet.
+153. Was bedeuten diese Sichtzeichen?
+a. Schwimmendes Gerät bei der Arbeit. Vorbeifahrt an jeder Seite gestattet.
+b. Schwimmendes Gerät bei der Arbeit. Vorbeifahrt nicht gestattet.
+c. Festgefahrenes oder gesunkenes Fahrzeug. Vorbeifahrt an der Steuerbordseite gestattet.
+d. Festgefahrenes oder gesunkenes Fahrzeug. Vorbeifahrt nicht gestattet.
+154. Was bedeuten diese Sichtzeichen?
+a. Schwimmendes Gerät bei der Arbeit. Vorbeifahrt an jeder Seite gestattet.
+b. Schwimmendes Gerät bei der Arbeit. Vorbeifahrt nicht gestattet.
+c. Festgefahrenes oder gesunkenes Fahrzeug. Vorbeifahrt an der Steuerbordseite gestattet. Sog und Wellenschlag vermeiden.
+d. Festgefahrenes oder gesunkenes Fahrzeug. Vorbeifahrt nicht gestattet.
+155. Was bedeutet diese Tag- und Nachtbezeichnung?
+a. Schutzbedürftiges Fahrzeug, Vorbeifahrt in möglichst weitem Abstand, Geschwindigkeit vermindern, Sog und Wellenschlag vermeiden.
+b. Ein festgefahrenes oder gesunkenes Fahrzeug. Vorbeifahrt nicht gestattet.
+c. Ein festgefahrenes oder gesunkenes Fahrzeug. Vorbeifahrt an jeder Seite mit unverminderter Geschwindigkeit gestattet.
+d. Schwimmende Anlage / Schwimmkörper. Vorbeifahrt in möglichst weitem Abstand, Geschwindigkeit vermindern, Sog und Wellenschlag vermeiden.
+156. Was bedeutet dieses Tafelzeichen?
+a. Gesperrte Wasserfläche, jedoch für Kleinfahrzeuge ohne Antriebsmaschine befahrbar.
+b. Gesperrte Wasserfläche, jedoch für Kleinfahrzeuge ohne laufende Antriebsmaschine befahrbar.
+c. Gesperrte Wasserfläche, für Kleinfahrzeuge nicht befahrbar.
+d. Gesperrte Wasserfläche, Verbot der Durchfahrt und Sperrung der Schifffahrt.
+157. Was bedeutet dieses Tafelzeichen?
+a. Fahrverbot für Fahrzeuge mit Maschinenantrieb.
+b. Fahrverbot für Kleinfahrzeuge mit Maschinenantrieb.
+c. Fahrverbot für Fahrzeuge ohne Antriebsmaschine.
+d. Fahrverbot für Kleinfahrzeuge ohne laufende Antriebsmaschine.
+158. Wie ist eine geschützte Badezone gekennzeichnet?
+a. Durch gelbe Tonnen.
+b. Durch grüne Tonnen.
+c. Durch rote Tonnen.
+d. Durch rot-grün gestreifte Tonnen.
+159. Was bedeutet ein langer Ton?
+a. Achtung!
+b. Maschine geht rückwärts.
+c. Fahrzeug ist manövrierunfähig.
+d. Überholen nicht möglich.
+160. Was bedeuten vier kurze Töne?
+a. Fahrzeug ist manövrierunfähig.
+b. Maschine geht rückwärts.
+c. Achtung!
+d. Überholen nicht möglich.
+161. Was bedeuten fünf kurze Töne?
+a. Überholen nicht möglich.
+b. Maschine geht rückwärts.
+c. Fahrzeug ist manövrierunfähig.
+d. Achtung!
+162. Was bedeutet dieses Schallsignal?
+a. Wenden über Steuerbord.
+b. Kursänderung über Steuerbord.
+c. Kursänderung nach Backbord.
+d. Wenden über Backbord.
+163. Was bedeutet dieses Schallsignal?
+a. Wenden über Backbord.
+b. Wenden über Steuerbord.
+c. Kursänderung nach Backbord.
+d. Kursänderung nach Steuerbord.
+164. Was bedeutet dieses Schallsignal?
+a. Überholen an der Steuerbordseite des Vorausfahrenden.
+b. Überholen an der Backbordseite des Vorausfahrenden.
+c. Hafen oder Nebenwasserstraße; Ein- oder Ausfahrt mit Kursänderung nach Steuerbord.
+d. Hafen oder Nebenwasserstraße; Ein- oder Ausfahrt mit Kursänderung nach Backbord.
+165. Was bedeutet dieses Schallsignal?
+a. Überholen an der Backbordseite des Vorausfahrenden.
+b. Überholen an der Steuerbordseite des Vorausfahrenden.
+c. Hafen oder Nebenwasserstraße; Ein- oder Ausfahrt mit Kursänderung nach Steuerbord.
+d. Hafen oder Nebenwasserstraße; Ein- oder Ausfahrt mit Kursänderung nach Backbord.
+166. Was bedeutet dieses Schallsignal?
+a. Hafen oder Nebenwasserstraße; Ein- oder Ausfahrt mit Kursänderung nach Steuerbord.
+b. Überholen an der Backbordseite des Vorausfahrenden.
+c. Überholen an der Steuerbordseite des Vorausfahrenden.
+d. Hafen oder Nebenwasserstraße; Ein- oder Ausfahrt mit Kursänderung nach Backbord.
+167. Was bedeutet dieses Schallsignal?
+a. Hafen oder Nebenwasserstraße; Ein- oder Ausfahrt mit Kursänderung nach Backbord.
+b. Überholen an der Backbordseite des Vorausfahrenden.
+c. Hafen oder Nebenwasserstraße; Ein- oder Ausfahrt mit Kursänderung nach Steuerbord.
+d. Überholen an der Steuerbordseite des Vorausfahrenden.
+168. Was ist eine Folge sehr kurzer Töne?
+a. Eine Folge von mindestens 6 Tönen, von je etwa einer viertel Sekunde Dauer und mit je einer viertel Sekunde Pause.
+b. Eine Folge von mindestens 4 Tönen von je etwa einer viertel Sekunde Dauer und mit je einer viertel Sekunde Pause.
+c. Eine Folge von mindestens 2 Tönen von je etwa einer viertel Sekunde Dauer und mit je einer viertel Sekunde Pause.
+d. Eine Folge von mindestens 8 Tönen von je etwa einer viertel Sekunde Dauer und mit je einer viertel Sekunde Pause.
+169. Was bedeutet eine Folge sehr kurzer Töne?
+a. Gefahr eines Zusammenstoßes.
+b. Achtung!
+c. Fahrzeug ist manövrierunfähig.
+d. Überholen nicht möglich.
+170. Welche Schallsignale bzw. Zeichen sind zu geben, wenn das Boot manövrierunfähig geworden ist?
+a. Vier kurze Töne. Bei Tag eine rote Flagge, bei Nacht ein rotes Licht im unteren Halbkreis schwenken.
+b. Fünf kurze Töne. Bei Tag eine rote Flagge, bei Nacht ein rotes Licht im oberen Halbkreis schwenken.
+c. Ein langer, vier kurze Töne. Bei Tag eine rote Flagge, bei Nacht ein rotes Licht setzen.
+d. Eine Gruppe von kurzen und langen Tönen im Intervall geben. Bei Nacht ein rotes Blinklicht einschalten.
+171. Ein Fahrzeug zeigt an der Steuerbordseite seines Ruderhauses eine blaue Tafel mit weißem Funkellicht. Welche Bedeutung hat dieses Zeichen?
+a. Fahrzeuge begegnen sich an Steuerbord. Dieses Zeichen gilt nicht für Kleinfahrzeuge, verpflichtet aber zu erhöhter Aufmerksamkeit.
+b. Fahrzeuge begegnen sich an Steuerbord. Dieses Zeichen gilt nur für Kleinfahrzeuge.
+c. Fahrzeuge begegnen sich an Steuerbord. Dieses Zeichen braucht gar nicht beachtet zu werden.
+d. Fahrzeuge begegnen sich an Steuerbord. Dieses Zeichen gilt auch für alle Kleinfahrzeuge.
+172. Ein Sportfahrzeug fährt hinter einem Fahrzeug, das nicht Kleinfahrzeug ist, in den Schleusenvorhafen ein. Aus der Schleusenkammer kommt ein Fahrzeug, das an Steuerbord eine blaue Tafel mit einem weißen Funkellicht zeigt. Was bedeutet dieses Zeichen?
+a. Das aus- und die einfahrenden Fahrzeuge passieren sich an der Steuerbordseite, das Kleinfahrzeug ist nur zu erhöhter Aufmerksamkeit verpflichtet.
+b. Das aus- und die einfahrenden Fahrzeuge passieren sich an der Backbordseite, das Kleinfahrzeug ist nur zu erhöhter Aufmerksamkeit verpflichtet.
+c. Das aus- und die einfahrenden Fahrzeuge passieren sich an der Steuerbordseite, das Kleinfahrzeug ist wartepflichtig.
+d. Das aus- und die einfahrenden Fahrzeuge passieren sich an der Backbordseite, das Kleinfahrzeug hat Vorrang.
+173. Wo kann man von bestehenden Höchstgeschwindigkeiten auf den Binnenschifffahrtsstraßen Kenntnis erhalten?
+a. In der Binnenschifffahrtsstraßen-Ordnung, bei der Wasserstraßen- und Schifffahrtsverwaltung und der Wasserschutzpolizei.
+b. In der Binnenschiffsuntersuchungsordnung, bei der Wasserstraßen- und Schifffahrtsverwaltung und der Wasserschutzpolizei.
+c. In der Sportbootführerscheinverordnung, bei der Wasserstraßen- und Schifffahrtsverwaltung und der Wasserschutzpolizei.
+d. In der Binnenschifferpatentverordnung, bei der Wasserstraßen- und Schifffahrtsverwaltung und der Wasserschutzpolizei.
+174. Wie ist ein Überholmanöver durchzuführen?
+a. Zügig überholen. Beteiligte Fahrzeuge nicht behindern. Verkehrslage und eventuelle Schallzeichen beachten. Ausreichend Abstand halten.
+b. Zügig überholen. Gegebenenfalls das Fahrzeug stark beschleunigen, um schnell passieren zu können.
+c. Zügig überholen; überholen nur auf der Steuerbordseite erlaubt, ausreichend Abstand halten.
+d. Zügig überholen. Dicht am Ufer entlang fahren, eventuelle Schallzeichen müssen von Kleinfahrzeugen beachtet werden.
+175. Wann besteht die Gefahr eines Zusammenstoßes?
+a. Wenn sich zwei Fahrzeuge bei gleichbleibender Peilung einander nähern.
+b. Wenn sich zwei Fahrzeuge einander nähern und sich der Kurs der Fahrzeuge nicht ändert.
+c. Wenn sich zwei Fahrzeuge einander nähern und sich der Kurs eines Fahrzeuges ändert.
+d. Wenn sich zwei Fahrzeuge einander nähern und beide Fahrzeuge ihren Kurs nach steuerbord ändern.
+176. Wie müssen Ausweichmanöver durchgeführt werden?
+a. Rechtzeitig, klar erkennbar und entschlossen.
+b. Rechtzeitig, klar erkennbar und nach Steuerbord.
+c. Rechtzeitig, klar erkennbar und nach Backbord.
+d. Rechtzeitig, klar erkennbar und vorsichtig.
+177. Ein Kleinfahrzeug und ein Fahrzeug über 20 m Länge nähern sich auf kreuzenden Kursen. Es besteht die Gefahr eines Zusammenstoßes. Wer ist ausweichpflichtig?
+a. Ausweichpflichtig ist das Kleinfahrzeug.
+b. Ausweichpflichtig ist das Fahrzeug über 20 m Länge.
+c. Ausweichpflichtig ist das Fahrzeug, welches das andere an seiner Steuerbordseite sieht.
+d. Ausweichpflichtig ist das Fahrzeug, welches das andere an seiner Backbordseite sieht.
+178. Welche Fahrzeuge in Fahrt führen nachts nur ein weißes Rundumlicht?
+a. Geschleppte oder längsseits gekuppelte Kleinfahrzeuge.
+b. Kleinfahrzeuge mit Maschinenantrieb unter 20 m Länge.
+c. Kleinfahrzeuge mit Maschinenantrieb und geschleppte Fahrzeuge.
+d. Fahrzeuge die geschoben werden.
+179. Wie muss sich ein kreuzendes Kleinfahrzeug unter Segel am Wind in der Nähe eines Ufers gegenüber einem anderen Kleinfahrzeug verhalten?
+a. Es darf ein anderes Kleinfahrzeug, das sein steuerbordseitiges Ufer anhält, nicht zum Ausweichen zwingen.
+b. Es darf ein anderes Kleinfahrzeug, das sein steuerbordseitiges Ufer verlässt, nicht zum Ausweichen zwingen.
+c. Es darf ein anderes Kleinfahrzeug, das sein backbordseitiges Ufer verlässt, zum Ausweichen zwingen.
+d. Es darf ein anderes Kleinfahrzeug, das sein steuerbordseitiges Ufer anhält, zum Ausweichen zwingen.
+180. Wer ist ausweichpflichtig bzw. wer ist nicht ausweichpflichtig? (Skizze)
+a. Das Fahrzeug unter Segel ist ausweichpflichtig.
+b. Das Fahrzeug unter Segel ist nicht ausweichpflichtig.
+c. Das Fahrzeug unter Maschinenantrieb ist ausweichpflichtig.
+d. Beide Fahrzeuge sind ausweichpflichtig.
+181. Was hat der Schiffsführer eines Kleinfahrzeugs beim Begegnen mit Fahrzeugen, die nicht Kleinfahrzeuge sind, zu beachten?
+a. Kleinfahrzeuge sind gegenüber Fahrzeugen, die nicht Kleinfahrzeuge sind, ausweichpflichtig. Sie müssen für deren Kurs und zum Manövrieren notwendigen Raum lassen.
+b. Kleinfahrzeuge sind gegenüber anderen Fahrzeugen, die nicht Kleinfahrzeuge sind, nicht ausweichpflichtig.
+c. Kleinfahrzeuge sind gegenüber Fahrzeugen, die nicht Kleinfahrzeuge sind, bei der Begegnung gleichgestellt.
+d. Kleinfahrzeuge sind gegenüber Fahrzeugen, die nicht Kleinfahrzeuge sind, ausweichpflichtig. Sie brauchen aber keinen besonderen Raum zum Manövrieren frei zu geben.
+182. Von Backbord kommend kreuzt ein Fahrzeug unter Segel mit einem schwarzen Kegel, Spitze nach unten, den Kurs eines Fahrzeuges mit Maschinenantrieb. Wer ist ausweichpflichtig?
+a. Das Fahrzeug unter Segel mit einem schwarzen Kegel ist ausweichpflichtig.
+b. Das Fahrzeug ohne Segel ist ausweichpflichtig.
+c. Das Fahrzeug unter Segel mit einem schwarzen Kegel ist nicht ausweichpflichtig.
+d. Beide Fahrzeuge sind ausweichpflichtig.
+183. Zwei Kleinfahrzeuge unter Segel A und B liegen auf Kollisionskurs; A führt einen schwarzen Kegel. Wer ist ausweichpflichtig?
+a. Fahrzeug A ist ausweichpflichtig.
+b. Fahrzeug B ist ausweichpflichtig.
+c. Ausweichpflichtig ist das Fahrzeug, welches das Andere an seiner Backbordseite sieht.
+d. Ausweichpflichtig ist das Fahrzeug, welches den Wind von Backbord hat.
+184. Ein Fahrzeug unter Segel kreuzt eine Binnenschifffahrtsstraße. In der Fahrwassermitte kommt ihm ein Kleinfahrzeug mit Maschinenantrieb zu Berg entgegen. Wer ist ausweichpflichtig?
+a. Fahrzeug mit Maschinenantrieb.
+b. Fahrzeug in der Talfahrt.
+c. Fahrzeug unter Segel.
+d. Beide sind ausweichpflichtig.
+185. Zwei Kleinfahrzeuge A und B unter Segel liegen auf Kollisionskurs (Skizze). Wer ist ausweichpflichtig?
+a. A ist ausweichpflichtig. Segelfahrzeuge mit Wind von Backbord müssen Segelfahrzeugen mit Wind von Steuerbord ausweichen.
+b. B ist ausweichpflichtig. Segelfahrzeuge mit Wind von Backbord müssen Segelfahrzeugen mit Wind von Steuerbord ausweichen.
+c. A ist ausweichpflichtig. Segelfahrzeuge mit Wind von Steuerbord müssen Segelfahrzeugen mit Wind von Backbord ausweichen.
+d. B ist ausweichpflichtig. Segelfahrzeuge mit Wind von Steuerbord müssen Segelfahrzeugen mit Wind von Backbord ausweichen.
+186. Zwei Kleinfahrzeuge unter Segel liegen auf Kollisionskurs (Skizze). Wer ist ausweichpflichtig?
+a. B ist ausweichpflichtig. Das luvseitige Boot muss dem leeseitigen ausweichen.
+b. A ist ausweichpflichtig. Das luvseitige Boot muss dem leeseitigen ausweichen.
+c. A ist ausweichpflichtig. Das leeseitige Boot muss dem luvseitigen ausweichen.
+d. B ist ausweichpflichtig. Das leeseitige Boot muss dem luvseitigen ausweichen.
+187. Ein Kleinfahrzeug A segelt nachts auf Vorwindkurs stromab, Großsegel an Steuerbord. Backbord querab kommt ein grünes Seitenlicht eines Bootes B immer näher, das kein Topplicht führt. Wer ist ausweichpflichtig?
+a. Das Kleinfahrzeug A ist ausweichpflichtig. Ein Boot mit Wind von Backbord muss ausweichen, wenn es nicht klar ausmachen kann, ob das luvseitige Boot den Wind von Steuerbord hat.
+b. Das Kleinfahrzeug A ist ausweichpflichtig. Ein Boot mit Wind von Steuerbord muss ausweichen, wenn es nicht klar ausmachen kann, ob das luvseitige Boot den Wind von Backbord hat.
+c. Boot B ist ausweichpflichtig, weil es sich bei Fahrzeug A um ein Kleinfahrzeug unter Segel handelt, das den Wind von Backbord hat.
+d. Boot B ist ausweichpflichtig, weil es sich um ein Kleinfahrzeug handelt und Kleinfahrzeuge anderen Kleinfahrzeugen unter Segel ausweichen müssen.
+188. Der seitliche Abstand zwischen den Booten A, B und C verringert sich ständig (Skizze). Welches Boot kann seinen Kurs beibehalten?
+a. Boot A, weil leeseitig.
+b. Boot A, weil luvseitig.
+c. Boot B, weil leeseitig.
+d. Boot C, weil leeseitig.
+189. Wer ist wem gegenüber kurshaltepflichtig? (Skizze, Fortsetzung der vorherigen Aufgabe)
+a. A gegenüber B und C, B gegenüber C.
+b. C gegenüber A und B, B gegenüber A.
+c. B gegenüber C und A, A gegenüber C.
+d. A gegenüber B und C, C gegenüber B.
+190. Was ist vorrangig zu beachten, wenn eine Jolle gekentert ist und sie nicht wieder aufgerichtet werden kann?
+a. Vollständigkeit der Crew überprüfen, gegebenenfalls Hilfe leisten. Am Boot festhalten oder gegebenenfalls aufs Boot legen, Hilfe abwarten.
+b. Sofort vorgeschriebene Notsignale geben, mit allen Mitteln versuchen, das Fahrzeug aus dem Fahrwasser zu bringen.
+c. Auf das gekenterte Boot steigen und sich ruhig verhalten, um Wärmeverlust zu minimieren. Sollte das nicht möglich sein, ans benachbarte Ufer schwimmen und Hilfe holen.
+d. Rettungswesten anlegen und mit geeigneten Mitteln Hilfe herbeiholen. Gegebenenfalls Segel bergen.
+191. Ein Segelboot gerät in das Feld einer Segelregatta, ohne selbst Teilnehmer zu sein. Welche Ausweichregeln sind zu beachten?
+a. Die der Binnenschifffahrtsstraßen-Ordnung.
+b. Die der Wettsegelbestimmungen.
+c. Gegenüber Regattateilnehmern, die der Wettfahrtregeln, gegenüber anderen Fahrzeugen die der Binnenschifffahrtsstraßen-Ordnung.
+d. Fahrzeuge, die an einer Regatta teilnehmen, müssen unbeteiligten Fahrzeugen ausweichen.
+192. Ein Kleinfahrzeug unter Segel kreuzt nachts das Fahrwasser. An Backbord tauchen die nachstehenden Lichter eines Fahrzeugs auf, das in spitzem Winkel den Kurs des Kleinfahrzeugs unter Segel kreuzen will. Was bedeuten diese Lichter?
+a. Kleinfahrzeug mit Maschinenantrieb.
+b. Frei fahrende Fähre.
+c. Schubverband von vorne.
+d. Geschlepptes Kleinfahrzeug.
+193. Ein Kleinfahrzeug unter Segel kreuzt nachts das Fahrwasser. An Backbord tauchen die nachstehenden Lichter eines Fahrzeugs auf, das in spitzem Winkel den Kurs des Kleinfahrzeugs unter Segel kreuzen will. Wer ist ausweichpflichtig?
+a. Kleinfahrzeug mit Maschinenantrieb.
+b. Kleinfahrzeug unter Segel.
+c. Kleinfahrzeug, welches das Andere auf der Backbordseite hat.
+d. Beide sind ausweichpflichtig.
+194. Ein Kleinfahrzeug unter Segel und mit Maschinenantrieb kreuzt nachts stromauf. Ein Fahrzeug kommt entgegen, das nur ein weißes Licht führt. Was bedeutet dieses Licht?
+a. Kleinfahrzeug ohne Maschinenantrieb.
+b. Kleinfahrzeug mit Maschinenantrieb.
+c. Kleinfahrzeug unter Segel.
+d. Kleinfahrzeug unter Segel mit Maschinenantrieb.
+195. Ein Kleinfahrzeug unter Segel kreuzt nachts im Fahrwasser. Von achtern kommt ein Fahrzeug, das eine Zweifarbenlaterne und ein Topplicht führt. Was bedeuten diese Lichter?
+a. Kleinfahrzeug mit Maschinenantrieb.
+b. Kleinfahrzeug ohne Maschinenantrieb.
+c. Kleinfahrzeug unter Segel.
+d. Kleinfahrzeug unter Segel mit Maschinenantrieb.
+196. Was bedeuten nachts auf einer Binnenschifffahrtsstraße die nachstehenden Lichter?
+a. Sog und Wellenschlag vermeiden.
+b. Keine Durchfahrt für Kleinfahrzeuge.
+c. Sperrung der Schifffahrt.
+d. Durchfahrt für Kleinfahrzeuge.
+197. Wo ist die Geschwindigkeit zu vermindern, um Sog und Wellenschlag zu vermeiden?
+a. Vor Hafeneinmündungen, an Lade-, Lösch- und Liegeplätzen, in der Nähe nicht frei fahrender Fähren, auf gekennzeichneten Strecken, in der Nähe schwimmender Geräte bei der Arbeit.
+b. Vor Einmündungen, an Lade-, Lösch- und Liegeplätzen, in der Nähe nicht frei fahrender Fähren, auf gekennzeichneten Strecken, in der Nähe schwimmender Geräte bei der Arbeit.
+c. Vor Hafeneinmündungen, an Lade-, Lösch- und Liegeplätzen, in der Nähe frei fahrender Fähren, auf gekennzeichneten Strecken, in der Nähe schwimmender Geräte bei der Arbeit.
+d. Vor Hafeneinmündungen, an Lade-, Lösch- und Liegeplätzen, in der Nähe nicht frei fahrender Fähren, auf gekennzeichneten Strecken, in der Nähe schwimmender Schifffahrtszeichen.
+198. Was bedeutet dieses Tafelzeichen?
+a. Vorgeschriebene Fahrtrichtung.
+b. Fahrtrichtung nach links verboten.
+c. Vorgeschriebene Fahrtrichtung nur für Kleinfahrzeuge.
+d. Empfohlene Fahrtrichtung.
+199. Welche Bedeutung hat das nachstehende Tafelzeichen, wenn das rote Licht leuchtet?
+a. Verbot der Einfahrt in einen Hafen oder eine Nebenwasserstraße.
+b. Verbot des Überholens auf dem Streckenabschnitt.
+c. Achtung Doppelschleuse, linke Kammer gesperrt.
+d. Achtung Ausfahrt aus Hafen oder Nebenfahrwasser.
+200. Was bedeutet dieses Tafelzeichen?
+a. 10 km/h Höchstgeschwindigkeit gegenüber dem Ufer.
+b. 10 km/h Höchstgeschwindigkeit gegenüber der Strömung.
+c. 10 km/h Höchstgeschwindigkeit für Kleinfahrzeuge.
+d. 10 km/h für größere Fahrzeuge.
+201. Was bedeutet dieses Tafelzeichen?
+a. Gebot: Besondere Vorsicht walten lassen.
+b. Gebot: Geradeaus zu fahren.
+c. Gebot: Achtungssignal geben.
+d. Gebot: Vor dem Schild anhalten.
+202. Was bedeutet dieses Tafelzeichen?
+a. Wendeverbot.
+b. Verbotene Fahrtrichtung rechts oder links.
+c. Verbote in beiden angezeigten Richtungen zu fahren.
+d. Wendeverbot in der Mitte des Fahrwassers.
+203. Was bedeutet dieses Tafelzeichen?
+a. Empfohlener Wendeplatz. Stillliegen für alle Fahrzeuge verboten.
+b. Empfohlener Wendeplatz. Stillliegen von Kleinfahrzeugen erlaubt.
+c. Vorgeschriebener Wendeplatz. Stillliegen für alle Fahrzeuge verboten.
+d. Vorgeschriebener Wendeplatz. Stillliegen von Kleinfahrzeugen erlaubt.
+204. Was bedeutet dieses Tafelzeichen?
+a. Wehr.
+b. Hubbrücke.
+c. Schleuse.
+d. Sicherheitstor.
+205. Welche Sichtbeeinträchtigungen führen zu unsichtigem Wetter?
+a. Nebel, Schneefall, starker Regen.
+b. Dunkelheit, Nebel, Schneefall, starker Regen.
+c. Nacht, Schneefall, starker Regen.
+d. Dämmerung, Nebel, Schneefall, starker Regen.
+206. Wie muss ein Fahrzeug ausgerüstet sein, um bei unsichtigem Wetter zu fahren?
+a. Mit einer für die Binnenschifffahrt zugelassenen funktionsfähigen Radaranlage und einer Sprechfunkanlage für den Binnenschifffahrtsfunk.
+b. Mit einer für die Binnenschifffahrt zugelassenen funktionsfähigen Radaranlage und einer Sprechfunkanlage ohne ATIS.
+c. Mit einer für die Binnenschifffahrt zugelassenen funktionsfähigen Radaranlage und einer Sprechfunkanlage für den Seefunkdienst.
+d. Mit einer Radaranlage ohne Wendeanzeiger und einer Sprechfunkanlage für den Binnenschifffahrtsfunk.
+207. Was ist zu beachten, wenn während der Fahrt unsichtiges Wetter eintritt?
+a. Auf bestimmten Wasserstraßen ist ohne Radar und Sprechfunk die Fahrt unverzüglich einzustellen.
+b. Auf allen Wasserstraßen ist ohne Radar und Sprechfunk die Fahrt unverzüglich einzustellen.
+c. Auf bestimmten Wasserstraßen ist ohne Radar und AIS die Fahrt unverzüglich einzustellen.
+d. Auf allen Wasserstraßen ist ohne Radar und ECDIS die Fahrt unverzüglich einzustellen.
+208. Welchen Vorteil bietet ein Radarreflektor auf einem Sportboot?
+a. Bessere Erkennbarkeit des Sportbootes auf Radarbildschirmen.
+b. Bessere Erkennbarkeit des Sportbootes bei Nacht.
+c. Bessere Erkennbarkeit des Sportbootes bei Taglicht.
+d. Bessere Erkennbarkeit des Sportbootes bei unsichtigem Wetter.
+209. Welche technische Einrichtung gegen einen Stromschlag muss in der Landstromversorgung unbedingt installiert sein?
+a. Ein Fehlerstromschutzschalter.
+b. Ein geringer Ladungsstrom ist ungefährlich.
+c. Ein Überspannungsschutz.
+d. Ein Schutzkleinspannungsschalter.
+210. Welches Schallsignal ist zu geben, wenn in einer Notsituation Hilfe gebraucht wird?
+a. Wiederholte lange Töne geben oder Gruppen von Glockenschlägen.
+b. Wiederholte kurze Töne geben, keine Glockenschläge.
+c. Einen langen Ton geben, vereinzelt Glockenschläge.
+d. Drei kurze Töne geben, keine Glockenschläge.
+211. Welche Bedeutung hat am Tag das Kreisen einer roten Flagge auf einem Wasserfahrzeug?
+a. Ein in Not befindliches Fahrzeug, das durch Sichtzeichen Hilfe herbeirufen will.
+b. Ein manövrierbehindertes Fahrzeug, das durch Sichtzeichen Hilfe herbeirufen will.
+c. Keine Bedeutung für den durchgehenden Schiffsverkehr.
+d. Schützenswertes Fahrzeug, Vermeidung von Sog und Wellenschlag.
+212. Welche Notsignale kann ein Segelsurfer auf Binnenschifffahrtsstraßen geben?
+a. Kreisförmiges Schwenken der Arme oder eines Gegenstandes.
+b. Kreisförmiges Schwenken einer grünen Flagge, die mit anderen Zeichen nicht verwechselt werden kann.
+c. Wiederholt lange Gruppen von Glockenschlägen.
+d. Kreisförmiges Schwenken der Arme ist zu vermeiden, das Surfsegel ist möglichst senkrecht zu stellen.
+213. Was ist mit Abfällen jeglicher Art zu tun, die an Bord anfallen?
+a. An Bord sammeln und an Land in den entsprechenden Abfallsammelbehältern umweltgerecht entsorgen.
+b. An Bord sammeln und bei einer Liegestelle an Land stellen.
+c. An Bord sammeln und nur in geschlossenen Behältern über Bord werfen.
+d. An Bord sammeln. Die Abgabe ist an jeder Schleuse möglich.
+214. Wem darf der Schiffsführer das Ruder eines motorisierten Sportbootes überlassen?
+a. Einer Person, die mindestens 16 Jahre alt, sowie körperlich und geistig geeignet ist.
+b. Einer Person, die mindestens 18 Jahre alt, sowie körperlich und geistig geeignet ist.
+c. Einer Person, die mindestens 14 Jahre alt, sowie körperlich und geistig geeignet ist.
+d. Einer Person jeden Alters, die körperlich und geistig geeignet ist.
+215. Wie müssen Abfälle entsorgt werden?
+a. Es dürfen keinerlei Abfälle ins Wasser gelangen, Fäkalien und Öle sind an Land zu entsorgen.
+b. Nur Abfälle, die die Umwelt nicht gefährden, dürfen 300 m vom Ufer ins Wasser eingeleitet werden.
+c. Auf Seen dürfen keine Abfälle ins Wasser gelangen, auf Binnenschifffahrtsstraßen gibt es Sonderregelungen.
+d. Alle Schiffe müssen mit Fäkalientanks ausgerüstet sein und geeignete Behältnisse für die getrennte Aufnahme von Abfällen an Bord haben.
+216. Was ist beim Neuanstrich des Unterwasserschiffs und bei der Entfernung des alten Anstrichs zu beachten?
+a. Der Arbeitsbereich ist großzügig abzudecken und der anfallende Abfall ist als Sondermüll zu behandeln und entsprechend zu entsorgen.
+b. Es dürfen nur Unterwasseranstriche verwendet werden, deren Umweltverträglichkeit an der EU-Kennzeichnung erkenntlich ist.
+c. Es sind bei Arbeiten mit Unterwasseranstrichen die Richtlinien der Schiffsuntersuchungskommission zu beachten.
+d. Unterwasserarbeiten dürfen nur von zertifizierten Fachbetrieben, nach den Bestimmungen des Umweltschutzes ausgeführt werden.
+217. Was ist bei Sturmwarnung vom Schiffsführer eines Sportbootes unter Segel auf einem größeren Gewässer zu veranlassen?
+a. Rettungsweste anlegen. Segel bergen, versuchen einen Hafen oder eine geschützte Bucht anzulaufen.
+b. Rettungsweste anlegen. Alle Segel setzen, versuchen, einen Hafen oder eine geschützte Bucht anzulaufen.
+c. Rettungsweste bereit halten. Segel bergen, versuchen, einen Hafen oder eine geschützte Bucht anzulaufen.
+d. Rettungsweste anlegen. Segel setzen, versuchen die Gewässermitte anzulaufen.
+218. Welche Fahrrinnenseite hat ein Talfahrer an seiner Backbordseite?
+a. Die linke Fahrrinnenseite, gekennzeichnet durch grüne Spitztonnen oder Schwimmstangen.
+b. Die rechte Fahrrinnenseite, gekennzeichnet durch rote Stumpftonnen oder Schwimmstangen.
+c. Die linke Fahrrinnenseite, gekennzeichnet durch rote Stumpftonnen oder Schwimmstangen.
+d. Die rechte Fahrrinnenseite, gekennzeichnet durch grüne Spitztonnen oder Schwimmstangen.
+219. Mit welcher Wetterentwicklung ist bei schnellem und stetig fallendem Luftdruck zu rechnen?
+a. Schlechtes Wetter, Starkwind oder Sturm.
+b. Besseres Wetter, steigende Temperatur.
+c. Schlechtes Wetter ist nicht zu erwarten.
+d. Besseres Wetter, Sonne.
+220. Welches Wetter ist zu erwarten, wenn der Luftdruck langsam aber stetig steigt?
+a. Besseres Wetter, Sonne.
+b. Besseres Wetter, steigende Temperatur.
+c. Schlechtes Wetter ist nicht zu erwarten.
+d. Schlechtes Wetter, Starkwind oder Sturm.
