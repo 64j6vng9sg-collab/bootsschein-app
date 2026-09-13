@@ -134,22 +134,25 @@
     toastTimer = setTimeout(() => el.classList.remove("show"), 2600);
   }
 
+  // Konfetti bleibt den zwei wirklich großen Momenten vorbehalten
+  // (Paket abgeschlossen, alles geschafft) und fällt bewusst dezent aus,
+  // damit die App nicht überladen wirkt – kein Feuerwerk bei jeder Etappe.
   function showConfetti(big) {
     const layer = document.createElement("div");
     layer.className = "confetti-layer";
-    const colors = ["var(--accent)", "var(--green)", "var(--amber)", "var(--red)"];
-    const count = big ? 70 : 34;
+    const colors = ["var(--accent)", "var(--green)", "var(--amber)"];
+    const count = big ? 26 : 16;
     for (let i = 0; i < count; i++) {
       const piece = document.createElement("span");
       piece.className = "confetti-piece";
       piece.style.left = `${Math.random() * 100}%`;
       piece.style.background = colors[i % colors.length];
-      piece.style.animationDuration = `${1.6 + Math.random() * 1.4}s`;
-      piece.style.animationDelay = `${Math.random() * 0.4}s`;
+      piece.style.animationDuration = `${1.3 + Math.random() * 0.9}s`;
+      piece.style.animationDelay = `${Math.random() * 0.3}s`;
       layer.appendChild(piece);
     }
     document.body.appendChild(layer);
-    setTimeout(() => layer.remove(), 3200);
+    setTimeout(() => layer.remove(), 2400);
   }
 
   function checkMilestones() {
@@ -161,10 +164,9 @@
       const reachedPercent = MILESTONES[achieved - 1];
       if (reachedPercent >= 100) {
         showConfetti(true);
-        showToast("🏆 Alle Fragen mindestens einmal richtig beantwortet!");
+        showToast("Alle Fragen mindestens einmal richtig beantwortet");
       } else {
-        showConfetti(false);
-        showToast(`🏝 Etappe erreicht: ${reachedPercent}% richtig beantwortet!`);
+        showToast(`${reachedPercent}% richtig beantwortet`);
       }
     }
   }
@@ -179,7 +181,7 @@
     saveCelebratedPkgs(celebrated);
     const p = PACKAGES.find((x) => x.id === pkgId);
     showConfetti(false);
-    showToast(`⚓️ Paket „${p.title}“ abgeschlossen!`);
+    showToast(`Paket „${p.title}“ abgeschlossen`);
   }
 
   function overallStats() {
