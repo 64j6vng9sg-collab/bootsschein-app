@@ -78,11 +78,7 @@ body.reel-mode .app {
   position: sticky;
   top: 0;
   z-index: 20;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: calc(var(--safe-top) + 14px) 20px 14px;
+  padding: calc(var(--safe-top) + 14px) 20px 10px;
   background: color-mix(in srgb, var(--bg) 88%, transparent);
   backdrop-filter: blur(20px) saturate(1.4);
   -webkit-backdrop-filter: blur(20px) saturate(1.4);
@@ -90,6 +86,27 @@ body.reel-mode .app {
   transition: border-color 0.3s var(--ease);
 }
 .topbar.scrolled { border-bottom-color: var(--line); }
+
+.topbar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* --- Persistente Fortschrittsleiste (Segelschiff + Etappen-Inseln) ----- */
+.topbar-progress { margin-top: 10px; }
+.topbar-progress-inner { display: flex; align-items: center; gap: 8px; }
+.topbar-progress-svg { flex: 1; width: 100%; height: 38px; display: block; }
+.topbar-progress-label {
+  flex: none;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+  min-width: 34px;
+  text-align: right;
+}
 
 .icon-btn {
   appearance: none;
@@ -127,7 +144,9 @@ body.reel-mode .app {
 .screen {
   flex: 1;
   padding: 4px 20px calc(40px + var(--safe-bottom));
-  animation: screen-in 0.32s var(--ease);
+}
+.screen.screen-anim {
+  animation: screen-in 0.36s var(--ease);
 }
 @keyframes screen-in {
   from { opacity: 0; transform: translateY(10px) scale(0.99); }
@@ -170,17 +189,20 @@ body.reel-mode .app {
 .card-tap { cursor: pointer; }
 .card-tap:active { transform: scale(0.985); }
 
-.pkg-card { display: block; width: 100%; text-align: left; border: none; }
+.pkg-card { display: block; width: 100%; text-align: left; border: none; padding: 22px 20px; }
 .pkg-head {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   gap: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
-.pkg-title { font-size: 17px; font-weight: 600; letter-spacing: -0.01em; }
-.pkg-subtitle { font-size: 13px; color: var(--ink-muted); margin-top: 2px; }
-.pkg-count { font-size: 13px; color: var(--ink-muted); white-space: nowrap; }
+.pkg-title { font-size: 19px; font-weight: 700; letter-spacing: -0.01em; }
+.pkg-subtitle { font-size: 14px; color: var(--ink-muted); margin-top: 3px; }
+.pkg-count { font-size: 14px; font-weight: 600; color: var(--ink-muted); white-space: nowrap; }
+.pkg-card .bar { height: 9px; }
+.pkg-card .bar + .bar { height: 6px; }
+.pkg-card .stat-row { font-size: 14px; }
 
 .bar {
   height: 8px;
@@ -373,7 +395,7 @@ body.reel-mode .app {
   padding: 10px;
   margin-bottom: 16px;
 }
-.diagram-wrap svg { width: 100%; height: auto; display: block; max-height: 190px; }
+.diagram-wrap svg { width: 100%; height: auto; display: block; max-height: 209px; overflow: visible; }
 
 .photo-wrap {
   background: #101318;
@@ -383,7 +405,7 @@ body.reel-mode .app {
   display: flex;
   justify-content: center;
 }
-.question-photo { max-width: 100%; max-height: 220px; width: auto; height: auto; display: block; border-radius: calc(var(--radius-md) - 4px); }
+.question-photo { max-width: 100%; max-height: 242px; width: auto; height: auto; display: block; border-radius: calc(var(--radius-md) - 4px); }
 
 .options { display: flex; flex-direction: column; gap: 10px; }
 
@@ -476,11 +498,6 @@ body.reel-mode .app {
 .overview-tile .num { font-size: 24px; font-weight: 700; letter-spacing: -0.02em; }
 .overview-tile .lbl { font-size: 12px; color: var(--ink-muted); margin-top: 2px; }
 
-/* --- Dashboard-Hero mit Boots-Route ------------------------------------ */
-.hero-voyage { padding-bottom: 4px; }
-.voyage { margin-top: 14px; }
-.voyage-svg { width: 100%; height: auto; display: block; }
-
 .overview-card { padding: 18px 16px 14px; }
 .overview-big { text-align: center; margin-bottom: 14px; }
 .overview-big-num { font-size: 38px; font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
@@ -504,4 +521,115 @@ body.reel-mode .app {
 
 @media (min-width: 480px) {
   .question-text { font-size: 20px; }
+}
+
+/* --- Eröffnungsbildschirm ----------------------------------------------- */
+.splash {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px 24px calc(40px + var(--safe-bottom));
+  min-height: 100dvh;
+  min-height: 100vh;
+}
+.splash-scene { width: 100%; max-width: 360px; margin-bottom: 18px; }
+.splash-svg { width: 100%; height: auto; display: block; overflow: visible; }
+.splash-boat { animation: splash-sail 2.2s var(--ease) forwards; }
+@keyframes splash-sail {
+  from { transform: translateX(-220px); }
+  to { transform: translateX(0); }
+}
+.splash h1 { font-size: 32px; font-weight: 800; letter-spacing: -0.02em; margin: 4px 0 6px; }
+.splash p { color: var(--ink-muted); font-size: 15px; margin: 0 0 28px; max-width: 320px; }
+.splash .btn { max-width: 240px; }
+
+/* --- Lesezeichen ---------------------------------------------------------- */
+.card-head-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.card-head-row .category-pill { margin-bottom: 0; }
+
+.bookmark-btn {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: var(--ink-muted);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  margin: -6px -6px -6px 0;
+  transition: transform 0.15s var(--ease), color 0.15s;
+}
+.bookmark-btn:active { transform: scale(0.88); }
+.bookmark-btn svg { width: 20px; height: 20px; }
+.bookmark-btn.active { color: var(--amber); }
+.bookmark-btn.active .bm-path { fill-opacity: 1; }
+
+.review-link {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 4px 0;
+  margin-top: -4px;
+}
+.review-link:active { opacity: 0.6; }
+
+/* --- Toast & Konfetti (Etappen-/Erfolgsanzeige) -------------------------- */
+.toast {
+  position: fixed;
+  top: calc(var(--safe-top) + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-12px);
+  background: var(--ink);
+  color: var(--bg);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 18px;
+  border-radius: 99px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.22);
+  z-index: 100;
+  opacity: 0;
+  white-space: nowrap;
+  max-width: calc(100vw - 40px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: opacity 0.25s var(--ease), transform 0.25s var(--ease);
+  pointer-events: none;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+.confetti-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  overflow: hidden;
+  pointer-events: none;
+}
+.confetti-piece {
+  position: absolute;
+  top: -20px;
+  width: 8px;
+  height: 14px;
+  border-radius: 2px;
+  animation-name: confetti-fall;
+  animation-timing-function: cubic-bezier(0.55, 0, 0.85, 0.35);
+  animation-fill-mode: forwards;
+}
+@keyframes confetti-fall {
+  from { transform: translateY(0) rotate(0deg); opacity: 1; }
+  to { transform: translateY(110vh) rotate(540deg); opacity: 0.9; }
 }

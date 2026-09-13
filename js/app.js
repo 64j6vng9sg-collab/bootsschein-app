@@ -13,7 +13,7 @@
   const homeBtn = document.getElementById("btn-home");
   const topbar = document.getElementById("topbar");
 
-  let stack = [{ screen: "dashboard" }];
+  let stack = [{ screen: "splash" }];
   let session = null; // { mode, pkgId, slides: [{slideId, qId, answered}], correctCount }
 
   function current() { return stack[stack.length - 1]; }
@@ -51,26 +51,135 @@
     topbar.classList.toggle("scrolled", window.scrollY > 2);
   });
 
-  // Spielerische Fortschrittsanzeige im Bootsführerschein-Motiv: ein Boot
-  // fährt entlang einer Route von Startboje zu Zielhafen, seine Position
-  // spiegelt den Anteil bereits beantworteter Fragen wider.
-  function voyageHtml(percent) {
+  // ---------------------------------------------------------------
+  // Persistente Etappenanzeige (ganz oben in der Leiste): ein Segelschiff
+  // bewegt sich von links nach rechts entlang einer Route mit Insel-
+  // Etappen. Die Position richtet sich ausschließlich nach der Anzahl
+  // Fragen, die mindestens einmal RICHTIG beantwortet wurden (monoton
+  // wachsend – eine spätere falsche Antwort lässt das Schiff nicht
+  // zurückfallen). Beim Überqueren einer Etappe bzw. beim vollständigen
+  // Abschluss gibt es eine kurze Erfolgsmeldung (Toast) + Konfetti.
+  // ---------------------------------------------------------------
+  const MILESTONES = [20, 40, 60, 80, 100];
+  const MILESTONE_KEY = "sbf-trainer-milestone-idx-v1";
+  const PKG_CELEBRATED_KEY = "sbf-trainer-pkg-celebrated-v1";
+
+  function loadMilestoneIdx() {
+    try { return parseInt(localStorage.getItem(MILESTONE_KEY) || "0", 10); } catch (e) { return 0; }
+  }
+  function saveMilestoneIdx(n) {
+    try { localStorage.setItem(MILESTONE_KEY, String(n)); } catch (e) { /* ignore */ }
+  }
+  function loadCelebratedPkgs() {
+    try { return new Set(JSON.parse(localStorage.getItem(PKG_CELEBRATED_KEY) || "[]")); } catch (e) { return new Set(); }
+  }
+  function saveCelebratedPkgs(set) {
+    try { localStorage.setItem(PKG_CELEBRATED_KEY, JSON.stringify([...set])); } catch (e) { /* ignore */ }
+  }
+
+  function globalCorrectPercent() {
+    const total = allIds.length;
+    if (!total) return 0;
+    return (store.everCorrectIds(allIds).length / total) * 100;
+  }
+
+  function topProgressHtml(percent) {
     const p = Math.max(0, Math.min(100, percent));
-    const x = 26 + (248 * p) / 100;
+    const startX = 22, endX = 298;
+    const x = startX + ((endX - startX) * p) / 100;
+    const islands = MILESTONES.map((m) => {
+      const ix = startX + ((endX - startX) * m) / 100;
+      const reached = p >= m;
+      const flag = m === 100 ? `<path d="M0 -5 L7 -5 L0 -12 Z" fill="${reached ? "var(--amber)" : "var(--ink-muted)"}"/><line x1="0" y1="-5" x2="0" y2="4" stroke="${reached ? "var(--amber)" : "var(--ink-muted)"}" stroke-width="1.4"/>` : "";
+      return `<g transform="translate(${ix},19)">
+        <circle r="4" fill="${reached ? "var(--green)" : "var(--bg-elevated)"}" stroke="${reached ? "var(--green)" : "var(--ink-muted)"}" stroke-width="1.5"/>
+        ${flag}
+      </g>`;
+    }).join("");
     return `
-      <div class="voyage" role="img" aria-label="${p}% der Fragen beantwortet">
-        <svg viewBox="0 0 300 60" class="voyage-svg" aria-hidden="true">
-          <line x1="26" y1="34" x2="274" y2="34" stroke="var(--line)" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round"/>
-          <circle cx="26" cy="34" r="5" fill="var(--ink-muted)"/>
-          <path d="M266 20 L266 48 L286 34 Z" fill="var(--accent)" opacity="0.9"/>
-          <g transform="translate(${x},14)">
-            <path d="M-12 22 Q0 30 12 22 L9 27 Q0 33 -9 27 Z" fill="var(--accent)"/>
-            <path d="M2 20 L2 2 L13 19 Z" fill="var(--ink)"/>
-            <line x1="2" y1="2" x2="2" y2="20" stroke="var(--ink)" stroke-width="1.5" stroke-linecap="round"/>
+      <div class="topbar-progress-inner" role="img" aria-label="${Math.round(p)}% der Fragen richtig beantwortet">
+        <svg viewBox="0 0 320 40" class="topbar-progress-svg" aria-hidden="true">
+          <line x1="${startX}" y1="19" x2="${endX}" y2="19" stroke="var(--line)" stroke-width="3" stroke-linecap="round"/>
+          <line x1="${startX}" y1="19" x2="${x}" y2="19" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/>
+          ${islands}
+          <g transform="translate(${x},10)">
+            <path d="M-10 18 Q0 25 10 18 L8 22 Q0 28 -8 22 Z" fill="var(--accent)"/>
+            <path d="M1 16 L1 1 L11 15 Z" fill="var(--ink)"/>
+            <line x1="1" y1="1" x2="1" y2="16" stroke="var(--ink)" stroke-width="1.4" stroke-linecap="round"/>
           </g>
         </svg>
+        <span class="topbar-progress-label">${Math.round(p)}%</span>
       </div>
     `;
+  }
+
+  function renderTopProgress() {
+    const el = document.getElementById("topbar-progress");
+    if (!el) return;
+    el.innerHTML = topProgressHtml(globalCorrectPercent());
+  }
+
+  let toastTimer = null;
+  function showToast(message) {
+    let el = document.getElementById("app-toast");
+    if (!el) {
+      el = document.createElement("div");
+      el.id = "app-toast";
+      el.className = "toast";
+      document.body.appendChild(el);
+    }
+    el.textContent = message;
+    clearTimeout(toastTimer);
+    requestAnimationFrame(() => el.classList.add("show"));
+    toastTimer = setTimeout(() => el.classList.remove("show"), 2600);
+  }
+
+  function showConfetti(big) {
+    const layer = document.createElement("div");
+    layer.className = "confetti-layer";
+    const colors = ["var(--accent)", "var(--green)", "var(--amber)", "var(--red)"];
+    const count = big ? 70 : 34;
+    for (let i = 0; i < count; i++) {
+      const piece = document.createElement("span");
+      piece.className = "confetti-piece";
+      piece.style.left = `${Math.random() * 100}%`;
+      piece.style.background = colors[i % colors.length];
+      piece.style.animationDuration = `${1.6 + Math.random() * 1.4}s`;
+      piece.style.animationDelay = `${Math.random() * 0.4}s`;
+      layer.appendChild(piece);
+    }
+    document.body.appendChild(layer);
+    setTimeout(() => layer.remove(), 3200);
+  }
+
+  function checkMilestones() {
+    const percent = globalCorrectPercent();
+    const achieved = MILESTONES.filter((m) => percent >= m).length;
+    const lastIdx = loadMilestoneIdx();
+    if (achieved > lastIdx) {
+      saveMilestoneIdx(achieved);
+      const reachedPercent = MILESTONES[achieved - 1];
+      if (reachedPercent >= 100) {
+        showConfetti(true);
+        showToast("🏆 Alle Fragen mindestens einmal richtig beantwortet!");
+      } else {
+        showConfetti(false);
+        showToast(`🏝 Etappe erreicht: ${reachedPercent}% richtig beantwortet!`);
+      }
+    }
+  }
+
+  function checkPackageCompletion(pkgId) {
+    if (!pkgId) return;
+    const ids = byPkg[pkgId];
+    if (!ids || !ids.every((id) => store.stateFor(id).everCorrect)) return;
+    const celebrated = loadCelebratedPkgs();
+    if (celebrated.has(pkgId)) return;
+    celebrated.add(pkgId);
+    saveCelebratedPkgs(celebrated);
+    const p = PACKAGES.find((x) => x.id === pkgId);
+    showConfetti(false);
+    showToast(`⚓️ Paket „${p.title}“ abgeschlossen!`);
   }
 
   function overallStats() {
@@ -97,12 +206,12 @@
     const overall = overallStats();
     const wrongGlobal = globalWrongCount();
     const wdhGlobal = globalWiederholungCount();
+    const bookmarkGlobal = store.bookmarkedIds(allIds).length;
 
     let html = `
-      <div class="hero hero-voyage">
+      <div class="hero">
         <h1>Theorie-Trainer</h1>
         <p>SBF See &amp; SBF Binnen – kombinierte Prüfungsvorbereitung</p>
-        ${voyageHtml(overall.percentProcessed)}
       </div>
 
       <div class="card overview-card">
@@ -132,6 +241,9 @@
         </button>
         <button class="btn btn-secondary" id="qa-wdh" ${wdhGlobal === 0 ? "disabled" : ""}>
           Wiederholungsstapel üben – alle Pakete (${wdhGlobal})
+        </button>
+        <button class="btn btn-ghost" id="qa-bookmarks" ${bookmarkGlobal === 0 ? "disabled" : ""}>
+          🔖 Lesezeichen üben (${bookmarkGlobal})
         </button>
       </div>
 
@@ -182,6 +294,10 @@
     const qaWdh = document.getElementById("qa-wdh");
     if (qaWdh) {
       qaWdh.addEventListener("click", () => startSession(store.wiederholungIds(allIds), "wiederholung", null));
+    }
+    const qaBookmarks = document.getElementById("qa-bookmarks");
+    if (qaBookmarks) {
+      qaBookmarks.addEventListener("click", () => startSession(store.bookmarkedIds(allIds), "bookmarks", null));
     }
   }
 
@@ -260,6 +376,9 @@
         <button class="btn btn-secondary" id="btn-wdh" ${wdhIds.length === 0 ? "disabled" : ""}>
           Wiederholungsstapel üben (${wdhIds.length})
         </button>
+        <button class="review-link" id="btn-wdh-review" ${wdhIds.length === 0 ? "disabled" : ""}>
+          👁 Nur ansehen – ohne erneute Wertung
+        </button>
       </div>
     `;
 
@@ -267,9 +386,11 @@
     const neuBtn = document.getElementById("btn-neu");
     const wrongBtn = document.getElementById("btn-wrong");
     const wdhBtn = document.getElementById("btn-wdh");
+    const wdhReviewBtn = document.getElementById("btn-wdh-review");
     if (neuBtn) neuBtn.addEventListener("click", () => startSession(neuIds, "neu", pkgId));
     if (wrongBtn) wrongBtn.addEventListener("click", () => startSession(wrongIds, "wrong", pkgId));
     if (wdhBtn) wdhBtn.addEventListener("click", () => startSession(wdhIds, "wiederholung", pkgId));
+    if (wdhReviewBtn) wdhReviewBtn.addEventListener("click", () => startReview(wdhIds, pkgId));
   }
 
   function shuffle(arr) {
@@ -294,21 +415,45 @@
   // ---------------------------------------------------------------
 
   let slideUid = 0;
-  function makeSlide(qId) {
+  function makeSlide(qId, opts = {}) {
     slideUid += 1;
-    const optionCount = qById[qId].options.length;
-    const order = shuffle(Array.from({ length: optionCount }, (_, i) => i));
-    return { slideId: `s${slideUid}`, qId, answered: null, order };
+    const q = qById[qId];
+    const order = shuffle(Array.from({ length: q.options.length }, (_, i) => i));
+    return { slideId: `s${slideUid}`, qId, answered: opts.answered ?? null, order, reviewOnly: !!opts.reviewOnly };
   }
 
   function startSession(ids, mode, pkgId) {
     if (!ids || ids.length === 0) return;
-    session = { mode, pkgId, slides: shuffle(ids).map(makeSlide), correctCount: 0 };
+    session = { mode, pkgId, slides: shuffle(ids).map((id) => makeSlide(id)), correctCount: 0 };
     push({ screen: "trainer" });
   }
 
+  // Nur-Ansehen-Modus: Karten sind sofort im ausgewerteten Zustand (die
+  // zuletzt gegebene Antwort ist markiert), lassen sich aber nicht erneut
+  // beantworten – dient dem Durchsehen bereits richtig beantworteter
+  // Fragen, ohne den Fortschritt (Falsch-/Wiederholungsstapel) zu ändern.
+  function startReview(ids, pkgId) {
+    if (!ids || ids.length === 0) return;
+    const slides = shuffle(ids).map((id) => {
+      const state = store.stateFor(id);
+      const q = qById[id];
+      const answered = state.lastChoice !== null && state.lastChoice !== undefined ? state.lastChoice : q.correct;
+      return makeSlide(id, { answered, reviewOnly: true });
+    });
+    session = { mode: "review", pkgId, slides, correctCount: 0 };
+    push({ screen: "trainer" });
+  }
+
+  const BOOKMARK_ICON = `<svg viewBox="0 0 24 24" fill="none"><path class="bm-path" d="M6 3.5h12a1 1 0 0 1 1 1V21l-7-4.2L5 21V4.5a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" fill="currentColor" fill-opacity="0"/></svg>`;
+
   function slideInnerHtml(slide) {
     const q = qById[slide.qId];
+    const bookmarked = store.isBookmarked(slide.qId);
+    const bookmarkHtml = `
+      <button class="bookmark-btn${bookmarked ? " active" : ""}" data-bookmark-q="${slide.qId}" aria-label="Lesezeichen">
+        ${BOOKMARK_ICON}
+      </button>
+    `;
     const photoHtml = q.image ? `<div class="photo-wrap"><img class="question-photo" src="${q.image}" alt="Original-Abbildung zur Frage" loading="lazy"></div>` : "";
     const diagramHtml = !q.image && q.diagram && DIAGRAMS[q.diagram] ? `<div class="diagram-wrap">${DIAGRAMS[q.diagram]}</div>` : "";
     const imageNoteHtml = !q.image && !q.diagram && q.note ? `
@@ -331,7 +476,10 @@
     `).join("");
     return `
       <div class="question-card">
-        <span class="category-pill">${CATEGORIES[q.category] || q.category}</span>
+        <div class="card-head-row">
+          <span class="category-pill">${CATEGORIES[q.category] || q.category}</span>
+          ${bookmarkHtml}
+        </div>
         ${imageNoteHtml}
         ${photoHtml}
         ${diagramHtml}
@@ -393,7 +541,7 @@
     if (!heading) return;
     const answered = session.slides.filter((s) => s.answered !== null);
     if (answered.length === 0) return;
-    const correct = session.correctCount;
+    const correct = answered.filter((s) => s.answered === qById[s.qId].correct).length;
     const pct = Math.round((correct / answered.length) * 100);
     const uniqueQIds = [...new Set(session.slides.map((s) => s.qId))];
     const stillWrong = uniqueQIds.filter((id) => store.stateFor(id).lastResult === "wrong").length;
@@ -427,7 +575,7 @@
     const correct = choiceIndex === q.correct;
     slide.answered = choiceIndex;
     if (correct) session.correctCount += 1;
-    store.recordAnswer(q.id, correct);
+    store.recordAnswer(q.id, correct, choiceIndex);
 
     const slideEl = root.querySelector(`.reel-slide[data-slide-id="${slideId}"]`);
     if (slideEl) fillAnsweredSlideDom(slideEl, slide);
@@ -444,10 +592,23 @@
 
     updateReelProgress();
     updateReelSummary();
+    renderTopProgress();
+    if (correct) {
+      checkMilestones();
+      checkPackageCompletion(session.pkgId);
+    }
   }
 
+  const MODE_LABELS = {
+    wrong: "Falsch beantwortete",
+    wiederholung: "Wiederholungsstapel",
+    neu: "Neue Fragen",
+    review: "Ansicht (Wiederholungsstapel)",
+    bookmarks: "Lesezeichen",
+  };
+
   function renderTrainer() {
-    const modeLabel = session.mode === "wrong" ? "Falsch beantwortete" : session.mode === "wiederholung" ? "Wiederholungsstapel" : "Neue Fragen";
+    const modeLabel = MODE_LABELS[session.mode] || "Fragen";
     const pkgTitle = session.pkgId ? PACKAGES.find((p) => p.id === session.pkgId).title : `${modeLabel} – alle Pakete`;
     topbarTitle.textContent = pkgTitle;
     backBtn.style.visibility = "visible";
@@ -480,12 +641,30 @@
 
     const container = document.getElementById("reel-container");
 
+    // Nur-Ansehen-Karten (z. B. Lesezeichen aus dem Wiederholungsstapel)
+    // sind schon beim Einblenden ausgewertet, ohne dass geklickt wurde.
+    session.slides.forEach((s) => {
+      if (s.answered === null) return;
+      const slideEl = container.querySelector(`.reel-slide[data-slide-id="${s.slideId}"]`);
+      if (slideEl) fillAnsweredSlideDom(slideEl, s);
+    });
+    updateReelSummary();
+
     // Ein einziger delegierter Klick-Handler für alle (auch später
-    // angehängte) Antwort- und "Nächste Frage"-Buttons.
+    // angehängte) Antwort-, Lesezeichen- und "Nächste Frage"-Buttons.
     container.addEventListener("click", (e) => {
+      const bookmarkBtn = e.target.closest(".bookmark-btn");
+      if (bookmarkBtn) {
+        const qId = bookmarkBtn.dataset.bookmarkQ;
+        const active = store.toggleBookmark(qId);
+        bookmarkBtn.classList.toggle("active", active);
+        return;
+      }
       const optBtn = e.target.closest(".option");
       if (optBtn && !optBtn.disabled) {
         const slideEl = optBtn.closest(".reel-slide");
+        const slide = session.slides.find((s) => s.slideId === slideEl.dataset.slideId);
+        if (slide && slide.reviewOnly) return;
         handleAnswer(slideEl.dataset.slideId, parseInt(optBtn.dataset.i, 10));
         return;
       }
@@ -512,14 +691,63 @@
     }, { passive: true });
   }
 
+  // ---------------------------------------------------------------
+  // Eröffnungsbildschirm: ein Boot segelt in den Hafen ein, "Start"
+  // führt zum Dashboard.
+  // ---------------------------------------------------------------
+  function renderSplash() {
+    root.innerHTML = `
+      <div class="splash">
+        <div class="splash-scene">
+          <svg viewBox="0 0 320 200" class="splash-svg" aria-hidden="true">
+            <path d="M0 152 Q20 146 40 152 T80 152 T120 152 T160 152 T200 152 T240 152 T280 152 T320 152"
+                  stroke="var(--accent)" stroke-width="2" fill="none" opacity="0.35"/>
+            <rect x="0" y="158" width="320" height="42" fill="var(--accent)" opacity="0.1"/>
+            <!-- Kleiner Leuchtturm markiert den Zielhafen -->
+            <g class="splash-harbor">
+              <line x1="252" y1="152" x2="252" y2="140" stroke="var(--ink-muted)" stroke-width="3" stroke-linecap="round"/>
+              <line x1="266" y1="152" x2="266" y2="140" stroke="var(--ink-muted)" stroke-width="3" stroke-linecap="round"/>
+              <rect x="248" y="136" width="22" height="6" rx="1" fill="var(--ink-muted)"/>
+              <rect x="291" y="106" width="14" height="34" rx="1.5" fill="var(--ink-muted)"/>
+              <rect x="291" y="118" width="14" height="7" fill="var(--red)"/>
+              <path d="M289 106 L307 106 L298 94 Z" fill="var(--red)"/>
+              <circle cx="298" cy="100" r="2.6" fill="var(--amber)"/>
+            </g>
+            <g class="splash-boat">
+              <path d="M244 150 Q260 160 276 150 L272 158 Q260 166 248 158 Z" fill="var(--accent)"/>
+              <path d="M262 148 L262 100 L288 146 Z" fill="var(--ink)"/>
+              <path d="M258 148 L258 112 L244 146 Z" fill="var(--ink)" opacity="0.75"/>
+              <line x1="262" y1="100" x2="262" y2="150" stroke="var(--ink)" stroke-width="2"/>
+            </g>
+          </svg>
+        </div>
+        <h1>SBF-Trainer</h1>
+        <p>Theorie-Prüfungsvorbereitung für SBF See &amp; SBF Binnen – lerne in kleinen Etappen bis zum Ziel.</p>
+        <button class="btn btn-primary" id="btn-splash-start">Start</button>
+      </div>
+    `;
+    const btn = document.getElementById("btn-splash-start");
+    if (btn) btn.addEventListener("click", goHome);
+  }
+
+  function triggerScreenAnim() {
+    root.classList.remove("screen-anim");
+    void root.offsetWidth;
+    root.classList.add("screen-anim");
+  }
+
   function render() {
     const view = current();
     document.body.classList.toggle("reel-mode", view.screen === "trainer");
     if (view.screen !== "trainer") root.classList.remove("reel-screen");
-    if (view.screen === "dashboard") renderDashboard();
+    topbar.style.display = view.screen === "splash" ? "none" : "";
+    if (view.screen === "splash") renderSplash();
+    else if (view.screen === "dashboard") renderDashboard();
     else if (view.screen === "package") renderPackage(view.pkgId);
     else if (view.screen === "trainer") renderTrainer();
+    if (view.screen !== "splash") renderTopProgress();
     if (view.screen !== "trainer") window.scrollTo(0, 0);
+    triggerScreenAnim();
   }
 
   render();

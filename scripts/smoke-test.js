@@ -10,6 +10,10 @@ const BASE_URL = process.env.SMOKE_BASE_URL || "http://127.0.0.1:8766/index.html
   page.on("pageerror", (err) => errors.push(String(err)));
 
   await page.goto(BASE_URL);
+  await page.waitForSelector("#btn-splash-start");
+  await page.screenshot({ path: "/tmp/shot-splash.png" });
+  await page.locator("#btn-splash-start").click();
+
   await page.waitForSelector(".pkg-card");
   await page.screenshot({ path: "/tmp/shot-dashboard.png" });
 
@@ -35,6 +39,12 @@ const BASE_URL = process.env.SMOKE_BASE_URL || "http://127.0.0.1:8766/index.html
   });
   const distinctPositions = new Set(correctPositions).size;
   console.log("Positionen der jeweils korrekten Antwort (erste 15 Karten):", correctPositions, "- unterschiedliche Positionen:", distinctPositions);
+
+  // Lesezeichen umschalten und Persistenz prüfen
+  const bookmarkBtn = page.locator(".reel-slide .bookmark-btn").first();
+  await bookmarkBtn.click();
+  const bookmarkActive = await bookmarkBtn.evaluate((el) => el.classList.contains("active"));
+  console.log("Lesezeichen aktiv nach Klick:", bookmarkActive);
 
   const slideCountBefore = await page.locator(".reel-slide").count();
 

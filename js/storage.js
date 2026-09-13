@@ -44,7 +44,16 @@ function saveProgress(progress) {
 }
 
 function emptyState() {
-  return { timesSeen: 0, consecutiveCorrect: 0, lastResult: null, learned: false, lastSeenAt: null };
+  return {
+    timesSeen: 0,
+    consecutiveCorrect: 0,
+    lastResult: null,
+    learned: false,
+    lastSeenAt: null,
+    lastChoice: null,
+    everCorrect: false,
+    bookmarked: false,
+  };
 }
 
 class ProgressStore {
@@ -56,13 +65,15 @@ class ProgressStore {
     return this.progress[questionId] || emptyState();
   }
 
-  recordAnswer(questionId, wasCorrect) {
+  recordAnswer(questionId, wasCorrect, choiceIndex = null) {
     const state = this.stateFor(questionId);
     state.timesSeen += 1;
     state.lastSeenAt = Date.now();
+    state.lastChoice = choiceIndex;
     if (wasCorrect) {
       state.consecutiveCorrect += 1;
       state.lastResult = "correct";
+      state.everCorrect = true;
       if (state.consecutiveCorrect >= 2) state.learned = true;
     } else {
       state.consecutiveCorrect = 0;
@@ -72,6 +83,31 @@ class ProgressStore {
     this.progress[questionId] = state;
     saveProgress(this.progress);
     return state;
+  }
+
+  /** Umschalten des Lesezeichens für eine Frage; gibt den neuen Zustand zurück. */
+  toggleBookmark(questionId) {
+    const state = this.stateFor(questionId);
+    state.bookmarked = !state.bookmarked;
+    this.progress[questionId] = state;
+    saveProgress(this.progress);
+    return state.bookmarked;
+  }
+
+  isBookmarked(questionId) {
+    return !!this.stateFor(questionId).bookmarked;
+  }
+
+  /** Fragen mit gesetztem Lesezeichen. */
+  bookmarkedIds(questionIds) {
+    return questionIds.filter((id) => this.stateFor(id).bookmarked);
+  }
+
+  /** Fragen, die mindestens einmal richtig beantwortet wurden (bleibt auch
+   *  nach einer späteren falschen Antwort bestehen – dient als monoton
+   *  wachsender Fortschrittswert für die Etappen-/Levelanzeige). */
+  everCorrectIds(questionIds) {
+    return questionIds.filter((id) => this.stateFor(id).everCorrect);
   }
 
   reset() {
