@@ -269,6 +269,152 @@ const DIAGRAMS = {
     <path d="M148 150 A28 28 0 0 0 120 122 L120 150 Z" fill="${GREEN}" stroke="${INK}" stroke-width="2"/>
     <text x="120" y="228" text-anchor="middle" font-size="12" fill="${MUTE}" font-family="inherit">Topplicht + zweifarbige Seitenlaterne: Kleinfahrzeug mit Maschinenantrieb</text>
   `),
+
+  // --- Zweite Recherche-Runde: IALA-Betonnung/Kardinalzeichen, Notzeichen
+  // nach Internationalem Signalbuch/KVR Anlage IV und Schallsignal-Muster,
+  // die sich aus unabhängigem Vorschriftenwissen bzw. aus dem eigenen,
+  // bereits wortlautgetreuen Katalogtext derselben Fragenpakete ableiten
+  // lassen (z. B. Frage 162 anhand der wortlautgetreuen Definition in
+  // Frage 163). Auch hier: eigenständig erstellte Lehrbilder, keine
+  // Nachbildung der amtlichen Originalgrafik.
+  buoySafeWater: svgWrap(`
+    <path d="M120 200 L120 130" stroke="${INK}" stroke-width="4"/>
+    <path d="M92 200 L148 200" stroke="${INK}" stroke-width="4" stroke-linecap="round"/>
+    <rect x="96" y="130" width="48" height="70" fill="${RED}" stroke="${INK}" stroke-width="3"/>
+    <rect x="96" y="130" width="48" height="17.5" fill="${WHITE}" stroke="${INK}" stroke-width="1"/>
+    <rect x="96" y="165" width="48" height="17.5" fill="${WHITE}" stroke="${INK}" stroke-width="1"/>
+    <circle cx="120" cy="106" r="20" fill="${RED}" stroke="${INK}" stroke-width="3"/>
+    <text x="120" y="222" text-anchor="middle" font-size="12" fill="${MUTE}" font-family="inherit">Mittelfahrwassertonne – rot-weiß gestreift, runde Kugel als Topzeichen</text>
+  `),
+  buoyPreferredStarboard: svgWrap(`
+    <path d="M120 200 L120 130" stroke="${INK}" stroke-width="4"/>
+    <path d="M92 200 L148 200" stroke="${INK}" stroke-width="4" stroke-linecap="round"/>
+    <path d="M96 130 L144 130 L120 60 Z" fill="${RED}" stroke="${INK}" stroke-width="3"/>
+    <rect x="96" y="88" width="48" height="20" fill="${GREEN}" stroke="${INK}" stroke-width="2"/>
+    <rect x="106" y="58" width="28" height="22" fill="${RED}" stroke="${INK}" stroke-width="2"/>
+    <text x="120" y="222" text-anchor="middle" font-size="11" fill="${MUTE}" font-family="inherit">Vorzugsfahrwasser Steuerbord – rot mit grünem Band, roter Zylinder</text>
+  `),
+  buoyPreferredPort: svgWrap(`
+    <path d="M120 200 L120 130" stroke="${INK}" stroke-width="4"/>
+    <path d="M92 200 L148 200" stroke="${INK}" stroke-width="4" stroke-linecap="round"/>
+    <rect x="96" y="90" width="48" height="40" fill="${GREEN}" stroke="${INK}" stroke-width="3"/>
+    <rect x="96" y="106" width="48" height="16" fill="${RED}" stroke="${INK}" stroke-width="2"/>
+    <path d="M108 55 L132 55 L120 33 Z" fill="${GREEN}" stroke="${INK}" stroke-width="2"/>
+    <text x="120" y="222" text-anchor="middle" font-size="11" fill="${MUTE}" font-family="inherit">Vorzugsfahrwasser Backbord – grün mit rotem Band, grüner Kegel</text>
+  `),
+  buoyIsolatedDanger: svgWrap(`
+    <path d="M120 200 L120 130" stroke="${INK}" stroke-width="4"/>
+    <path d="M92 200 L148 200" stroke="${INK}" stroke-width="4" stroke-linecap="round"/>
+    <rect x="96" y="150" width="48" height="50" fill="${INK}" stroke="${INK}" stroke-width="3"/>
+    <rect x="96" y="130" width="48" height="20" fill="${RED}" stroke="${INK}" stroke-width="3"/>
+    <rect x="96" y="150" width="48" height="20" fill="${INK}" stroke="${INK}" stroke-width="1"/>
+    <circle cx="120" cy="106" r="16" fill="${INK}" stroke="${INK}" stroke-width="2"/>
+    <circle cx="120" cy="76" r="16" fill="${INK}" stroke="${INK}" stroke-width="2"/>
+    <text x="120" y="222" text-anchor="middle" font-size="11" fill="${MUTE}" font-family="inherit">Einzelgefahrenstelle – schwarz mit rotem Band, 2 schwarze Kugeln übereinander</text>
+  `),
+  cardinalEast: svgWrap(`
+    <path d="M120 200 L120 170" stroke="${INK}" stroke-width="4"/>
+    <rect x="94" y="137" width="52" height="33" fill="${INK}" stroke="${INK}" stroke-width="3"/>
+    <rect x="94" y="103" width="52" height="34" fill="${AMBER}" stroke="${INK}" stroke-width="3"/>
+    <rect x="94" y="70" width="52" height="33" fill="${INK}" stroke="${INK}" stroke-width="3"/>
+    <path d="M96 50 L144 50 L120 26 Z" fill="${INK}" stroke="${INK}" stroke-width="2"/>
+    <path d="M96 50 L144 50 L120 74 Z" fill="${INK}" stroke="${INK}" stroke-width="2"/>
+    <text x="120" y="222" text-anchor="middle" font-size="12" fill="${MUTE}" font-family="inherit">Kardinalzeichen Ost – schwarz-gelb-schwarz, Kegel Basis gegen Basis</text>
+  `),
+  cardinalWest: svgWrap(`
+    <path d="M120 200 L120 170" stroke="${INK}" stroke-width="4"/>
+    <rect x="94" y="137" width="52" height="33" fill="${AMBER}" stroke="${INK}" stroke-width="3"/>
+    <rect x="94" y="103" width="52" height="34" fill="${INK}" stroke="${INK}" stroke-width="3"/>
+    <rect x="94" y="70" width="52" height="33" fill="${AMBER}" stroke="${INK}" stroke-width="3"/>
+    <path d="M96 26 L144 26 L120 50 Z" fill="${INK}" stroke="${INK}" stroke-width="2"/>
+    <path d="M96 74 L144 74 L120 50 Z" fill="${INK}" stroke="${INK}" stroke-width="2"/>
+    <text x="120" y="222" text-anchor="middle" font-size="12" fill="${MUTE}" font-family="inherit">Kardinalzeichen West – gelb-schwarz-gelb, Kegel Spitze gegen Spitze</text>
+  `),
+  cardinalLightNorth: svgWrap(`
+    <line x1="30" y1="120" x2="210" y2="120" stroke="${MUTE}" stroke-width="2"/>
+    ${Array.from({ length: 13 }).map((_, i) => `<circle cx="${30 + i * 15}" cy="120" r="5" fill="${AMBER}"/>`).join("")}
+    <text x="120" y="150" text-anchor="middle" font-size="12" fill="${MUTE}" font-family="inherit">Nord: ununterbrochenes Schnell-/Funkelblitzen (Kennung Q bzw. VQ)</text>
+  `),
+  cardinalLightEast: svgWrap(`
+    <line x1="30" y1="120" x2="210" y2="120" stroke="${MUTE}" stroke-width="2" opacity="0.4"/>
+    <circle cx="55" cy="120" r="5" fill="${AMBER}"/><circle cx="70" cy="120" r="5" fill="${AMBER}"/><circle cx="85" cy="120" r="5" fill="${AMBER}"/>
+    <circle cx="155" cy="120" r="5" fill="${AMBER}" opacity="0.45"/><circle cx="170" cy="120" r="5" fill="${AMBER}" opacity="0.45"/><circle cx="185" cy="120" r="5" fill="${AMBER}" opacity="0.45"/>
+    <text x="120" y="150" text-anchor="middle" font-size="12" fill="${MUTE}" font-family="inherit">Ost: Gruppe von 3 Blitzen, danach Dunkelpause (Kennung Q(3)/VQ(3))</text>
+  `),
+  cardinalLightSouth: svgWrap(`
+    <line x1="30" y1="120" x2="210" y2="120" stroke="${MUTE}" stroke-width="2" opacity="0.4"/>
+    <circle cx="45" cy="120" r="5" fill="${AMBER}"/><circle cx="58" cy="120" r="5" fill="${AMBER}"/><circle cx="71" cy="120" r="5" fill="${AMBER}"/>
+    <circle cx="84" cy="120" r="5" fill="${AMBER}"/><circle cx="97" cy="120" r="5" fill="${AMBER}"/><circle cx="110" cy="120" r="5" fill="${AMBER}"/>
+    <rect x="128" y="115" width="18" height="10" fill="${AMBER}"/>
+    <text x="120" y="150" text-anchor="middle" font-size="12" fill="${MUTE}" font-family="inherit">Süd: Gruppe von 6 Blitzen + 1 langer Blitz (Kennung Q(6)+LFl/VQ(6)+LFl)</text>
+  `),
+  cardinalLightWest: svgWrap(`
+    <line x1="30" y1="120" x2="210" y2="120" stroke="${MUTE}" stroke-width="2" opacity="0.4"/>
+    ${[40,53,66,79,92,105,118,131,144].map((x)=>`<circle cx="${x}" cy="120" r="5" fill="${AMBER}"/>`).join("")}
+    <text x="120" y="150" text-anchor="middle" font-size="12" fill="${MUTE}" font-family="inherit">West: Gruppe von 9 Blitzen, danach Dunkelpause (Kennung Q(9)/VQ(9))</text>
+  `),
+  flagLima: svgWrap(`
+    <line x1="60" y1="200" x2="60" y2="40" stroke="${INK}" stroke-width="4"/>
+    <rect x="60" y="50" width="80" height="26" fill="${AMBER}" stroke="${INK}" stroke-width="2"/>
+    <rect x="140" y="50" width="80" height="26" fill="${INK}" stroke="${INK}" stroke-width="2"/>
+    <rect x="60" y="76" width="80" height="26" fill="${INK}" stroke="${INK}" stroke-width="2"/>
+    <rect x="140" y="76" width="80" height="26" fill="${AMBER}" stroke="${INK}" stroke-width="2"/>
+    <text x="120" y="222" text-anchor="middle" font-size="12" fill="${MUTE}" font-family="inherit">Flagge „Lima" – gelb/schwarz kariert: „Sofort stoppen!"</text>
+  `),
+  flagsNC: svgWrap(`
+    <line x1="50" y1="200" x2="50" y2="36" stroke="${INK}" stroke-width="4"/>
+    <rect x="50" y="42" width="60" height="20" fill="${BLUE}" stroke="${INK}" stroke-width="2"/>
+    <rect x="110" y="42" width="60" height="20" fill="${WHITE}" stroke="${INK}" stroke-width="2"/>
+    <rect x="50" y="62" width="60" height="20" fill="${WHITE}" stroke="${INK}" stroke-width="2"/>
+    <rect x="110" y="62" width="60" height="20" fill="${BLUE}" stroke="${INK}" stroke-width="2"/>
+    <line x1="150" y1="200" x2="150" y2="86" stroke="${INK}" stroke-width="3" opacity="0"/>
+    <g transform="translate(0,92)">
+      <rect x="50" y="0" width="120" height="10" fill="${BLUE}" stroke="${INK}" stroke-width="1"/>
+      <rect x="50" y="10" width="120" height="10" fill="${WHITE}" stroke="${INK}" stroke-width="1"/>
+      <rect x="50" y="20" width="120" height="10" fill="${RED}" stroke="${INK}" stroke-width="1"/>
+      <rect x="50" y="30" width="120" height="10" fill="${WHITE}" stroke="${INK}" stroke-width="1"/>
+      <rect x="50" y="40" width="120" height="10" fill="${BLUE}" stroke="${INK}" stroke-width="1"/>
+    </g>
+    <text x="120" y="222" text-anchor="middle" font-size="11" fill="${MUTE}" font-family="inherit">Flaggen „November-Charlie" (N über C gesetzt) – Seenotsignal</text>
+  `),
+  flagSquareBall: svgWrap(`
+    <line x1="120" y1="200" x2="120" y2="36" stroke="${INK}" stroke-width="4"/>
+    <rect x="120" y="46" width="70" height="46" fill="${AMBER}" stroke="${INK}" stroke-width="2"/>
+    <circle cx="120" cy="120" r="16" fill="${INK}" stroke="${INK}" stroke-width="2"/>
+    <text x="120" y="222" text-anchor="middle" font-size="11" fill="${MUTE}" font-family="inherit">Notsignal: eine viereckige Flagge mit einem Ball darunter (oder darüber)</text>
+  `),
+  soundFiveShort: svgWrap(`
+    <line x1="20" y1="130" x2="220" y2="130" stroke="${MUTE}" stroke-width="2"/>
+    ${[30,58,86,114,142].map((x)=>`<rect x="${x}" y="108" width="12" height="22" fill="${AMBER}" stroke="${INK}" stroke-width="1"/>`).join("")}
+    <text x="120" y="160" text-anchor="middle" font-size="12" fill="${MUTE}" font-family="inherit">Mindestens 5 kurze Töne hintereinander – Warn-/Zweifelsignal</text>
+  `),
+  soundGeneralAlarm: svgWrap(`
+    <line x1="15" y1="130" x2="225" y2="130" stroke="${MUTE}" stroke-width="2"/>
+    <rect x="24" y="108" width="34" height="22" fill="${AMBER}" stroke="${INK}" stroke-width="1"/>
+    ${[66,80,94,108].map((x)=>`<rect x="${x}" y="112" width="8" height="18" fill="${AMBER}" stroke="${INK}" stroke-width="1"/>`).join("")}
+    <rect x="134" y="108" width="34" height="22" fill="${AMBER}" stroke="${INK}" stroke-width="1"/>
+    ${[176,190,204,218].map((x)=>`<rect x="${x}" y="112" width="8" height="18" fill="${AMBER}" stroke="${INK}" stroke-width="1"/>`).join("")}
+    <text x="120" y="160" text-anchor="middle" font-size="11" fill="${MUTE}" font-family="inherit">Allgemeines Gefahr- und Warnsignal: 2× (1 langer + 4 kurze Töne)</text>
+  `),
+  tafelNoEntry: svgWrap(`
+    <rect x="60" y="60" width="120" height="90" fill="${RED}" stroke="${INK}" stroke-width="3"/>
+    <rect x="60" y="96" width="120" height="18" fill="${WHITE}" stroke="${INK}" stroke-width="1"/>
+    <line x1="120" y1="150" x2="120" y2="200" stroke="${INK}" stroke-width="4"/>
+    <text x="120" y="222" text-anchor="middle" font-size="11" fill="${MUTE}" font-family="inherit">Zeichen A.1 – rote Tafel mit weißem Querbalken: Durchfahrt verboten, Schifffahrt gesperrt</text>
+  `),
+  gebotArrow: svgWrap(`
+    <circle cx="120" cy="105" r="60" fill="${BLUE}" stroke="${INK}" stroke-width="3"/>
+    <path d="M120 60 L120 140 M120 60 L100 84 M120 60 L140 84" fill="none" stroke="${WHITE}" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="120" y1="165" x2="120" y2="200" stroke="${INK}" stroke-width="4"/>
+    <text x="120" y="222" text-anchor="middle" font-size="11" fill="${MUTE}" font-family="inherit">Zeichen B.1 – blaue Scheibe mit weißem Pfeil: vorgeschriebene Fahrtrichtung</text>
+  `),
+  blueBoardLight: svgWrap(`
+    <line x1="120" y1="200" x2="120" y2="90" stroke="${INK}" stroke-width="4"/>
+    <rect x="76" y="90" width="88" height="46" fill="${BLUE}" stroke="${INK}" stroke-width="2"/>
+    <circle cx="120" cy="113" r="10" fill="${WHITE}" stroke="${INK}" stroke-width="2"/>
+    <circle cx="120" cy="113" r="17" fill="none" stroke="${WHITE}" stroke-width="2" stroke-dasharray="3 4" opacity="0.8"/>
+    <text x="120" y="222" text-anchor="middle" font-size="11" fill="${MUTE}" font-family="inherit">Blaue Tafel mit weißem Funkellicht – Begegnung an Steuerbord</text>
+  `),
 };
 
 if (typeof module !== "undefined") module.exports = { DIAGRAMS };

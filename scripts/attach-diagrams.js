@@ -40,6 +40,33 @@ const MAPPING = [
   ["Binnen", 131, "lightsBlueThree"],
   ["Binnen", 194, "lightsSingleWhiteBinnen"],
   ["Binnen", 195, "lightsBicolorTopp"],
+
+  // --- Zweite Recherche-Runde (IALA-Betonnung/Kardinalzeichen, Notzeichen
+  // nach Internationalem Signalbuch/KVR Anlage IV, Schallsignale, CEVNI-
+  // Verkehrszeichen) ---
+  ["See", 16, "soundFiveShort"],
+  ["See", 140, "soundFiveShort"],
+  ["See", 162, "soundGeneralAlarm"],
+  ["See", 185, "flagLima"],
+  ["See", 190, "buoySafeWater"],
+  ["See", 195, "buoyPreferredStarboard"],
+  ["See", 196, "buoyPreferredPort"],
+  ["See", 200, "cardinalNorth"],
+  ["See", 201, "cardinalEast"],
+  ["See", 202, "cardinalSouth"],
+  ["See", 203, "cardinalWest"],
+  ["See", 204, "cardinalLightNorth"],
+  ["See", 205, "cardinalLightEast"],
+  ["See", 206, "cardinalLightSouth"],
+  ["See", 207, "cardinalLightWest"],
+  ["See", 208, "buoyIsolatedDanger"],
+  ["See", 284, "flagsNC"],
+  ["See", 285, "flagSquareBall"],
+  ["Binnen", 116, "tafelNoEntry"],
+  ["Binnen", 171, "blueBoardLight"],
+  ["Binnen", 172, "blueBoardLight"],
+  ["Binnen", 198, "gebotArrow"],
+  ["Binnen", 244, "tafelNoEntry"],
 ];
 
 // Ein Q(...)-Aufruf, wie er von generate-data-js(.js|-binnen.js) erzeugt wird.
