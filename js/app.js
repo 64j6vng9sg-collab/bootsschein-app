@@ -370,6 +370,22 @@
       : `${pct}% richtig. Alle Fragen liegen jetzt im Wiederholungsstapel!`;
   }
 
+  const AUTO_ADVANCE_DELAY = 1100;
+
+  function scheduleAutoAdvance(slideEl) {
+    const container = document.getElementById("reel-container");
+    const scrollTopAtAnswer = container ? container.scrollTop : 0;
+    setTimeout(() => {
+      if (!slideEl.isConnected || !container) return;
+      // Nur automatisch weiterwischen, wenn der Nutzer nicht zwischenzeitlich
+      // selbst schon weiter- oder zurückgescrollt hat (frei durchrotieren
+      // bleibt jederzeit möglich).
+      if (Math.abs(container.scrollTop - scrollTopAtAnswer) > 30) return;
+      const next = slideEl.nextElementSibling;
+      if (next) next.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, AUTO_ADVANCE_DELAY);
+  }
+
   function handleAnswer(slideId, choiceIndex) {
     const slide = session.slides.find((s) => s.slideId === slideId);
     if (!slide || slide.answered !== null) return;
@@ -389,6 +405,8 @@
       const summaryEl = root.querySelector(".reel-slide.reel-summary");
       if (summaryEl) summaryEl.insertAdjacentHTML("beforebegin", slideOuterHtml(newSlide));
     }
+
+    if (slideEl) scheduleAutoAdvance(slideEl);
 
     updateReelProgress();
     updateReelSummary();
