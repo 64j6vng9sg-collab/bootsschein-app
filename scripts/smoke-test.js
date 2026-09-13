@@ -24,6 +24,18 @@ const BASE_URL = process.env.SMOKE_BASE_URL || "http://127.0.0.1:8766/index.html
   await page.waitForSelector(".reel-slide .option");
   await page.screenshot({ path: "/tmp/shot-trainer.png" });
 
+  // Regression check: die Position der richtigen Antwort muss variieren,
+  // darf also nicht immer auf Buchstabe A liegen.
+  const correctPositions = await page.evaluate(() => {
+    const slides = Array.from(document.querySelectorAll(".reel-slide:not(.reel-summary)")).slice(0, 15);
+    return slides.map((s) => {
+      const opts = Array.from(s.querySelectorAll(".option"));
+      return opts.findIndex((o) => o.dataset.i === "0");
+    });
+  });
+  const distinctPositions = new Set(correctPositions).size;
+  console.log("Positionen der jeweils korrekten Antwort (erste 15 Karten):", correctPositions, "- unterschiedliche Positionen:", distinctPositions);
+
   const slideCountBefore = await page.locator(".reel-slide").count();
 
   // richtige Antwort auf der ersten Karte anklicken
@@ -33,7 +45,7 @@ const BASE_URL = process.env.SMOKE_BASE_URL || "http://127.0.0.1:8766/index.html
     const q = QUESTIONS.find((x) => x.q.trim() === text);
     return q.correct;
   });
-  await firstSlide.locator(".option").nth(correctIdx).click();
+  await firstSlide.locator(`.option[data-i="${correctIdx}"]`).click();
   await page.waitForSelector(".reel-slide .source-note");
   await page.screenshot({ path: "/tmp/shot-answered.png" });
 
@@ -48,7 +60,7 @@ const BASE_URL = process.env.SMOKE_BASE_URL || "http://127.0.0.1:8766/index.html
     const q = QUESTIONS.find((x) => x.q.trim() === text);
     return q.correct;
   });
-  await secondSlide.locator(".option").nth((correctIdx2 + 1) % 4).click();
+  await secondSlide.locator(`.option[data-i="${(correctIdx2 + 1) % 4}"]`).click();
   await page.waitForTimeout(150);
   const slideCountAfterWrong = await page.locator(".reel-slide").count();
   console.log("Karten nach falscher Antwort (sollte +1 sein):", slideCountAfterWrong, "erwartet:", slideCountAfterCorrect + 1);

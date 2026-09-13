@@ -51,7 +51,27 @@
     topbar.classList.toggle("scrolled", window.scrollY > 2);
   });
 
-  function fmtPct(n) { return `${n}%`; }
+  // Spielerische Fortschrittsanzeige im Bootsführerschein-Motiv: ein Boot
+  // fährt entlang einer Route von Startboje zu Zielhafen, seine Position
+  // spiegelt den Anteil bereits beantworteter Fragen wider.
+  function voyageHtml(percent) {
+    const p = Math.max(0, Math.min(100, percent));
+    const x = 26 + (248 * p) / 100;
+    return `
+      <div class="voyage" role="img" aria-label="${p}% der Fragen beantwortet">
+        <svg viewBox="0 0 300 60" class="voyage-svg" aria-hidden="true">
+          <line x1="26" y1="34" x2="274" y2="34" stroke="var(--line)" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round"/>
+          <circle cx="26" cy="34" r="5" fill="var(--ink-muted)"/>
+          <path d="M266 20 L266 48 L286 34 Z" fill="var(--accent)" opacity="0.9"/>
+          <g transform="translate(${x},14)">
+            <path d="M-12 22 Q0 30 12 22 L9 27 Q0 33 -9 27 Z" fill="var(--accent)"/>
+            <path d="M2 20 L2 2 L13 19 Z" fill="var(--ink)"/>
+            <line x1="2" y1="2" x2="2" y2="20" stroke="var(--ink)" stroke-width="1.5" stroke-linecap="round"/>
+          </g>
+        </svg>
+      </div>
+    `;
+  }
 
   function overallStats() {
     const all = QUESTIONS.map((q) => q.id);
@@ -79,19 +99,30 @@
     const wdhGlobal = globalWiederholungCount();
 
     let html = `
-      <div class="hero">
+      <div class="hero hero-voyage">
         <h1>Theorie-Trainer</h1>
         <p>SBF See &amp; SBF Binnen – kombinierte Prüfungsvorbereitung</p>
+        ${voyageHtml(overall.percentProcessed)}
       </div>
 
-      <div class="overview-grid">
-        <div class="overview-tile">
-          <div class="num">${overall.percentLearned}%</div>
-          <div class="lbl">sicher gelernt</div>
+      <div class="card overview-card">
+        <div class="overview-big">
+          <div class="overview-big-num">${overall.processed}<span class="overview-big-total">/${overall.total}</span></div>
+          <div class="overview-big-lbl">Fragen insgesamt beantwortet</div>
         </div>
-        <div class="overview-tile">
-          <div class="num">${overall.learned}/${overall.total}</div>
-          <div class="lbl">Fragen gelernt</div>
+        <div class="overview-grid overview-grid-3">
+          <div class="overview-tile">
+            <div class="num">${overall.neu}</div>
+            <div class="lbl">🆕 neu</div>
+          </div>
+          <div class="overview-tile">
+            <div class="num" style="color:var(--red)">${wrongGlobal}</div>
+            <div class="lbl">falsch aktuell</div>
+          </div>
+          <div class="overview-tile">
+            <div class="num" style="color:var(--green)">${overall.learned}</div>
+            <div class="lbl">sicher gelernt</div>
+          </div>
         </div>
       </div>
 
@@ -104,7 +135,7 @@
         </button>
       </div>
 
-      <div class="section-label">Fragenpakete</div>
+      <div class="section-label">Deine Fragenpakete</div>
     `;
 
     PACKAGES.forEach((p) => {
@@ -122,9 +153,9 @@
           <div class="bar" style="margin-bottom:6px;"><div class="bar-fill" style="width:${s.percentProcessed}%"></div></div>
           <div class="bar" style="height:5px;"><div class="bar-fill wrong" style="width:${s.percentWrongOfProcessed}%"></div></div>
           <div class="stat-row">
-            <span><span class="dot" style="background:var(--accent)"></span>${fmtPct(s.percentProcessed)} bearbeitet</span>
-            <span><span class="dot" style="background:var(--red)"></span>${fmtPct(s.percentWrongOfProcessed)} akt. falsch</span>
-            <span><span class="dot" style="background:var(--green)"></span>${fmtPct(s.percentLearned)} gelernt</span>
+            <span><span class="dot" style="background:var(--accent)"></span>${s.processed} bearbeitet</span>
+            <span><span class="dot" style="background:var(--red)"></span>${s.wrong} falsch</span>
+            <span><span class="dot" style="background:var(--green)"></span>${s.learned} gelernt</span>
           </div>
         </button>
       `;
@@ -265,7 +296,9 @@
   let slideUid = 0;
   function makeSlide(qId) {
     slideUid += 1;
-    return { slideId: `s${slideUid}`, qId, answered: null };
+    const optionCount = qById[qId].options.length;
+    const order = shuffle(Array.from({ length: optionCount }, (_, i) => i));
+    return { slideId: `s${slideUid}`, qId, answered: null, order };
   }
 
   function startSession(ids, mode, pkgId) {
@@ -289,10 +322,10 @@
         <span class="image-frame-note">${q.note}</span>
       </div>
     ` : "";
-    const optionsHtml = q.options.map((opt, i) => `
-      <button class="option" data-i="${i}">
-        <span class="letter">${letterFor(i)}</span>
-        <span class="option-text">${opt}</span>
+    const optionsHtml = slide.order.map((origIdx, pos) => `
+      <button class="option" data-i="${origIdx}">
+        <span class="letter">${letterFor(pos)}</span>
+        <span class="option-text">${q.options[origIdx]}</span>
         <span class="option-mark" aria-hidden="true"></span>
       </button>
     `).join("");
@@ -320,13 +353,14 @@
     const q = qById[slide.qId];
     const optionsEl = slideEl.querySelector(".options");
     if (optionsEl) optionsEl.classList.add("answered");
-    slideEl.querySelectorAll(".option").forEach((btn, i) => {
+    slideEl.querySelectorAll(".option").forEach((btn) => {
+      const origIdx = parseInt(btn.dataset.i, 10);
       btn.disabled = true;
       const mark = btn.querySelector(".option-mark");
-      if (i === q.correct) {
+      if (origIdx === q.correct) {
         btn.classList.add("correct");
         if (mark) mark.innerHTML = CHECK_ICON;
-      } else if (i === slide.answered) {
+      } else if (origIdx === slide.answered) {
         btn.classList.add("wrong");
         if (mark) mark.innerHTML = CROSS_ICON;
       } else {
