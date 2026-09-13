@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1" />
+  <title>SBF-Trainer – Theorie See &amp; Binnen</title>
+  <meta name="description" content="Prüfungsvorbereitung für den Sportbootführerschein See und Binnen mit Fragentrainer, Fortschrittstracking und Wiederholungspaketen." />
+
+  <meta name="theme-color" content="#F4EFE6" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0E1420" media="(prefers-color-scheme: dark)" />
+
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="icons/icon-180.png" />
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="SBF-Trainer" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <div class="topbar" id="topbar">
+      <button class="icon-btn" id="btn-back" aria-label="Zurück"></button>
+      <div class="topbar-title" id="topbar-title">SBF-Trainer</div>
+      <button class="icon-btn" id="btn-home" aria-label="Zur Übersicht"></button>
+    </div>
+    <main class="screen" id="app-screen"></main>
+  </div>
+
+  <script src="js/diagrams.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("service-worker.js").catch(() => {});
+      });
+    }
+  </script>
+</body>
+</html>
