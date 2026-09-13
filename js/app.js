@@ -13,7 +13,14 @@
   const homeBtn = document.getElementById("btn-home");
   const topbar = document.getElementById("topbar");
 
-  let stack = [{ screen: "splash" }];
+  // Die Eröffnungsseite erscheint nur beim allerersten Start dieser App
+  // auf diesem Gerät. Bei jedem weiteren Öffnen geht es direkt zum
+  // Dashboard mit dem zuletzt gespeicherten Fortschritt weiter.
+  const VISITED_KEY = "sbf-trainer-visited-v1";
+  let hasVisitedBefore = false;
+  try { hasVisitedBefore = localStorage.getItem(VISITED_KEY) === "1"; } catch (e) { /* ignore */ }
+
+  let stack = [{ screen: hasVisitedBefore ? "dashboard" : "splash" }];
   let session = null; // { mode, pkgId, slides: [{slideId, qId, answered}], correctCount }
 
   function current() { return stack[stack.length - 1]; }
@@ -849,7 +856,12 @@
       </div>
     `;
     const btn = document.getElementById("btn-splash-start");
-    if (btn) btn.addEventListener("click", goHome);
+    if (btn) {
+      btn.addEventListener("click", () => {
+        try { localStorage.setItem(VISITED_KEY, "1"); } catch (e) { /* ignore */ }
+        goHome();
+      });
+    }
   }
 
   function triggerScreenAnim() {
