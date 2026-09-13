@@ -1,5 +1,7 @@
 const { chromium } = require("playwright");
 
+const BASE_URL = process.env.SMOKE_BASE_URL || "http://127.0.0.1:8766/index.html";
+
 (async () => {
   const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome", args: ["--no-sandbox"] });
   const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
@@ -7,7 +9,7 @@ const { chromium } = require("playwright");
   page.on("console", (msg) => { if (msg.type() === "error") errors.push(msg.text()); });
   page.on("pageerror", (err) => errors.push(String(err)));
 
-  await page.goto("http://127.0.0.1:8766/index.html");
+  await page.goto(BASE_URL);
   await page.waitForSelector(".pkg-card");
   await page.screenshot({ path: "/tmp/shot-dashboard.png" });
 
@@ -15,30 +17,47 @@ const { chromium } = require("playwright");
   console.log("Pakete auf Dashboard:", pkgCount);
 
   await page.locator(".pkg-card").first().click();
-  await page.waitForSelector("#btn-learn");
+  await page.waitForSelector("#btn-neu");
   await page.screenshot({ path: "/tmp/shot-package.png" });
 
-  await page.locator("#btn-learn").click();
-  await page.waitForSelector(".option");
+  await page.locator("#btn-neu").click();
+  await page.waitForSelector(".reel-slide .option");
   await page.screenshot({ path: "/tmp/shot-trainer.png" });
 
-  // richtige Antwort anklicken (Frage per Text aus globaler QUESTIONS-Liste finden)
+  const slideCountBefore = await page.locator(".reel-slide").count();
+
+  // richtige Antwort auf der ersten Karte anklicken
+  const firstSlide = page.locator(".reel-slide").first();
   const correctIdx = await page.evaluate(() => {
-    const text = document.querySelector(".question-text").textContent.trim();
+    const text = document.querySelector(".reel-slide .question-text").textContent.trim();
     const q = QUESTIONS.find((x) => x.q.trim() === text);
     return q.correct;
   });
-  await page.locator(".option").nth(correctIdx).click();
-  await page.waitForSelector(".source-note");
+  await firstSlide.locator(".option").nth(correctIdx).click();
+  await page.waitForSelector(".reel-slide .source-note");
   await page.screenshot({ path: "/tmp/shot-answered.png" });
 
-  await page.locator("#btn-next").click();
-  await page.waitForTimeout(200);
+  const slideCountAfterCorrect = await page.locator(".reel-slide").count();
+  console.log("Karten vor/nach richtiger Antwort (sollte gleich bleiben):", slideCountBefore, slideCountAfterCorrect);
+
+  // zweite Karte bewusst falsch beantworten -> muss eine neue Karte anhängen
+  const secondSlide = page.locator(".reel-slide").nth(1);
+  const correctIdx2 = await page.evaluate(() => {
+    const slides = document.querySelectorAll(".reel-slide:not(.reel-summary)");
+    const text = slides[1].querySelector(".question-text").textContent.trim();
+    const q = QUESTIONS.find((x) => x.q.trim() === text);
+    return q.correct;
+  });
+  await secondSlide.locator(".option").nth((correctIdx2 + 1) % 4).click();
+  await page.waitForTimeout(150);
+  const slideCountAfterWrong = await page.locator(".reel-slide").count();
+  console.log("Karten nach falscher Antwort (sollte +1 sein):", slideCountAfterWrong, "erwartet:", slideCountAfterCorrect + 1);
 
   // zurück nach Hause testen
   await page.locator("#btn-home").click();
   await page.waitForSelector(".pkg-card");
   await page.screenshot({ path: "/tmp/shot-home-again.png" });
+  console.log("reel-mode nach Home verlassen:", await page.evaluate(() => document.body.classList.contains("reel-mode")));
 
   // Fortschritt persistiert?
   const stored = await page.evaluate(() => localStorage.getItem("sbf-trainer-progress-v1"));

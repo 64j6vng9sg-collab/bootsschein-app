@@ -14,7 +14,7 @@
   const topbar = document.getElementById("topbar");
 
   let stack = [{ screen: "dashboard" }];
-  let session = null; // { ids, index, mode, pkgId, correctCount }
+  let session = null; // { mode, pkgId, slides: [{slideId, qId, answered}], correctCount }
 
   function current() { return stack[stack.length - 1]; }
 
@@ -30,6 +30,7 @@
   function back() {
     if (stack.length > 1) stack.pop();
     else stack = [{ screen: "dashboard" }];
+    if (current().screen !== "trainer") session = null;
     render();
   }
 
@@ -249,13 +250,123 @@
     return a;
   }
 
+  function letterFor(i) { return ["A", "B", "C", "D"][i]; }
+
+  // ---------------------------------------------------------------
+  // Trainer – vertikaler Wisch-Feed (Reel-Stil): jede Frage ist eine
+  // eigene Vollbild-Karte in einem snap-scrollenden Feed. Nach oben
+  // wischen zeigt die nächste Frage, egal ob die aktuelle beantwortet
+  // wurde oder nicht – so lässt sich frei "durchrotieren". Eine falsch
+  // beantwortete Frage wird nicht ersetzt, sondern als neue Karte ans
+  // Ende des Feeds angehängt (Falsch-Stapel bleibt dadurch am Ende
+  // erreichbar, ohne die bereits gescrollte Position zu verlieren).
+  // ---------------------------------------------------------------
+
+  let slideUid = 0;
+  function makeSlide(qId) {
+    slideUid += 1;
+    return { slideId: `s${slideUid}`, qId, answered: null };
+  }
+
   function startSession(ids, mode, pkgId) {
     if (!ids || ids.length === 0) return;
-    session = { ids: shuffle(ids), index: 0, mode, pkgId, correctCount: 0, answered: null };
+    session = { mode, pkgId, slides: shuffle(ids).map(makeSlide), correctCount: 0 };
     push({ screen: "trainer" });
   }
 
-  function letterFor(i) { return ["A", "B", "C", "D"][i]; }
+  function slideInnerHtml(slide) {
+    const q = qById[slide.qId];
+    const diagramHtml = q.diagram && DIAGRAMS[q.diagram] ? `<div class="diagram-wrap">${DIAGRAMS[q.diagram]}</div>` : "";
+    const imageNoteHtml = q.note ? `<div class="image-note">⚠️ ${q.note}</div>` : "";
+    const optionsHtml = q.options.map((opt, i) => `
+      <button class="option" data-i="${i}">
+        <span class="letter">${letterFor(i)}</span>
+        <span>${opt}</span>
+      </button>
+    `).join("");
+    return `
+      <div class="question-card">
+        <span class="category-pill">${CATEGORIES[q.category] || q.category}</span>
+        <p class="question-text">${q.q}</p>
+        ${imageNoteHtml}
+        ${diagramHtml}
+        <div class="options">${optionsHtml}</div>
+        <div class="answer-extra"></div>
+      </div>
+    `;
+  }
+
+  function slideOuterHtml(slide) {
+    return `<section class="reel-slide" data-slide-id="${slide.slideId}">${slideInnerHtml(slide)}</section>`;
+  }
+
+  function fillAnsweredSlideDom(slideEl, slide) {
+    const q = qById[slide.qId];
+    slideEl.querySelectorAll(".option").forEach((btn, i) => {
+      btn.disabled = true;
+      if (i === q.correct) btn.classList.add("correct");
+      else if (i === slide.answered) btn.classList.add("wrong");
+    });
+    const extra = slideEl.querySelector(".answer-extra");
+    if (extra) {
+      extra.innerHTML = `
+        <div class="source-note"><b>Quelle:</b> ${q.source}</div>
+        <button class="btn btn-primary btn-scroll-next" type="button">Nächste Frage ↓</button>
+      `;
+    }
+  }
+
+  function updateReelProgress() {
+    const stripEl = document.getElementById("reel-progress-strip");
+    if (!stripEl) return;
+    stripEl.innerHTML = session.slides.map((s) => {
+      if (s.answered === null) return `<div class="seg"></div>`;
+      const q = qById[s.qId];
+      return `<div class="seg ${s.answered === q.correct ? "done" : "done-wrong"}"></div>`;
+    }).join("");
+  }
+
+  function updateReelSummary() {
+    const heading = document.getElementById("summary-heading");
+    const text = document.getElementById("summary-text");
+    const emoji = document.getElementById("summary-emoji");
+    if (!heading) return;
+    const answered = session.slides.filter((s) => s.answered !== null);
+    if (answered.length === 0) return;
+    const correct = session.correctCount;
+    const pct = Math.round((correct / answered.length) * 100);
+    const uniqueQIds = [...new Set(session.slides.map((s) => s.qId))];
+    const stillWrong = uniqueQIds.filter((id) => store.stateFor(id).lastResult === "wrong").length;
+    emoji.textContent = pct >= 90 ? "⚓️" : pct >= 60 ? "🧭" : "🌊";
+    heading.textContent = `${correct} von ${answered.length} richtig`;
+    text.textContent = stillWrong
+      ? `${pct}% richtig. ${stillWrong} Frage(n) bleiben im Falsch-Stapel.`
+      : `${pct}% richtig. Alle Fragen liegen jetzt im Wiederholungsstapel!`;
+  }
+
+  function handleAnswer(slideId, choiceIndex) {
+    const slide = session.slides.find((s) => s.slideId === slideId);
+    if (!slide || slide.answered !== null) return;
+    const q = qById[slide.qId];
+    const correct = choiceIndex === q.correct;
+    slide.answered = choiceIndex;
+    if (correct) session.correctCount += 1;
+    store.recordAnswer(q.id, correct);
+
+    const slideEl = root.querySelector(`.reel-slide[data-slide-id="${slideId}"]`);
+    if (slideEl) fillAnsweredSlideDom(slideEl, slide);
+
+    if (!correct) {
+      // Ans Ende des Feeds zurückstellen statt zu verschwinden.
+      const newSlide = makeSlide(q.id);
+      session.slides.push(newSlide);
+      const summaryEl = root.querySelector(".reel-slide.reel-summary");
+      if (summaryEl) summaryEl.insertAdjacentHTML("beforebegin", slideOuterHtml(newSlide));
+    }
+
+    updateReelProgress();
+    updateReelSummary();
+  }
 
   function renderTrainer() {
     const modeLabel = session.mode === "wrong" ? "Falsch beantwortete" : session.mode === "wiederholung" ? "Wiederholungsstapel" : "Neue Fragen";
@@ -264,138 +375,73 @@
     backBtn.style.visibility = "visible";
     homeBtn.style.visibility = "visible";
 
-    if (session.index >= session.ids.length) {
-      return renderSummary();
-    }
+    root.classList.add("reel-screen");
+    document.body.classList.add("reel-mode");
 
-    const q = qById[session.ids[session.index]];
-    const answered = session.answered;
+    const slidesHtml = session.slides.map(slideOuterHtml).join("");
 
-    let strip = "";
-    for (let i = 0; i < session.ids.length; i++) {
-      strip += `<div class="seg ${i < session.index ? "done" : ""}"></div>`;
-    }
+    root.innerHTML = `
+      <div class="reel-progress-strip" id="reel-progress-strip"></div>
+      <div class="reel-container" id="reel-container">
+        ${slidesHtml}
+        <section class="reel-slide reel-summary" data-slide-id="summary">
+          <div class="empty-state">
+            <span class="big-emoji" id="summary-emoji">🧭</span>
+            <h2 id="summary-heading">Weiter geht's</h2>
+            <p id="summary-text">Antworten oben auswählen – das Ergebnis erscheint hier, sobald alles beantwortet ist.</p>
+          </div>
+          <div class="quick-actions">
+            <button class="btn btn-secondary" id="btn-done">Fertig</button>
+          </div>
+        </section>
+        <div class="swipe-hint" id="swipe-hint">↑ Nach oben wischen für die nächste Frage</div>
+      </div>
+    `;
 
-    let diagramHtml = "";
-    if (q.diagram && DIAGRAMS[q.diagram]) {
-      diagramHtml = `<div class="diagram-wrap">${DIAGRAMS[q.diagram]}</div>`;
-    }
+    updateReelProgress();
 
-    let imageNoteHtml = "";
-    if (q.note) {
-      imageNoteHtml = `<div class="image-note">⚠️ ${q.note}</div>`;
-    }
+    const container = document.getElementById("reel-container");
 
-    let optionsHtml = "";
-    q.options.forEach((opt, i) => {
-      let cls = "option";
-      if (answered !== null) {
-        if (i === q.correct) cls += " correct";
-        else if (i === answered) cls += " wrong";
+    // Ein einziger delegierter Klick-Handler für alle (auch später
+    // angehängte) Antwort- und "Nächste Frage"-Buttons.
+    container.addEventListener("click", (e) => {
+      const optBtn = e.target.closest(".option");
+      if (optBtn && !optBtn.disabled) {
+        const slideEl = optBtn.closest(".reel-slide");
+        handleAnswer(slideEl.dataset.slideId, parseInt(optBtn.dataset.i, 10));
+        return;
       }
-      optionsHtml += `
-        <button class="${cls}" data-i="${i}" ${answered !== null ? "disabled" : ""}>
-          <span class="letter">${letterFor(i)}</span>
-          <span>${opt}</span>
-        </button>
-      `;
+      const nextBtn = e.target.closest(".btn-scroll-next");
+      if (nextBtn) {
+        const slideEl = nextBtn.closest(".reel-slide");
+        if (slideEl && slideEl.nextElementSibling) {
+          slideEl.nextElementSibling.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+        return;
+      }
+      if (e.target.closest("#btn-done")) {
+        stack.pop(); // Trainer verlassen
+        render();
+      }
     });
 
-    let sourceHtml = "";
-    if (answered !== null) {
-      sourceHtml = `<div class="source-note"><b>Quelle:</b> ${q.source}</div>`;
-    }
-
-    let footerHtml = "";
-    if (answered !== null) {
-      const isLast = session.index === session.ids.length - 1;
-      footerHtml = `<div class="trainer-footer"><button class="btn btn-primary" id="btn-next">${isLast ? "Ergebnis anzeigen" : "Weiter"}</button></div>`;
-    }
-
-    root.innerHTML = `
-      <div class="progress-strip">${strip}</div>
-      <div class="question-card">
-        <span class="category-pill">${CATEGORIES[q.category] || q.category}</span>
-        <p class="question-text">${q.q}</p>
-        ${imageNoteHtml}
-        ${diagramHtml}
-        <div class="options">${optionsHtml}</div>
-        ${sourceHtml}
-      </div>
-      ${footerHtml}
-    `;
-
-    root.querySelectorAll(".option").forEach((el) => {
-      el.addEventListener("click", () => {
-        const i = parseInt(el.dataset.i, 10);
-        answerQuestion(q, i);
-      });
-    });
-    const nextBtn = document.getElementById("btn-next");
-    if (nextBtn) nextBtn.addEventListener("click", nextQuestion);
-  }
-
-  function answerQuestion(q, choiceIndex) {
-    if (session.answered !== null) return;
-    const correct = choiceIndex === q.correct;
-    session.answered = choiceIndex;
-    if (correct) {
-      session.correctCount += 1;
-    } else {
-      // Falsch beantwortete Fragen werden ans Ende der aktuellen Übungsrunde
-      // zurückgestellt, statt zu verschwinden – sie bleiben so lange im
-      // Falsch-Stapel, bis sie zweimal in Folge richtig beantwortet wurden.
-      session.ids.push(q.id);
-    }
-    store.recordAnswer(q.id, correct);
-    render();
-  }
-
-  function nextQuestion() {
-    session.index += 1;
-    session.answered = null;
-    render();
-  }
-
-  function renderSummary() {
-    topbarTitle.textContent = "Ergebnis";
-    const total = session.ids.length;
-    const correct = session.correctCount;
-    const pct = total ? Math.round((correct / total) * 100) : 0;
-    const stillWrong = [...new Set(session.ids)].filter((id) => store.stateFor(id).lastResult === "wrong").length;
-
-    root.innerHTML = `
-      <div class="empty-state">
-        <span class="big-emoji">${pct >= 90 ? "⚓️" : pct >= 60 ? "🧭" : "🌊"}</span>
-        <h2>${correct} von ${total} richtig</h2>
-        <p>${pct}% dieser Runde korrekt beantwortet.${stillWrong ? ` ${stillWrong} Frage(n) bleiben im Falsch-Stapel.` : " Alle Fragen dieser Runde liegen jetzt im Wiederholungsstapel!"}</p>
-      </div>
-      <div class="quick-actions">
-        <button class="btn btn-primary" id="btn-again">Nochmal üben</button>
-        <button class="btn btn-secondary" id="btn-done">Fertig</button>
-      </div>
-    `;
-
-    document.getElementById("btn-again").addEventListener("click", () => {
-      const pool = session.pkgId ? byPkg[session.pkgId] : allIds;
-      const bucketFn = session.mode === "wrong" ? store.wrongIds : session.mode === "wiederholung" ? store.wiederholungIds : store.neuIds;
-      const ids = bucketFn.call(store, pool);
-      if (ids.length === 0) { back(); return; }
-      startSession(ids, session.mode, session.pkgId);
-    });
-    document.getElementById("btn-done").addEventListener("click", () => {
-      stack.pop(); // remove trainer
-      if (stack.length === 0 || current().screen === "dashboard") { render(); }
-      else render();
-    });
+    let hintDismissed = false;
+    container.addEventListener("scroll", () => {
+      if (hintDismissed) return;
+      hintDismissed = true;
+      const hint = document.getElementById("swipe-hint");
+      if (hint) hint.classList.add("hint-hide");
+    }, { passive: true });
   }
 
   function render() {
     const view = current();
+    document.body.classList.toggle("reel-mode", view.screen === "trainer");
+    if (view.screen !== "trainer") root.classList.remove("reel-screen");
     if (view.screen === "dashboard") renderDashboard();
     else if (view.screen === "package") renderPackage(view.pkgId);
     else if (view.screen === "trainer") renderTrainer();
-    window.scrollTo(0, 0);
+    if (view.screen !== "trainer") window.scrollTo(0, 0);
   }
 
   render();

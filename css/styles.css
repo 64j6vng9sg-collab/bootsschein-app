@@ -62,6 +62,17 @@ button {
   flex-direction: column;
 }
 
+/* Reel-Modus (Fragentrainer): die Karte scrollt intern im Wisch-Feed,
+   das Dokument selbst bleibt fest, damit nur der Feed snapped. */
+body.reel-mode {
+  overflow: hidden;
+}
+body.reel-mode .app {
+  height: 100dvh;
+  height: 100vh;
+  overflow: hidden;
+}
+
 /* --- Top bar ------------------------------------------------------- */
 .topbar {
   position: sticky;
@@ -121,6 +132,15 @@ button {
 @keyframes screen-in {
   from { opacity: 0; transform: translateY(10px) scale(0.99); }
   to { opacity: 1; transform: none; }
+}
+
+.screen.reel-screen {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  min-height: 0;
+  overflow: hidden;
+  animation: none;
 }
 
 .hero {
@@ -225,18 +245,69 @@ button {
 }
 
 /* --- Question trainer ------------------------------------------------ */
-.progress-strip {
+/* --- Reel-Feed (Fragentrainer) --------------------------------------- */
+.reel-progress-strip {
   display: flex;
   gap: 4px;
-  margin: 10px 0 18px;
+  flex: none;
+  padding: calc(var(--safe-top) + 4px) 20px 10px;
+  margin-top: -6px;
 }
-.progress-strip .seg {
+.reel-progress-strip .seg {
   flex: 1;
+  min-width: 3px;
   height: 4px;
   border-radius: 99px;
   background: var(--line);
 }
-.progress-strip .seg.done { background: var(--accent); }
+.reel-progress-strip .seg.done { background: var(--green); }
+.reel-progress-strip .seg.done-wrong { background: var(--red); }
+
+.reel-container {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-snap-type: y mandatory;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+}
+
+.reel-slide {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8px 20px calc(28px + var(--safe-bottom));
+}
+.reel-slide .question-card { width: 100%; animation: none; }
+.reel-slide.reel-summary { justify-content: center; }
+
+.answer-extra:empty { display: none; }
+.answer-extra { animation: fade-in 0.3s var(--ease); }
+.btn-scroll-next { margin-top: 14px; }
+
+.swipe-hint {
+  position: fixed;
+  left: 50%;
+  bottom: calc(22px + var(--safe-bottom));
+  transform: translateX(-50%);
+  width: max-content;
+  padding: 9px 16px;
+  border-radius: 99px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #F4EFE6;
+  background: color-mix(in srgb, var(--ink) 88%, transparent);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  pointer-events: none;
+  transition: opacity 0.4s, transform 0.4s;
+  z-index: 30;
+}
+.swipe-hint.hint-hide { opacity: 0; transform: translate(-50%, 8px); }
 
 .question-card {
   background: var(--bg-elevated);
@@ -332,13 +403,6 @@ button {
 }
 @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
 .source-note b { color: var(--ink); }
-
-.trainer-footer {
-  margin-top: 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
 
 .empty-state {
   text-align: center;
