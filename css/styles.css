@@ -596,17 +596,57 @@ body.reel-mode .app {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 20px 24px calc(40px + var(--safe-bottom));
+  padding: 14px 24px calc(40px + var(--safe-bottom));
   min-height: 100dvh;
   min-height: 100vh;
 }
-.splash-scene { width: 100%; max-width: 360px; margin-bottom: 18px; overflow: hidden; }
+.splash-topbar {
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--safe-top) 2px 0;
+  margin-bottom: 4px;
+}
+.splash-brand { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 15px; }
+.splash-brand svg { width: 20px; height: 20px; flex: none; }
+.splash-pause-btn {
+  appearance: none;
+  border: none;
+  background: var(--bg-elevated);
+  color: var(--ink-muted);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+  transition: transform 0.15s var(--ease);
+}
+.splash-pause-btn:active { transform: scale(0.9); }
+.splash-pause-btn svg { width: 16px; height: 16px; }
+
+.splash-scene { width: 100%; max-width: 360px; margin-bottom: 14px; overflow: hidden; }
 .splash-svg { width: 100%; height: auto; display: block; overflow: visible; }
-.splash-boat { animation: splash-sail 2.2s var(--ease) forwards; }
-@keyframes splash-sail {
+
+.boat-voyage { animation: boat-sail-in 2.2s var(--ease) forwards; }
+@keyframes boat-sail-in {
   from { transform: translateX(-220px); }
   to { transform: translateX(0); }
 }
+.boat-heave { animation: boat-heave 3.4s ease-in-out infinite alternate; }
+@keyframes boat-heave { from { transform: translateY(0); } to { transform: translateY(-3px); } }
+.boat-roll { animation: boat-roll 4.1s ease-in-out infinite alternate; transform-origin: 262px 150px; }
+@keyframes boat-roll { from { transform: rotate(-1.5deg); } to { transform: rotate(1.5deg); } }
+.boat-wake { animation: boat-wake-flow 1.8s linear infinite; }
+@keyframes boat-wake-flow { from { stroke-dashoffset: 0; } to { stroke-dashoffset: -16; } }
+.lighthouse-light { animation: lighthouse-blink 2.6s ease-in-out infinite alternate; }
+@keyframes lighthouse-blink { from { opacity: 0.35; } to { opacity: 1; } }
+
+/* Pause-Taste: hält alle laufenden Szenen-Animationen an. */
+.splash-scene.paused, .splash-scene.paused * { animation-play-state: paused !important; }
 
 /* --- Animierte Wellen (Splash + Dashboard) ------------------------------ */
 .wave-back { animation: wave-drift-140 9s linear infinite; }
@@ -614,11 +654,36 @@ body.reel-mode .app {
 @keyframes wave-drift-140 { from { transform: translateX(0); } to { transform: translateX(-140px); } }
 @keyframes wave-drift-90 { from { transform: translateX(0); } to { transform: translateX(-90px); } }
 @media (prefers-reduced-motion: reduce) {
-  .wave-back, .wave-front, .splash-boat { animation: none; }
+  .wave-back, .wave-front, .boat-voyage, .boat-heave, .boat-roll, .boat-wake, .lighthouse-light { animation: none; }
 }
-.splash h1 { font-size: 32px; font-weight: 800; letter-spacing: -0.02em; margin: 4px 0 6px; }
-.splash p { color: var(--ink-muted); font-size: 15px; margin: 0 0 28px; max-width: 320px; }
-.splash .btn { max-width: 240px; }
+
+.splash-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+.splash-icon-item { display: flex; flex-direction: column; align-items: center; gap: 4px; color: var(--ink-muted); }
+.splash-icon-item svg { width: 22px; height: 22px; }
+.splash-icon-item span { font-size: 12px; font-weight: 600; }
+.splash-icon-sep { width: 1px; height: 28px; background: var(--line); }
+
+.splash h1 { font-size: 30px; font-weight: 800; letter-spacing: -0.02em; margin: 4px 0 6px; }
+.splash p { color: var(--ink-muted); font-size: 15px; margin: 0 0 24px; max-width: 320px; }
+.splash .btn { max-width: 260px; width: 100%; }
+.splash .legal-link { margin-top: 14px; }
+
+/* Kleine Displays: Symbolzeile weglassen, Illustration verkleinern, damit
+   der Hauptbutton ohne Scrollen gut erreichbar bleibt. */
+@media (max-height: 700px) {
+  .splash-icons { display: none; }
+  .splash-scene { max-width: 260px; }
+}
+@media (max-height: 580px) {
+  .splash-scene { max-width: 190px; }
+  .splash h1 { font-size: 24px; }
+}
 
 /* --- Lesezeichen ---------------------------------------------------------- */
 .card-head-row {

@@ -40,6 +40,11 @@
     const icons = {
       home: '<path d="M4 11.5 12 4l8 7.5" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 10v9a1 1 0 0 0 1 1h4v-6h2v6h4a1 1 0 0 0 1-1v-9" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>',
       chevronLeft: '<path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>',
+      book: '<path d="M12 6.2c-1.7-1-3.7-1.5-6-1.5A1.5 1.5 0 0 0 4.5 6.2v11A1.5 1.5 0 0 0 6 18.7c2.1 0 3.9.4 6 1.5m0-14c1.7-1 3.7-1.5 6-1.5A1.5 1.5 0 0 1 19.5 6.2v11a1.5 1.5 0 0 1-1.5 1.5c-2.1 0-3.9.4-6 1.5m0-14v14" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>',
+      repeat: '<path d="M4 12a8 8 0 0 1 13.6-5.7M20 4v5h-5" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 12a8 8 0 0 1-13.6 5.7M4 20v-5h5" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>',
+      chart: '<path d="M5 20V10M12 20V4M19 20v-7" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>',
+      pause: '<rect x="6" y="5" width="4" height="14" rx="1" fill="currentColor"/><rect x="14" y="5" width="4" height="14" rx="1" fill="currentColor"/>',
+      play: '<path d="M7.5 5.2 18 12l-10.5 6.8z" fill="currentColor"/>',
     };
     return `<svg viewBox="0 0 24 24" fill="none">${icons[name] || ""}</svg>`;
   }
@@ -906,46 +911,118 @@
   }
 
   // ---------------------------------------------------------------
-  // Eröffnungsbildschirm: ein Boot segelt in den Hafen ein, "Start"
-  // führt zum Dashboard.
+  // Eröffnungsbildschirm: eine Hafenszene aus getrennten SVG-Ebenen
+  // (Himmel, Wolken, Küste, Leuchtturm, Wasser, Segelboot, Kielspur).
+  // Fahrt, Höhenbewegung (Heave) und Neigung (Roll) des Boots laufen als
+  // unabhängige, nahtlos schleifende Animationen. "Start"/"Weiterlernen"
+  // führt ohne Wartezeit direkt zum Dashboard bzw. vorhandenen Lernstand.
   // ---------------------------------------------------------------
   function renderSplash() {
+    const hasProgress = allIds.some((id) => store.stateFor(id).timesSeen > 0);
     root.innerHTML = `
       <div class="splash">
-        <div class="splash-scene">
-          <svg viewBox="0 0 320 200" class="splash-svg" aria-hidden="true">
-            <g class="wave-layer wave-back">
-              <path d="M-140 165 Q-70 150 0 165 T140 165 T280 165 T420 165 T560 165 V200 H-140 Z" fill="var(--accent)" opacity="0.12"/>
+        <div class="splash-topbar">
+          <div class="splash-brand">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12M6.5 13 12 4l5.5 9M5 15c1.2 2.6 3.8 4 7 4s5.8-1.4 7-4" stroke="var(--ink)" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>SBF-Trainer</span>
+          </div>
+          <button class="splash-pause-btn" id="btn-splash-pause" type="button" aria-pressed="false" aria-label="Animation pausieren">${icon("pause")}</button>
+        </div>
+
+        <div class="splash-scene" id="splash-scene">
+          <svg viewBox="0 0 320 210" class="splash-svg" aria-hidden="true">
+            <g class="scene-sky"><rect x="-10" y="-10" width="340" height="145" fill="var(--bg-elevated)"/></g>
+            <g class="scene-clouds" opacity="0.7">
+              <ellipse cx="66" cy="36" rx="24" ry="8" fill="var(--line)"/>
+              <ellipse cx="90" cy="32" rx="16" ry="7" fill="var(--line)"/>
+              <ellipse cx="234" cy="26" rx="20" ry="7" fill="var(--line)"/>
             </g>
-            <g class="wave-layer wave-front">
-              <path d="M-90 152 Q-45 140 0 152 T90 152 T180 152 T270 152 T360 152 T450 152"
-                    stroke="var(--accent)" stroke-width="2.5" fill="none" opacity="0.4"/>
+            <g class="scene-coast">
+              <path d="M-10 112 Q40 92 90 108 T190 104 T330 110 V145 H-10 Z" fill="var(--ink-muted)" opacity="0.16"/>
             </g>
-            <!-- Kleiner Leuchtturm markiert den Zielhafen -->
-            <g class="splash-harbor">
-              <line x1="252" y1="152" x2="252" y2="140" stroke="var(--ink-muted)" stroke-width="3" stroke-linecap="round"/>
-              <line x1="266" y1="152" x2="266" y2="140" stroke="var(--ink-muted)" stroke-width="3" stroke-linecap="round"/>
-              <rect x="248" y="136" width="22" height="6" rx="1" fill="var(--ink-muted)"/>
-              <rect x="291" y="106" width="14" height="34" rx="1.5" fill="var(--ink-muted)"/>
-              <rect x="291" y="118" width="14" height="7" fill="var(--red)"/>
-              <path d="M289 106 L307 106 L298 94 Z" fill="var(--red)"/>
-              <circle cx="298" cy="100" r="2.6" fill="var(--amber)"/>
+            <g class="scene-lighthouse">
+              <rect x="255" y="112" width="34" height="5" rx="1" fill="var(--ink-muted)"/>
+              <rect x="265.5" y="82" width="13" height="30" rx="1.5" fill="var(--ink-muted)"/>
+              <rect x="265.5" y="93" width="13" height="7" fill="var(--red)"/>
+              <path d="M263.5 82 L280.5 82 L272 71 Z" fill="var(--red)"/>
+              <circle class="lighthouse-light" cx="272" cy="76" r="3" fill="var(--amber)"/>
             </g>
-            <g class="splash-boat">
-              <path d="M244 150 Q260 160 276 150 L272 158 Q260 166 248 158 Z" fill="var(--accent)"/>
-              <path d="M262 148 L262 100 L288 146 Z" fill="var(--ink)"/>
-              <path d="M258 148 L258 112 L244 146 Z" fill="var(--ink)" opacity="0.75"/>
-              <line x1="262" y1="100" x2="262" y2="150" stroke="var(--ink)" stroke-width="2"/>
+            <g class="scene-water">
+              <rect x="-10" y="112" width="340" height="108" fill="var(--accent)" opacity="0.10"/>
+              <g class="wave-layer wave-back">
+                <path d="M-140 145 Q-70 130 0 145 T140 145 T280 145 T420 145 T560 145 V210 H-140 Z" fill="var(--accent)" opacity="0.14"/>
+              </g>
+              <g class="wave-layer wave-front">
+                <path d="M-90 134 Q-45 122 0 134 T90 134 T180 134 T270 134 T360 134 T450 134"
+                      stroke="var(--accent)" stroke-width="2.5" fill="none" opacity="0.4"/>
+              </g>
+            </g>
+            <g class="boat-heave">
+              <g class="boat-roll">
+                <g class="boat-voyage">
+                  <path class="boat-wake" d="M234 149 Q214 154 194 149" stroke="var(--ink-muted)" stroke-width="2" fill="none" stroke-linecap="round" stroke-dasharray="3 5" opacity="0.55"/>
+                  <path d="M244 147 Q260 157 276 147 L272 155 Q260 163 248 155 Z" fill="var(--accent)"/>
+                  <path d="M262 145 L262 97 L288 143 Z" fill="var(--ink)"/>
+                  <path d="M258 145 L258 109 L244 143 Z" fill="var(--ink)" opacity="0.75"/>
+                  <line x1="262" y1="97" x2="262" y2="145" stroke="var(--ink)" stroke-width="2"/>
+                </g>
+              </g>
             </g>
           </svg>
         </div>
-        <h1>SBF-Trainer</h1>
-        <p>Theorie-Prüfungsvorbereitung für SBF See &amp; SBF Binnen – lerne in kleinen Etappen bis zum Ziel.</p>
-        <button class="btn btn-primary" id="btn-splash-start">Start</button>
+
+        <div class="splash-icons" id="splash-icons">
+          <div class="splash-icon-item">${icon("book")}<span>Lernen</span></div>
+          <div class="splash-icon-sep"></div>
+          <div class="splash-icon-item">${icon("repeat")}<span>Wiederholen</span></div>
+          <div class="splash-icon-sep"></div>
+          <div class="splash-icon-item">${icon("chart")}<span>Fortschritt</span></div>
+        </div>
+
+        <h1>Dein Kurs zum Bootsführerschein.</h1>
+        <p>Lerne für SBF See &amp; Binnen – in kleinen Etappen, in deinem Tempo.</p>
+        <button class="btn btn-primary" id="btn-splash-start">${hasProgress ? "Weiterlernen" : "Jetzt starten"}</button>
+        <button class="legal-link" id="btn-splash-legal">Fragenquelle &amp; Hinweise</button>
       </div>
     `;
     const btn = document.getElementById("btn-splash-start");
     if (btn) btn.addEventListener("click", goHome);
+    const legalBtn = document.getElementById("btn-splash-legal");
+    if (legalBtn) legalBtn.addEventListener("click", () => push({ screen: "legal" }));
+
+    // Pause-Taste: hält alle laufenden Szenen-Animationen an/setzt sie fort.
+    // Zusätzlich wird pausiert, sobald die Szene nicht sichtbar ist (Tab im
+    // Hintergrund oder aus dem Bildschirmausschnitt gescrollt).
+    const scene = document.getElementById("splash-scene");
+    const pauseBtn = document.getElementById("btn-splash-pause");
+    let userPaused = false;
+    let notIntersecting = false;
+    let tabHidden = document.hidden;
+    function applyPauseState() {
+      const paused = userPaused || notIntersecting || tabHidden;
+      if (scene) scene.classList.toggle("paused", paused);
+    }
+    if (pauseBtn) {
+      pauseBtn.addEventListener("click", () => {
+        userPaused = !userPaused;
+        pauseBtn.setAttribute("aria-pressed", String(userPaused));
+        pauseBtn.setAttribute("aria-label", userPaused ? "Animation fortsetzen" : "Animation pausieren");
+        pauseBtn.innerHTML = icon(userPaused ? "play" : "pause");
+        applyPauseState();
+      });
+    }
+    if (scene && "IntersectionObserver" in window) {
+      const io = new IntersectionObserver((entries) => {
+        notIntersecting = !entries[0].isIntersecting;
+        applyPauseState();
+      }, { threshold: 0.1 });
+      io.observe(scene);
+    }
+    document.addEventListener("visibilitychange", () => {
+      if (current().screen !== "splash") return;
+      tabHidden = document.hidden;
+      applyPauseState();
+    });
   }
 
   function triggerScreenAnim() {
