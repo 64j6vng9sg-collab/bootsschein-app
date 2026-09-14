@@ -13,14 +13,9 @@
   const homeBtn = document.getElementById("btn-home");
   const topbar = document.getElementById("topbar");
 
-  // Die Eröffnungsseite erscheint nur beim allerersten Start dieser App
-  // auf diesem Gerät. Bei jedem weiteren Öffnen geht es direkt zum
-  // Dashboard mit dem zuletzt gespeicherten Fortschritt weiter.
-  const VISITED_KEY = "sbf-trainer-visited-v1";
-  let hasVisitedBefore = false;
-  try { hasVisitedBefore = localStorage.getItem(VISITED_KEY) === "1"; } catch (e) { /* ignore */ }
-
-  let stack = [{ screen: hasVisitedBefore ? "dashboard" : "splash" }];
+  // Die Eröffnungsseite erscheint bei jedem Start der App, unabhängig vom
+  // gespeicherten Lernfortschritt (der bleibt davon unberührt bestehen).
+  let stack = [{ screen: "splash" }];
   let session = null; // { mode, pkgId, slides: [{slideId, qId, answered}], correctCount }
 
   function current() { return stack[stack.length - 1]; }
@@ -436,9 +431,11 @@
     const cats = {};
     ids.forEach((id) => {
       const q = qById[id];
-      cats[q.category] = cats[q.category] || { total: 0, learned: 0 };
+      cats[q.category] = cats[q.category] || { total: 0, learned: 0, processed: 0 };
+      const state = store.stateFor(id);
       cats[q.category].total += 1;
-      if (store.stateFor(id).learned) cats[q.category].learned += 1;
+      if (state.learned) cats[q.category].learned += 1;
+      if (state.timesSeen > 0) cats[q.category].processed += 1;
     });
 
     let html = `
@@ -466,9 +463,11 @@
       <div class="section-label">Kategorien in diesem Paket</div>
       <div class="card">
         ${Object.entries(cats).map(([cat, c]) => `
-          <div class="stat-row" style="justify-content:space-between; margin:8px 0;">
-            <span>${CATEGORIES[cat] || cat}</span>
-            <span><strong>${c.learned}</strong>/${c.total} gelernt</span>
+          <div class="cat-row">
+            <span class="cat-row-label">${CATEGORIES[cat] || cat}</span>
+            <span class="cat-row-nums">
+              <strong>${c.processed}</strong>/${c.total} bearbeitet · <strong>${c.learned}</strong>/${c.total} gelernt
+            </span>
           </div>
         `).join("")}
       </div>
@@ -856,12 +855,7 @@
       </div>
     `;
     const btn = document.getElementById("btn-splash-start");
-    if (btn) {
-      btn.addEventListener("click", () => {
-        try { localStorage.setItem(VISITED_KEY, "1"); } catch (e) { /* ignore */ }
-        goHome();
-      });
-    }
+    if (btn) btn.addEventListener("click", goHome);
   }
 
   function triggerScreenAnim() {
