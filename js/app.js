@@ -186,6 +186,21 @@
     showToast(`Paket „${p.title}“ abgeschlossen`);
   }
 
+  // Schlanke animierte Wellenlinie als dezente Bewegung unter der
+  // Dashboard-Überschrift (nutzt dieselbe Loop-Technik wie die Splash-Szene).
+  function miniWaveHtml() {
+    return `
+      <svg class="mini-wave" viewBox="0 0 320 20" preserveAspectRatio="none" aria-hidden="true">
+        <g class="wave-back">
+          <path d="M-140 12 Q-70 2 0 12 T140 12 T280 12 T420 12 T560 12" stroke="var(--accent)" stroke-width="2" fill="none" opacity="0.3"/>
+        </g>
+        <g class="wave-front">
+          <path d="M-90 15 Q-45 7 0 15 T90 15 T180 15 T270 15 T360 15 T450 15" stroke="var(--accent)" stroke-width="1.6" fill="none" opacity="0.5"/>
+        </g>
+      </svg>
+    `;
+  }
+
   function overallStats() {
     const all = QUESTIONS.map((q) => q.id);
     return store.packageStats(all);
@@ -251,6 +266,7 @@
           </div>
           ${streak > 0 ? `<div class="streak-badge">🔥<span>${streak}</span></div>` : ""}
         </div>
+        ${miniWaveHtml()}
       </div>
 
       <div class="card overview-card">
@@ -286,11 +302,11 @@
       <div class="section-label">Deine Fragenpakete</div>
     `;
 
-    PACKAGES.forEach((p) => {
+    PACKAGES.forEach((p, i) => {
       const ids = byPkg[p.id];
       const s = store.packageStats(ids);
       html += `
-        <button class="card pkg-card card-tap" data-pkg="${p.id}">
+        <button class="card pkg-card card-tap card-in" style="animation-delay:${i * 0.06}s" data-pkg="${p.id}">
           <div class="pkg-head">
             <div>
               <div class="pkg-title"><span class="pkg-icon">${PKG_ICON[p.id] || "📘"}</span>${p.title}</div>
@@ -310,7 +326,7 @@
     });
 
     html += `
-      <button class="card pkg-card pkg-card-bookmarks card-tap" id="pkg-bookmarks" ${bookmarkGlobal === 0 ? "disabled" : ""}>
+      <button class="card pkg-card pkg-card-bookmarks card-tap card-in" style="animation-delay:${PACKAGES.length * 0.06}s" id="pkg-bookmarks" ${bookmarkGlobal === 0 ? "disabled" : ""}>
         <div class="pkg-head">
           <div>
             <div class="pkg-title"><span class="pkg-icon">🔖</span>Markierte Fragen</div>
@@ -898,9 +914,13 @@
       <div class="splash">
         <div class="splash-scene">
           <svg viewBox="0 0 320 200" class="splash-svg" aria-hidden="true">
-            <path d="M0 152 Q20 146 40 152 T80 152 T120 152 T160 152 T200 152 T240 152 T280 152 T320 152"
-                  stroke="var(--accent)" stroke-width="2" fill="none" opacity="0.35"/>
-            <rect x="0" y="158" width="320" height="42" fill="var(--accent)" opacity="0.1"/>
+            <g class="wave-layer wave-back">
+              <path d="M-140 165 Q-70 150 0 165 T140 165 T280 165 T420 165 T560 165 V200 H-140 Z" fill="var(--accent)" opacity="0.12"/>
+            </g>
+            <g class="wave-layer wave-front">
+              <path d="M-90 152 Q-45 140 0 152 T90 152 T180 152 T270 152 T360 152 T450 152"
+                    stroke="var(--accent)" stroke-width="2.5" fill="none" opacity="0.4"/>
+            </g>
             <!-- Kleiner Leuchtturm markiert den Zielhafen -->
             <g class="splash-harbor">
               <line x1="252" y1="152" x2="252" y2="140" stroke="var(--ink-muted)" stroke-width="3" stroke-linecap="round"/>
