@@ -14,13 +14,13 @@ const BASE_URL = process.env.SMOKE_BASE_URL || "http://127.0.0.1:8766/index.html
   await page.screenshot({ path: "/tmp/shot-splash.png" });
   await page.locator("#btn-splash-start").click();
 
-  await page.waitForSelector(".pkg-card");
+  await page.waitForSelector(".pkg-row");
   await page.screenshot({ path: "/tmp/shot-dashboard.png" });
 
-  const pkgCount = await page.locator(".pkg-card[data-pkg]").count();
+  const pkgCount = await page.locator(".pkg-row[data-pkg]").count();
   console.log("Pakete auf Dashboard:", pkgCount);
 
-  await page.locator(".pkg-card").first().click();
+  await page.locator(".pkg-row[data-pkg]").first().click();
   await page.waitForSelector("#btn-neu");
   await page.screenshot({ path: "/tmp/shot-package.png" });
 
@@ -77,7 +77,7 @@ const BASE_URL = process.env.SMOKE_BASE_URL || "http://127.0.0.1:8766/index.html
 
   // zurück nach Hause testen
   await page.locator("#btn-home").click();
-  await page.waitForSelector(".pkg-card");
+  await page.waitForSelector(".pkg-row");
   await page.screenshot({ path: "/tmp/shot-home-again.png" });
   console.log("reel-mode nach Home verlassen:", await page.evaluate(() => document.body.classList.contains("reel-mode")));
 

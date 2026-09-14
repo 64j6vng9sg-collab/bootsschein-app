@@ -191,20 +191,6 @@
     showToast(`Paket „${p.title}“ abgeschlossen`);
   }
 
-  // Schlanke animierte Wellenlinie als dezente Bewegung unter der
-  // Dashboard-Überschrift (nutzt dieselbe Loop-Technik wie die Splash-Szene).
-  function miniWaveHtml() {
-    return `
-      <svg class="mini-wave" viewBox="0 0 320 20" preserveAspectRatio="none" aria-hidden="true">
-        <g class="wave-back">
-          <path d="M-140 12 Q-70 2 0 12 T140 12 T280 12 T420 12 T560 12" stroke="var(--accent)" stroke-width="2" fill="none" opacity="0.3"/>
-        </g>
-        <g class="wave-front">
-          <path d="M-90 15 Q-45 7 0 15 T90 15 T180 15 T270 15 T360 15 T450 15" stroke="var(--accent)" stroke-width="1.6" fill="none" opacity="0.5"/>
-        </g>
-      </svg>
-    `;
-  }
 
   function overallStats() {
     const all = QUESTIONS.map((q) => q.id);
@@ -220,6 +206,79 @@
   }
 
   const PKG_ICON = { basis: "⚓", see: "🌊", binnen: "🚢", segeln: "⛵" };
+
+  // ---------------------------------------------------------------
+  // Empfehlung für die Lernübersicht: eine einzelne, datenbasierte
+  // Hauptaktion statt mehrerer gleichwertiger Buttons. Priorität:
+  // 1) offene Fehler (alle Pakete), 2) das zuletzt aktiv bearbeitete,
+  // noch nicht durchgearbeitete Paket, 3) das erste noch unberührte
+  // Paket, 4) Wiederholungsstapel zur Festigung, falls alles bearbeitet
+  // und fehlerfrei ist.
+  // ---------------------------------------------------------------
+  function packageLastActivity(ids) {
+    let max = 0;
+    ids.forEach((id) => {
+      const t = store.stateFor(id).lastSeenAt;
+      if (t && t > max) max = t;
+    });
+    return max;
+  }
+
+  function computeRecommendation() {
+    const wrongGlobal = globalWrongCount();
+    if (wrongGlobal > 0) {
+      const pkgsWithWrong = PACKAGES.filter((p) => store.wrongIds(byPkg[p.id]).length > 0);
+      const desc = pkgsWithWrong.length === 1
+        ? `Falsch beantwortete Fragen aus ${pkgsWithWrong[0].title}.`
+        : `Falsch beantwortete Fragen aus ${pkgsWithWrong.length} Paketen.`;
+      return {
+        headline: `${wrongGlobal} Frage${wrongGlobal === 1 ? "" : "n"} wiederholen`,
+        desc,
+        ids: store.wrongIds(allIds),
+        mode: "wrong",
+        pkgId: null,
+      };
+    }
+
+    const candidates = PACKAGES.map((p) => ({ p, s: store.packageStats(byPkg[p.id]) }));
+    const inProgress = candidates
+      .filter((c) => c.s.processed > 0 && c.s.neu > 0)
+      .sort((a, b) => packageLastActivity(byPkg[b.p.id]) - packageLastActivity(byPkg[a.p.id]))[0];
+    if (inProgress) {
+      const { p, s } = inProgress;
+      return {
+        headline: `${s.neu} neue Frage${s.neu === 1 ? "" : "n"}`,
+        desc: `Weiter mit ${p.title}.`,
+        ids: store.neuIds(byPkg[p.id]),
+        mode: "neu",
+        pkgId: p.id,
+      };
+    }
+
+    const untouched = candidates.find((c) => c.s.processed === 0);
+    if (untouched) {
+      const { p, s } = untouched;
+      return {
+        headline: `${s.neu} neue Frage${s.neu === 1 ? "" : "n"}`,
+        desc: `Starte mit ${p.title}.`,
+        ids: store.neuIds(byPkg[p.id]),
+        mode: "neu",
+        pkgId: p.id,
+      };
+    }
+
+    const wdhGlobal = globalWiederholungCount();
+    if (wdhGlobal > 0) {
+      return {
+        headline: `${wdhGlobal} Frage${wdhGlobal === 1 ? "" : "n"} auffrischen`,
+        desc: "Wiederholungsstapel aus allen Paketen.",
+        ids: store.wiederholungIds(allIds),
+        mode: "wiederholung",
+        pkgId: null,
+      };
+    }
+    return null;
+  }
 
   // ---------------------------------------------------------------
   // Tages-Streak (Duolingo-Prinzip: tägliche Praxis, verlustaversiv
@@ -261,48 +320,50 @@
     const wdhGlobal = globalWiederholungCount();
     const bookmarkGlobal = store.bookmarkedIds(allIds).length;
     const streak = currentStreak();
+    const rec = computeRecommendation();
 
     let html = `
-      <div class="hero">
+      <div class="hero hero-compact">
         <div class="hero-top-row">
           <div>
-            <h1>Theorie-Trainer</h1>
-            <p>SBF See &amp; SBF Binnen – kombinierte Prüfungsvorbereitung</p>
+            <div class="eyebrow">Lernen</div>
+            <h1>Deine nächste Etappe</h1>
           </div>
           ${streak > 0 ? `<div class="streak-badge">🔥<span>${streak}</span></div>` : ""}
         </div>
-        ${miniWaveHtml()}
       </div>
 
-      <div class="card overview-card">
-        <div class="overview-big">
-          <div class="overview-big-num">${overall.processed}<span class="overview-big-total">/${overall.total}</span></div>
-          <div class="overview-big-lbl">Fragen insgesamt beantwortet</div>
+      ${rec ? `
+      <div class="card next-step-card">
+        <div class="next-step-label">Empfehlung</div>
+        <div class="next-step-headline">${rec.headline}</div>
+        <div class="next-step-desc">${rec.desc}</div>
+        <button class="btn btn-primary" id="btn-next-step">Training starten</button>
+      </div>
+      ` : ""}
+
+      <div class="card compact-stats">
+        <div class="compact-stat">
+          <strong>${overall.processed}<span class="compact-stat-total">/${overall.total}</span></strong>
+          <span>bearbeitet</span>
         </div>
-        <div class="overview-grid overview-grid-3">
-          <div class="overview-tile">
-            <div class="num">${overall.neu}</div>
-            <div class="lbl">🆕 neu</div>
-          </div>
-          <div class="overview-tile">
-            <div class="num" style="color:var(--red)">${wrongGlobal}</div>
-            <div class="lbl">falsch aktuell</div>
-          </div>
-          <div class="overview-tile">
-            <div class="num" style="color:var(--green)">${overall.learned}</div>
-            <div class="lbl">sicher gelernt</div>
-          </div>
+        <div class="compact-stat-sep"></div>
+        <div class="compact-stat">
+          <strong style="color:var(--red)">${wrongGlobal}</strong>
+          <span>offene Fehler</span>
+        </div>
+        <div class="compact-stat-sep"></div>
+        <div class="compact-stat">
+          <strong style="color:var(--green)">${overall.learned}</strong>
+          <span>gelernt</span>
         </div>
       </div>
 
-      <div class="quick-actions">
-        <button class="btn btn-primary" id="qa-wrong" ${wrongGlobal === 0 ? "disabled" : ""}>
-          Falsch beantwortete üben – alle Pakete (${wrongGlobal})
-        </button>
-        <button class="btn btn-secondary" id="qa-wdh" ${wdhGlobal === 0 ? "disabled" : ""}>
-          Wiederholungsstapel üben – alle Pakete (${wdhGlobal})
-        </button>
+      ${wrongGlobal > 0 && wdhGlobal > 0 ? `
+      <div class="quick-links">
+        <button class="link-btn" id="qa-wdh">Wiederholungsstapel auffrischen (${wdhGlobal})</button>
       </div>
+      ` : ""}
 
       <div class="section-label">Deine Fragenpakete</div>
     `;
@@ -311,34 +372,26 @@
       const ids = byPkg[p.id];
       const s = store.packageStats(ids);
       html += `
-        <button class="card pkg-card card-tap card-in" style="animation-delay:${i * 0.06}s" data-pkg="${p.id}">
-          <div class="pkg-head">
-            <div>
-              <div class="pkg-title"><span class="pkg-icon">${PKG_ICON[p.id] || "📘"}</span>${p.title}</div>
-              <div class="pkg-subtitle">${p.subtitle}</div>
-            </div>
-            <div class="pkg-count">${s.processed}/${s.total}</div>
-          </div>
-          <div class="bar" style="margin-bottom:6px;"><div class="bar-fill" style="width:${s.percentProcessed}%"></div></div>
-          <div class="bar" style="height:5px;"><div class="bar-fill wrong" style="width:${s.percentWrongOfProcessed}%"></div></div>
-          <div class="stat-row">
-            <span><span class="dot" style="background:var(--accent)"></span>${s.processed} bearbeitet</span>
-            <span><span class="dot" style="background:var(--red)"></span>${s.wrong} falsch</span>
-            <span><span class="dot" style="background:var(--green)"></span>${s.learned} gelernt</span>
-          </div>
+        <button class="card pkg-row card-tap card-in" style="animation-delay:${i * 0.05}s" data-pkg="${p.id}">
+          <span class="pkg-row-icon">${PKG_ICON[p.id] || "📘"}</span>
+          <span class="pkg-row-main">
+            <span class="pkg-row-title">${p.title}</span>
+            <span class="bar pkg-row-bar"><span class="bar-fill" style="width:${s.percentProcessed}%"></span></span>
+          </span>
+          <span class="pkg-row-count">${s.processed}/${s.total}</span>
+          <span class="pkg-row-chevron" aria-hidden="true">›</span>
         </button>
       `;
     });
 
     html += `
-      <button class="card pkg-card pkg-card-bookmarks card-tap card-in" style="animation-delay:${PACKAGES.length * 0.06}s" id="pkg-bookmarks" ${bookmarkGlobal === 0 ? "disabled" : ""}>
-        <div class="pkg-head">
-          <div>
-            <div class="pkg-title"><span class="pkg-icon">🔖</span>Markierte Fragen</div>
-            <div class="pkg-subtitle">Deine Lesezeichen aus allen Paketen</div>
-          </div>
-          <div class="pkg-count">${bookmarkGlobal}</div>
-        </div>
+      <button class="card pkg-row pkg-row-bookmarks card-tap card-in" style="animation-delay:${PACKAGES.length * 0.05}s" id="pkg-bookmarks" ${bookmarkGlobal === 0 ? "disabled" : ""}>
+        <span class="pkg-row-icon">🔖</span>
+        <span class="pkg-row-main">
+          <span class="pkg-row-title">Markierte Fragen</span>
+        </span>
+        <span class="pkg-row-count">${bookmarkGlobal}</span>
+        <span class="pkg-row-chevron" aria-hidden="true">›</span>
       </button>
     `;
 
@@ -355,12 +408,12 @@
 
     root.innerHTML = html;
 
-    root.querySelectorAll(".pkg-card[data-pkg]").forEach((el) => {
+    root.querySelectorAll(".pkg-row[data-pkg]").forEach((el) => {
       el.addEventListener("click", () => push({ screen: "package", pkgId: el.dataset.pkg }));
     });
-    const qaWrong = document.getElementById("qa-wrong");
-    if (qaWrong) {
-      qaWrong.addEventListener("click", () => startSession(store.wrongIds(allIds), "wrong", null));
+    const nextStepBtn = document.getElementById("btn-next-step");
+    if (nextStepBtn && rec) {
+      nextStepBtn.addEventListener("click", () => startSession(rec.ids, rec.mode, rec.pkgId));
     }
     const qaWdh = document.getElementById("qa-wdh");
     if (qaWdh) {
