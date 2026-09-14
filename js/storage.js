@@ -16,12 +16,10 @@
  *                          automatisch entfernt, sondern stehen für
  *                          gelegentliche Wiederholung bereit.
  *
- * Eine Frage gilt zusätzlich als "sicher gelernt" (Badge innerhalb des
- * Wiederholungsstapels), sobald sie zweimal in Folge richtig beantwortet
- * wurde (consecutiveCorrect >= 2). Eine falsch beantwortete Frage aus dem
- * Wiederholungsstapel fällt sofort zurück in den Falsch-Stapel und muss
- * dort erneut zweimal hintereinander richtig beantwortet werden, bevor sie
- * wieder in den Wiederholungsstapel wechselt.
+ * Eine Frage gilt als "gelernt", sobald sie richtig beantwortet wurde.
+ * Eine falsch beantwortete Frage aus dem Wiederholungsstapel fällt sofort
+ * zurück in den Falsch-Stapel und gilt erst wieder als gelernt, sobald sie
+ * erneut richtig beantwortet wird.
  */
 
 const STORAGE_KEY = "sbf-trainer-progress-v1";
@@ -74,7 +72,7 @@ class ProgressStore {
       state.consecutiveCorrect += 1;
       state.lastResult = "correct";
       state.everCorrect = true;
-      if (state.consecutiveCorrect >= 2) state.learned = true;
+      state.learned = true;
     } else {
       state.consecutiveCorrect = 0;
       state.lastResult = "wrong";
