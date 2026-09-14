@@ -326,8 +326,10 @@
         Hinweis zur Fragenquelle: Alle Fragen sind wortlaut- und nummerngetreu aus den amtlichen Fragenkatalogen
         SBF See und SBF Binnen (ELWIS, Stand 01.08.2023) übernommen. Fragen mit ⚠️-Hinweis beziehen sich im
         Original zusätzlich auf eine Abbildung (Licht, Tafelzeichen, Skizze o. Ä.), die hier nicht dargestellt
-        werden kann. Details siehe README.
+        werden kann. Diese Anwendung ist ein privates, nicht-kommerzielles Lernprojekt ohne Gewinnerzielungsabsicht.
+        Details siehe README.
       </div>
+      <button class="legal-link" id="btn-legal" type="button">Impressum &amp; Datenschutzerklärung</button>
     `;
 
     root.innerHTML = html;
@@ -347,6 +349,74 @@
     if (pkgBookmarks) {
       pkgBookmarks.addEventListener("click", () => push({ screen: "bookmarks" }));
     }
+    const legalBtn = document.getElementById("btn-legal");
+    if (legalBtn) legalBtn.addEventListener("click", () => push({ screen: "legal" }));
+  }
+
+  // ---------------------------------------------------------------
+  // Impressum & Datenschutzerklärung. Enthält bewusst keine erfundenen
+  // Betreiberangaben – die Ausnahme von der Impressumspflicht nach §5
+  // DDG wird stattdessen benannt (privates, nicht-kommerzielles Projekt).
+  // ---------------------------------------------------------------
+  function renderLegal() {
+    topbarTitle.textContent = "Rechtliches";
+    backBtn.style.visibility = "visible";
+    homeBtn.style.visibility = "visible";
+
+    const repoUrl = "https://github.com/64j6vng9sg-collab/bootsschein-app";
+
+    root.innerHTML = `
+      <div class="hero" style="padding-top:10px;">
+        <h1 style="font-size:22px;">Impressum &amp; Datenschutz</h1>
+      </div>
+
+      <div class="section-label">Impressum</div>
+      <div class="card legal-card">
+        <p>Diese Anwendung ist ein privates, nicht-kommerzielles Lernprojekt zur
+        Prüfungsvorbereitung auf den Sportbootführerschein. Es gibt keine
+        Werbung, keinen Verkauf und keine Gewinnerzielungsabsicht.</p>
+        <p>Nach überwiegender Rechtsauffassung sind rein private,
+        nicht-geschäftsmäßige Angebote dieser Art von der Impressumspflicht
+        nach §5 Digitale-Dienste-Gesetz (DDG, vormals Telemediengesetz)
+        ausgenommen.</p>
+        <p>Kontakt bei Fragen, Anliegen oder Rechten an Inhalten: über die
+        <a href="${repoUrl}/issues" target="_blank" rel="noopener">Issues-Funktion
+        des GitHub-Repositories</a>.</p>
+      </div>
+
+      <div class="section-label">Datenschutzerklärung</div>
+      <div class="card legal-card">
+        <p><strong>Verantwortlicher:</strong> Betreiber dieses privaten,
+        nicht-kommerziellen Lernprojekts, erreichbar über
+        <a href="${repoUrl}/issues" target="_blank" rel="noopener">GitHub-Issues</a>.</p>
+        <p><strong>Datenverarbeitung durch die App:</strong> Diese Anwendung hat
+        keinen eigenen Server und kein Backend. Der Lernfortschritt (beantwortete
+        Fragen, Lesezeichen, Streak) wird ausschließlich lokal im Browser
+        (localStorage) auf dem jeweiligen Gerät gespeichert und niemals an
+        einen Server übertragen. Es gibt keine Cookies, kein Tracking und keine
+        Analyse-Tools durch die App selbst.</p>
+        <p><strong>Hosting (GitHub Pages):</strong> Beim Aufruf dieser Seite
+        verarbeitet GitHub, Inc. bzw. GitHub B.V. (für Nutzer in der EU)
+        technisch notwendige Zugriffsdaten (u. a. IP-Adresse, Zeitpunkt des
+        Zugriffs, abgerufene Datei), wie bei jedem Webhosting üblich. Es gilt
+        die <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">Datenschutzerklärung von GitHub</a>.</p>
+        <p><strong>Keine Weitergabe an Dritte</strong> durch die App selbst.</p>
+      </div>
+
+      <div class="section-label">Hinweis zu Bildrechten</div>
+      <div class="card legal-card">
+        <p>Die Fragen dieser App sind wortlaut- und nummerngetreu aus dem
+        amtlichen Fragenkatalog SBF See/Binnen der Wasserstraßen- und
+        Schifffahrtsverwaltung des Bundes (WSV, ELWIS, Stand 01.08.2023)
+        übernommen. Ein Teil der Fragen zeigt zusätzlich die zugehörige
+        Original-Abbildung aus diesem amtlichen Katalog, ausschließlich zum
+        Zweck der privaten, nicht-kommerziellen Prüfungsvorbereitung.</p>
+        <p>Die Rechte an Text und Abbildungen des amtlichen Katalogs liegen bei
+        der WSV. Sollte ein Rechteinhaber der Verwendung widersprechen, werden
+        die betreffenden Inhalte auf Anfrage umgehend entfernt. Kontakt über
+        <a href="${repoUrl}/issues" target="_blank" rel="noopener">GitHub-Issues</a>.</p>
+      </div>
+    `;
   }
 
   // ---------------------------------------------------------------
@@ -873,6 +943,7 @@
     else if (view.screen === "dashboard") renderDashboard();
     else if (view.screen === "package") renderPackage(view.pkgId);
     else if (view.screen === "bookmarks") renderBookmarksOverview();
+    else if (view.screen === "legal") renderLegal();
     else if (view.screen === "trainer") renderTrainer();
     if (view.screen !== "splash") renderTopProgress();
     if (view.screen !== "trainer") window.scrollTo(0, 0);
